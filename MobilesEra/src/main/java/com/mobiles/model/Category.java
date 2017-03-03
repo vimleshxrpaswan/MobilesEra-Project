@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Category 
 {
@@ -12,7 +14,10 @@ public class Category
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int categoryId;
 	
+	@NotEmpty(message="Category Name can not be Empty")
 	private String categoryName;
+	
+	@NotEmpty(message="Category Description can not be Empty")
 	private String categoryDescription;
 	
 	

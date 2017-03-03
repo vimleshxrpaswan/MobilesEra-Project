@@ -1,8 +1,5 @@
 @import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css");
 
-html, body {
-    height: 100%;
-}
 body {    
     padding-top: 75px;
 }
@@ -26,7 +23,7 @@ body.navbar-more-show  {
 .navbar .container:not(.navbar-more) {
     padding: 0px;
 }
-.navbar-more-overlay {
+/* .navbar-more-overlay {
 	background-color: rgba(102, 102, 102, 0.55);
 	display: none;
 	height: 100%;
@@ -35,7 +32,7 @@ body.navbar-more-show  {
 	top: 0px;
 	width: 100%;
 	z-index: 1029;
-}
+} */
 .navbar-more-show > .navbar-more-overlay {
 	display: block;
 }
