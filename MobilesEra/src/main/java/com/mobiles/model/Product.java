@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Product 
@@ -14,12 +15,20 @@ public class Product
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private  int productId;
     
+	@NotEmpty(message="Product Name can not be empty")
     private String productName;
+	
+	@NotEmpty(message="Product Description can not be empty")
     private String productDescription;
-    private float productActualPrice;
-    private float productDiscount;
+	
+    private double productActualPrice;
+	
+    private double productDiscount;
+	
+	@NotEmpty(message="Product Made Country can not be empty")
     private String productMadeCountry;
-    private String productStock;
+	
+    private int productStock;
     
     private int categoryId;
     private int subCategoryId;
@@ -131,14 +140,6 @@ public class Product
 		this.brand = brand;
 	}
 
-	public float getProductActualPrice() {
-		return productActualPrice;
-	}
-
-	public void setProductActualPrice(float productActualPrice) {
-		this.productActualPrice = productActualPrice;
-	}
-
 	public String getProductMadeCountry() {
 		return productMadeCountry;
 	}
@@ -147,20 +148,29 @@ public class Product
 		this.productMadeCountry = productMadeCountry;
 	}
 
-	public String getProductStock() {
+	public int getProductStock() {
 		return productStock;
 	}
 
-	public void setProductStock(String productStock) {
+	public void setProductStock(int productStock) {
 		this.productStock = productStock;
 	}
 
-	public float getProductDiscount() {
+	public double getProductActualPrice() {
+		return productActualPrice;
+	}
+
+	public void setProductActualPrice(double productActualPrice) {
+		this.productActualPrice = productActualPrice;
+	}
+
+	public double getProductDiscount() {
 		return productDiscount;
 	}
 
-	public void setProductDiscount(float productDiscount) {
+	public void setProductDiscount(double productDiscount) {
 		this.productDiscount = productDiscount;
 	}
+
 
 }

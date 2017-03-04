@@ -1,9 +1,13 @@
 package com.mobiles.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -20,7 +24,15 @@ public class Category
 	@NotEmpty(message="Category Description can not be Empty")
 	private String categoryDescription;
 	
+	@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
+	private Set<SubCategory> subCategory;
 	
+	public Set<SubCategory> getSubCategory() {
+		return subCategory;
+	}
+	public void setSubCategory(Set<SubCategory> subCategory) {
+		this.subCategory = subCategory;
+	}
 	public int getCategoryId() {
 		return categoryId;
 	}

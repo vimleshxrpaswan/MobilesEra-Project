@@ -1,14 +1,16 @@
 package com.mobiles.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mobiles.model.Product;
-import com.mobiles.model.SubCategory;
 import com.mobiles.service.BrandService;
 import com.mobiles.service.CategoryService;
 import com.mobiles.service.ProductService;
@@ -46,8 +48,16 @@ public class ProductController
 	}
 	
 	@RequestMapping("/addProduct")	
-	public String addProduct(@ModelAttribute("product")Product product)
+	public String addProduct(@Valid @ModelAttribute("product")Product product,BindingResult result,Model model)
 	{
+		if(result.hasErrors())
+		{
+			model.addAttribute("subCategoryList", subCategoryService.fetchAllSubCategories());
+			model.addAttribute("categoryList", categoryService.fetchAllCategories());
+			model.addAttribute("supplierList", supplierService.fetchAllSupplier());
+			model.addAttribute("brandList", brandService.fetchAllBrand());
+			return "admin-productpage";
+		}
 		productService.addProduct(product);
 		return "redirect:/productPage";
 	}

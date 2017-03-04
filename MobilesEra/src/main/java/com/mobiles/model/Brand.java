@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Brand 
 {
@@ -12,7 +14,10 @@ public class Brand
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int brandId;
 	
+	@NotEmpty(message="Brand Name can not be Empty")
 	private String brandName;
+	
+	@NotEmpty(message="Brand Description can not be Empty")
 	private String brandDescription;
 	
 	public int getBrandId() {

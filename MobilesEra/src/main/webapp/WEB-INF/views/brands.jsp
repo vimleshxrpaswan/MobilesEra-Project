@@ -3,17 +3,64 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ page isELIgnored="false" %>
-<%@include file="home.jsp" %>
+<%@include file="navbar.jsp" %>
+<link rel="stylesheet" href="resources/css/error.css" />
 
-
+<%-- 
 <h1>Brand Page</h1>
 <form:form modelAttribute="brand" action="addBrand">
 	<form:input type="hidden" path="brandId" placeholder="Brand Id" /> 
 	<form:input path="brandName" placeholder="Brand Name"/>
+	<form:errors path="brandName" />
 	<form:input path="brandDescription" placeholder="Brand Description" />
+	<form:errors path="brandDescription" />
 	<input type="submit" value="Add Brand" />
 </form:form>
-<br><br>
+ --%>
+ <div class="container">
+ 	<div class="text-center">
+ 		<a href="categoryPage" class="btn btn-info" role="button">Category Form Page</a>
+		<a href="subCategoryPage" class="btn btn-info" role="button">SubCategory Form Page</a>
+		<a href="productPage" class="btn btn-info" role="button">Product Form Page</a>
+		<a href="supplierPage" class="btn btn-info" role="button">Supplier Form Page</a>						
+	</div>
+ 	<div class="text-center">
+ 		<h1>Brand Form</h1>
+ 	</div>	
+ 	<br>
+ 	<div class="form">
+		<form:form modelAttribute="brand" action="addBrand">
+			<form:input type="hidden" path="brandId" placeholder="Brand Id" /> 
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<form:input class="form-control" path="brandName" placeholder="Brand Name" autofocus="true"/>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">	
+					<form:errors cssClass="error" path="brandName" />
+				</div>	
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<form:input class="form-control" path="brandDescription" placeholder="Brand Description" />					
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<form:errors cssClass="error" path="brandDescription" />
+				</div>
+			</div>
+			<br>
+			<div class="row">
+		  	<div class="col-sm-12 col-md-12">	
+		  		<div class="text-center">	
+					<input class="btn btn-success" type="submit" value="Add Brand" />
+					<input class="btn btn-danger" type="reset" value="Reset" />
+				</div>
+				
+			</div>
+		  </div>		
+		</form:form>
+ </div>
+ <br><br>
 <table class="table">
 <tr>
 <th>Id</th>
@@ -33,4 +80,4 @@
 </c:forEach>
 </table>
 
-
+</div>

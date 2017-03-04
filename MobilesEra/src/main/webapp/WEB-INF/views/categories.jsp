@@ -3,7 +3,7 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ page isELIgnored="false" %>
-<%@include file="home.jsp" %>
+<%@include file="navbar.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css"/>
 
 <%-- <h1>Category Form</h1>
@@ -17,6 +17,12 @@
 </form:form>
  --%>
  <div class="container">
+ 	 <div class="text-center">
+		<a href="subCategoryPage" class="btn btn-info" role="button">SubCategory Form Page</a>
+		<a href="productPage" class="btn btn-info" role="button">Product Form Page</a>
+		<a href="supplierPage" class="btn btn-info" role="button">Supplier Form Page</a>				
+		<a href="brandPage" class="btn btn-info" role="button">Brand Form Page</a>
+	</div>
  	<div class="text-center">
  		<h1>Category Form</h1>
  	</div>
@@ -47,14 +53,13 @@
 		  	<div class="col-sm-12 col-md-12">	
 		  		<div class="text-center">	
 					<input class="btn btn-success" type="submit" value="Add Category" />
+					<input class="btn btn-danger" type="reset" value="Reset" />
 				</div>
+				
 			</div>
 		  </div>	
 		</form:form>
  	</div>
- 	
- 		
- 		
  	
  <br><br>
 <table class="table">

@@ -3,24 +3,113 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ page isELIgnored="false" %>
-<%@include file="home.jsp" %>
+<%@include file="navbar.jsp" %>
+<link rel="stylesheet" href="resources/css/error.css" />
 
-
+<%-- 
 <h1>Product Form</h1>
 <form:form modelAttribute="product" action="addProduct">
 	<form:input type="hidden" path="productId" placeholder="Product Id" /> 
+	
 	<form:input path="productName" placeholder="Product Name" />
+	<form:errors path="productName" cssClass="error" />
+	
 	<form:input path="productDescription" placeholder="Product Description" />
+	<form:errors path="productDescription" cssClass="error" />
+	
 	<form:input path="productActualPrice" placeholder="Product Actual Price" />
+	
 	<form:input path="productDiscount" placeholder="Product Discount" />
+	
 	<form:input path="productMadeCountry" placeholder="Product MadeCountry" />
+	<form:errors path="productMadeCountry" cssClass="error" />
+	
 	<form:input path="productStock" placeholder="Product Stock" />
+	
 	<form:select path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName"/>
 	<form:select path="subCategoryId" items="${subCategoryList}" itemValue="subCategoryId" itemLabel="subCategoryName"/>
 	<form:select path="brandId" items="${brandList}" itemValue="brandId" itemLabel="brandName"/>
 	<form:select path="supplierId" items="${supplierList}" itemValue="supplierId" itemLabel="supplierName"/>
 	<input type="submit" value="Add Product" />
 </form:form>
+ --%>
+ <div class="container">
+ 	<div class="text-center">
+ 		<a href="categoryPage" class="btn btn-info" role="button">Category Form Page</a>
+		<a href="subCategoryPage" class="btn btn-info" role="button">SubCategory Form Page</a>		
+		<a href="supplierPage" class="btn btn-info" role="button">Supplier Form Page</a>				
+		<a href="brandPage" class="btn btn-info" role="button">Brand Form Page</a>
+	</div>
+ 	<div class="text-center">
+ 		<h1>Product Form</h1>
+ 	</div>
+ 	<br>
+ 	<div class="form">	
+		<form:form modelAttribute="product" action="addProduct">
+				<form:input type="hidden" path="productId" placeholder="Product Id" /> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">	
+				<form:input class="form-control" path="productName" placeholder="Product Name" autofocus="true" />
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6">	
+				<form:errors path="productName" cssClass="error" />
+			</div>	
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<form:input class="form-control" path="productDescription" placeholder="Product Description" />
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6">	
+				<form:errors path="productDescription" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<form:input class="form-control" path="productActualPrice" placeholder="Product Actual Price" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<form:input class="form-control" path="productDiscount" placeholder="Product Discount" />
+			</div>	
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<form:input class="form-control" path="productMadeCountry" placeholder="Product MadeCountry" />
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6">	
+				<form:errors path="productMadeCountry" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<form:input class="form-control" path="productStock" placeholder="Product Stock" />
+			</div>	
+		</div>
+		<br>
+		<div >
+			<form:select class="form-control" path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName" />
+		</div>
+	<br>
+	<form:select class="form-control" path="subCategoryId" items="${subCategoryList}" itemValue="subCategoryId" itemLabel="subCategoryName"/>
+	<br>
+	<form:select class="form-control" path="brandId" items="${brandList}" itemValue="brandId" itemLabel="brandName"/>
+	<br>
+	<form:select class="form-control" path="supplierId" items="${supplierList}" itemValue="supplierId" itemLabel="supplierName"/>
+	<br>
+	<div class="row">
+		<div class="text-center col-sm-12 col-xs-12 col-md-12">
+			<input class="btn btn-success" type="submit" value="Add Product" />
+			<input class="btn btn-danger" type="reset" value="Reset" />
+		</div>	
+	</div>
+</form:form>
+ 	</div>
 <br><br>
 <table class="table">
 <tr>
@@ -56,3 +145,4 @@
 </tr>
 </c:forEach>
 </table>
+</div>
