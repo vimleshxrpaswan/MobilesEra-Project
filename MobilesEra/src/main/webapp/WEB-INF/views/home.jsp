@@ -19,16 +19,23 @@
 </div>
  --%>
  
+<!-- Present one to many display --> 
+<%-- <div class="jumbotron"> 
 <div class="row">
+
 <c:forEach var="category" items="${categoryList}">
 <div class="dropdown">
 	<div class="col-md-2">
-  <button class="dropbtn">${category.categoryName}</button>
+ <button class="dropbtn">${category.categoryName}</button>
   <div class="dropdown-content">
   	<div class="row">
     	<a href="#"><c:forEach var="subCategory" items="${category.subCategory}">
-		<div class="col-md-12"><ul><li>
-			${subCategory.subCategoryName}</li></ul>
+		<div class="col-md-12">
+			<ul>
+				<li>
+					${subCategory.subCategoryName}
+				</li>
+			</ul>
 		</div>
 	</c:forEach> </a>
     </div>
@@ -37,3 +44,45 @@
 </div>
 </c:forEach>
 </div>
+</div>
+ --%>
+
+<!-- One to many with brand -->
+<%-- <div class="jumbotron"> 
+<div class="row">
+
+<c:forEach var="category" items="${categoryList}">
+<div class="dropdown">
+	<div class="col-md-2">
+ <button class="dropbtn">${category.categoryName}</button>
+  <div class="dropdown-content">
+  	<div class="row">
+    	<a href="#"><c:forEach var="subCategory" items="${category.subCategory}">
+		<div class="col-md-12">
+			<ul>
+				<li>
+					${subCategory.subCategoryName}<hr>
+						<div class="dropdown-content">
+  							<div class="row">
+    							<a href="#"><c:forEach var="brand" items="${subCategory.brand}">
+									<div class="col-md-12">
+										<ul>
+											<li>
+												${brand.brandName}
+											</li>
+										</ul>
+									</div>
+								</c:forEach></a>
+							</div>
+						</div>						
+				</li>
+			</ul>
+		</div>
+	</c:forEach> </a>
+    </div>
+  </div>
+  </div>
+</div>
+</c:forEach>
+</div>
+</div> --%>

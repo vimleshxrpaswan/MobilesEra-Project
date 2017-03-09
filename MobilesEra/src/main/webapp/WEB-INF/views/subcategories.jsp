@@ -43,15 +43,19 @@
 			<br>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6  col-md-6"> 
-					<form:input class="form-control" path="SubCategoryDescription" placeholder="SubCategory Name" />
+					<form:input class="form-control" path="SubCategoryDescription" placeholder="SubCategory Description" />
 				</div>
 				<div class="col-xs-12 col-sm-6  col-md-6">	
 					<form:errors path="SubCategoryDescription" cssClass="error"/>
 			</div>
 			</div>
-			<br>		
-			<form:select class="form-control" path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName"/>
-		<br>
+			<br>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6  col-md-6">					
+						<form:select class="form-control" path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName"/>
+					</div>
+				</div>		
+			<br>
 		<div class="row">
 			<div class="text-center col-xs-12 col-sm-12  col-md-12">
 				<input class="btn btn-success" type="submit" value="Add SubCategory" />

@@ -1,5 +1,9 @@
 package com.mobiles.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mobiles.model.Product;
 import com.mobiles.service.BrandService;
@@ -35,6 +41,8 @@ public class ProductController
 	@Autowired
 	BrandService brandService;
 	
+	private String Data_Folder = "D:\\NiitProject\\WorkSpace\\MobilesEra\\src\\main\\webapp\\resources\\productImages\\";
+	
 	@RequestMapping("/productPage")
 	public String getProductPage(Model model)
 	{
@@ -48,7 +56,7 @@ public class ProductController
 	}
 	
 	@RequestMapping("/addProduct")	
-	public String addProduct(@Valid @ModelAttribute("product")Product product,BindingResult result,Model model)
+	public String addProduct(@Valid @ModelAttribute("product")Product product,@RequestParam("productImage")MultipartFile productImage,BindingResult result,Model model)
 	{
 		if(result.hasErrors())
 		{
@@ -58,9 +66,39 @@ public class ProductController
 			model.addAttribute("brandList", brandService.fetchAllBrand());
 			return "admin-productpage";
 		}
+		
 		productService.addProduct(product);
+		
+		if(!productImage.isEmpty()){
+			try
+			{
+				byte[] bytes = productImage.getBytes();
+				
+				File directory = new File(Data_Folder + File.separator);
+						if(!directory.exists())
+						{
+							directory.mkdirs();
+						}
+						
+						File imageFile = new File(directory.getAbsolutePath() + File.separator + "productImage-" + product.getProductId() + ".jpg");
+						BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(imageFile));
+						stream.write(bytes);
+						stream.close();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				model.addAttribute("fmessage","Image Upload Failed.try again");
+			}
+			model.addAttribute("filemessage","Image Upload Successful");
+		}
+		else
+		{
+			model.addAttribute("filemessage","Image file is required");
+		}
+		
 		return "redirect:/productPage";
-	}
+	}	
 	
 	@RequestMapping("/updateProductById-{productId}")
 	public String updateProduct(Model model,@PathVariable("productId") int productId)

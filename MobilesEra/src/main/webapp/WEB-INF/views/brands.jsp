@@ -14,6 +14,7 @@
 	<form:errors path="brandName" />
 	<form:input path="brandDescription" placeholder="Brand Description" />
 	<form:errors path="brandDescription" />
+	<form:select path="subCategoryId" items="${subCategoryList}" itemValue="subCategoryId" itemLabel="subCategoryName"/>
 	<input type="submit" value="Add Brand" />
 </form:form>
  --%>
@@ -49,6 +50,12 @@
 				</div>
 			</div>
 			<br>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<form:select class="form-control" path="subCategoryId" items="${subCategoryList}" itemValue="subCategoryId" itemLabel="subCategoryName"/>
+					</div>
+				</div>
+			<br>
 			<div class="row">
 		  	<div class="col-sm-12 col-md-12">	
 		  		<div class="text-center">	
@@ -66,6 +73,7 @@
 <th>Id</th>
 <th>Name</th>
 <th>Description</th>
+<th>SubCategory</th>
 <th>Update Brand</th>
 <th>Delete Brand</th> 
 </tr>
@@ -74,6 +82,7 @@
 <td>${brandlist.brandId}</td>
 <td>${brandlist.brandName}</td>
 <td>${brandlist.brandDescription}</td>
+<td>${brandlist.subCategory.subCategoryName}</td>
 <td><a href="updateBrandById-${brandlist.brandId}">Update</a></td>
 <td><a href="deleteBrandById-${brandlist.brandId}">Delete</a></td>  
 </tr>

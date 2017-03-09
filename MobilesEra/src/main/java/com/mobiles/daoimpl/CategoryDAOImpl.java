@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.google.gson.Gson;
 import com.mobiles.dao.CategoryDAO;
 import com.mobiles.model.Category;
 
@@ -23,6 +24,13 @@ public class CategoryDAOImpl implements CategoryDAO
 	public List<Category> fetchAllCategories() {
 		List<Category> categoryList = sessionFactory.getCurrentSession().createQuery("from Category").getResultList();
 		return categoryList;
+	}
+	
+	public String fetchAllCategoriesByJson() {
+		List<Category> categoryList = sessionFactory.getCurrentSession().createQuery("from Category").getResultList();
+		Gson g = new Gson();
+		String list = g.toJson(categoryList);
+		return list;
 	}
 
 	public Category getCategoryById(int categoryId) {

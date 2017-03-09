@@ -45,7 +45,7 @@
  	</div>
  	<br>
  	<div class="form">	
-		<form:form modelAttribute="product" action="addProduct">
+		<form:form modelAttribute="product" action="addProduct" enctype="multipart/form-data">
 				<form:input type="hidden" path="productId" placeholder="Product Id" /> 
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6">	
@@ -62,6 +62,15 @@
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6">	
 				<form:errors path="productDescription" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group col-xs-12 col-sm-6 col-md-6">                         
+    			<label class="custom-file">
+    				<form:input path="productImage" accept=".jpg,.jpeg,.png" type="file" name="file" class="custom-file-input" ></form:input>    				
+    				<span class="custom-file-control"></span>
+   				</label>
 			</div>
 		</div>
 		<br>
@@ -92,22 +101,36 @@
 			</div>	
 		</div>
 		<br>
-		<div >
-			<form:select class="form-control" path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName" />
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<form:select class="form-control" path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName" />
+			</div>
 		</div>
-	<br>
-	<form:select class="form-control" path="subCategoryId" items="${subCategoryList}" itemValue="subCategoryId" itemLabel="subCategoryName"/>
-	<br>
-	<form:select class="form-control" path="brandId" items="${brandList}" itemValue="brandId" itemLabel="brandName"/>
-	<br>
-	<form:select class="form-control" path="supplierId" items="${supplierList}" itemValue="supplierId" itemLabel="supplierName"/>
-	<br>
-	<div class="row">
-		<div class="text-center col-sm-12 col-xs-12 col-md-12">
-			<input class="btn btn-success" type="submit" value="Add Product" />
-			<input class="btn btn-danger" type="reset" value="Reset" />
-		</div>	
-	</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<form:select class="form-control" path="subCategoryId" items="${subCategoryList}" itemValue="subCategoryId" itemLabel="subCategoryName"/>
+			</div>	
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<form:select class="form-control" path="brandId" items="${brandList}" itemValue="brandId" itemLabel="brandName"/>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<form:select class="form-control" path="supplierId" items="${supplierList}" itemValue="supplierId" itemLabel="supplierName"/>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="text-center col-sm-12 col-xs-12 col-md-12">
+				<input class="btn btn-success" type="submit" value="Add Product" />
+				<input class="btn btn-danger" type="reset" value="Reset" />
+			</div>	
+		</div>
 </form:form>
  	</div>
 <br><br>
@@ -124,6 +147,7 @@
 <th>SubCategory</th>
 <th>Brand</th>
 <th>Supplier</th>
+<th>Product Image</th>
 <th>Update Product</th>
 <th>Delete Product</th> 
 </tr>
@@ -140,6 +164,7 @@
 <td>${productlist.subCategory.subCategoryName}</td>
 <td>${productlist.brand.brandName}</td>
 <td>${productlist.supplier.supplierName}</td>
+<td><img src="resources/productImages/productImage-${productlist.productId}.jpg" height="80px" width="80px" alt="img not uploaded"/></td>
 <td><a href="updateProductById-${productlist.productId}">Update</a></td>
 <td><a href="deleteProductById-${productlist.productId}">Delete</a></td>  
 </tr>

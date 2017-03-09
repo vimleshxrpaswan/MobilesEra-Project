@@ -62,7 +62,7 @@
  	</div>
  	
  <br><br>
-<table class="table">
+<%-- <table class="table">
 <tr>
 <th>Id</th>
 <th>Name</th>
@@ -80,6 +80,33 @@
 </tr>
 </c:forEach>
 </table>
-
+ --%>
+ <div ng-app="myApp">
+ <input  type="text" ng-model="search" placeholder="search" />
+ <br>
+ <table class="table" ng-controller="myController">
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Description</th>
+<th>Update Category</th>
+<th>Delete Category</th> 
+</tr>
+<tr ng-repeat="clist in myscope | filter:search">
+<td>{{clist.categoryId}}</td>
+<td>{{clist.categoryName}}</td>
+<td>{{clist.categoryDescription}}</td>
+<td><a href="updateCategoryById-{{clist.categoryId}}">Update</a></td>
+<td><a href="deleteCategoryById-{{clist.categoryId}}">Delete</a></td>
+</tr>
+</table>
+ </div>
 
 </div>
+
+<script>
+var a=angular.module('myApp',[]);
+a.controller('myController', function($scope){
+$scope.myscope= ${categoryListByJson}
+});
+</script>

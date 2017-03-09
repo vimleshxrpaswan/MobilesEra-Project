@@ -24,15 +24,15 @@ public class Category
 	@NotEmpty(message="Category Description can not be Empty")
 	private String categoryDescription;
 	
-	@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
-	private Set<SubCategory> subCategory;
+	/*@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
+	private Set<SubCategory> subCategory;*/
 	
-	public Set<SubCategory> getSubCategory() {
+	/*public Set<SubCategory> getSubCategory() {
 		return subCategory;
 	}
 	public void setSubCategory(Set<SubCategory> subCategory) {
 		this.subCategory = subCategory;
-	}
+	}*/
 	public int getCategoryId() {
 		return categoryId;
 	}

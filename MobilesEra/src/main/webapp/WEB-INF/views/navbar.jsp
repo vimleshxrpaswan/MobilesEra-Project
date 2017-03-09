@@ -8,75 +8,71 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="resources/css/navbar.css"/>
+<link rel="stylesheet" href="resources/css/button.css"/>
 </head>
 <body>
 
 
-    <div class="navbar-more-overlay"></div>
-	<nav class="navbar navbar-inverse navbar-fixed-top animate">
-		<div class="container navbar-more visible-xs">
-			<form class="navbar-form navbar-left" role="search">
-				<div class="form-group">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search for...">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">Submit</button>
-						</span>
-					</div>
-				</div>
-			</form>
-			
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">  
+      <ul class="nav navbar-nav" >
+      <li>
+      <a href="#">Categories<b class="caret"></b></a>
+      <%-- <div class="dropdown-content">
+      <div class="row">
+<c:forEach var="category" items="${categoryList}">
+<div class="dropdown">
+	<div class="col-md-2">
+  <button class="dropbtn">${category.categoryName}</button>
+  <div class="dropdown-content">
+  	<div class="row">
+    	<a href="#"><c:forEach var="subCategory" items="${category.subCategory}">
+		<div class="col-md-12"><ul><li>
+			${subCategory.subCategoryName}</li></ul>
 		</div>
-		<div class="container">
-			<div class="navbar-header hidden-xs">
-				<a class="navbar-brand" href="#">MobilesEra</a>
-			</div>
-
-			<ul class="nav navbar-nav navbar-right mobile-bar">
-				<li>
-					<a href="#">
-						<span class="menu-icon fa fa-home"></span>
-						Home
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span class="menu-icon fa fa-info"></span>
-						<span class="hidden-xs">About Us</span>
-						<span class="visible-xs">About Us</span>
-					</a>
-				</li>
-			
-				<li>
-					<a href="#">
-						<span class="menu-icon fa fa-phone"></span>						
-						<span class="hidden-xs">Contact Us</span>
-						<span class="visible-xs">Contact Us</span>
-					</a>
-				</li>
-				
-				<li>
-					<a href="#">
-						<span class="menu-icon fa fa-comments"></span>						
-						<span class="hidden-xs">FAQ</span>
-						<span class="visible-xs">FAQ</span>
-					</a>
-				</li>
-				<li class="visible-xs">
-					<a href="#navbar-more-show">
-						<span class="menu-icon fa fa-bars"></span>
-						More
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	</c:forEach> </a>
+    </div>
+  </div>
+  </div>
+</div>
+</c:forEach>
+</div>
+</div> --%>
+      
+      </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+      <div class="input-group">      
+        <input type="text" class="form-control" placeholder="Search">        
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+      </form>
+    
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
 
 
 <script src="resources/js/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.min.js" ></script>
-<script src="resources/js/navbar.js" ></script>
+<script src="resources/js/angular.min.js" ></script>
 </body>
 </html>

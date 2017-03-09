@@ -23,7 +23,8 @@ public class CategoryController
 	public String getCategoryPage(Model model)
 	{
 		model.addAttribute("category", new Category());
-		model.addAttribute("categoryList", categoryService.fetchAllCategories());
+		/*model.addAttribute("categoryList", categoryService.fetchAllCategories());*/
+		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
 		return "categories";
 	}
 	

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -19,6 +21,25 @@ public class Brand
 	
 	@NotEmpty(message="Brand Description can not be Empty")
 	private String brandDescription;
+	
+	private int subCategoryId;
+	
+	@ManyToOne
+	@JoinColumn(name="SubCategoryId",nullable=false , insertable=false, updatable=false)
+	private SubCategory subCategory;
+		
+	public int getSubCategoryId() {
+		return subCategoryId;
+	}
+	public void setSubCategoryId(int subCategoryId) {
+		this.subCategoryId = subCategoryId;
+	}
+	public SubCategory getSubCategory() {
+		return subCategory;
+	}
+	public void setSubCategory(SubCategory subCategory) {
+		this.subCategory = subCategory;
+	}
 	
 	public int getBrandId() {
 		return brandId;
