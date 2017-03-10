@@ -14,32 +14,41 @@
 		<a href="brandPage" class="btn btn-info" role="button">Brand Form Page</a>
 	</div>
  	<div class="text-center">
- 		<h1>Product Form</h1>
+ 		<h1>Product Form</h1><hr>
  	</div>
  	<br>
  	<div class="form">	
 		<form:form modelAttribute="product" action="addProduct" enctype="multipart/form-data">
 				<form:input type="hidden" path="productId" placeholder="Product Id" /> 
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">	
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:label path="productName">Enter the Name of Product</form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
 				<form:input class="form-control" path="productName" placeholder="Product Name" autofocus="true" />
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">	
+			<div class="col-xs-12 col-sm-4 col-md-4">	
 				<form:errors path="productName" cssClass="error" />
 			</div>	
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productDescription">Enter the Description for Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:input class="form-control" path="productDescription" placeholder="Product Description" />
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">	
+			<div class="col-xs-12 col-sm-4 col-md-4">	
 				<form:errors path="productDescription" cssClass="error" />
 			</div>
 		</div>
 		<br>
 		<div class="row">
-			<div class="form-group col-xs-12 col-sm-6 col-md-6">                         
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productImage">Choose the Image for Product </form:label>
+			</div>
+			<div class="form-group col-xs-12 col-sm-4 col-md-4">                         
     			<label class="custom-file">
     				<form:input path="productImage" accept=".jpg,.jpeg,.png" type="file" name="file" class="custom-file-input" ></form:input>    				
     				<span class="custom-file-control"></span>
@@ -48,52 +57,76 @@
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productActualPrice">Enter the Price of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:input class="form-control" path="productActualPrice" placeholder="Product Actual Price" />
 			</div>
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productDiscount">Enter the Discount for Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:input class="form-control" path="productDiscount" placeholder="Product Discount" />
 			</div>	
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productMadeCountry">Enter the Country Name Where Product Made </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:input class="form-control" path="productMadeCountry" placeholder="Product MadeCountry" />
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">	
+			<div class="col-xs-12 col-sm-4 col-md-4">	
 				<form:errors path="productMadeCountry" cssClass="error" />
 			</div>
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productStock">Enter the Stock of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:input class="form-control" path="productStock" placeholder="Product Stock" />
 			</div>	
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="categoryId">Select Category of Product</form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:select class="form-control" path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName" />
 			</div>
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="subCategoryId">Select SubCategory of Product</form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:select class="form-control" path="subCategoryId" items="${subCategoryList}" itemValue="subCategoryId" itemLabel="subCategoryName"/>
 			</div>	
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="brandId">Select Brand of Product</form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:select class="form-control" path="brandId" items="${brandList}" itemValue="brandId" itemLabel="brandName"/>
 			</div>
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="supplierId">Select Supplier of Product</form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:select class="form-control" path="supplierId" items="${supplierList}" itemValue="supplierId" itemLabel="supplierName"/>
 			</div>
 		</div>
@@ -106,47 +139,14 @@
 		</div>
 </form:form>
  	</div>
-<br><br>
-<%-- <table class="table">
-<tr>
-<th>Id</th>
-<th>Name</th>
-<th>Description</th>
-<th>Actual Price</th>
-<th>Discount</th>
-<th> Made In Country</th>
-<th>Stock</th>
-<th>Category</th>
-<th>SubCategory</th>
-<th>Brand</th>
-<th>Supplier</th>
-<th>Product Image</th>
-<th>Update Product</th>
-<th>Delete Product</th> 
-</tr>
-<c:forEach var="productlist" items="${productList}">
-<tr>
-<td>${productlist.productId}</td>
-<td>${productlist.productName}</td>
-<td>${productlist.productDescription}</td>
-<td>${productlist.productActualPrice}</td>
-<td>${productlist.productDiscount}</td>
-<td>${productlist.productMadeCountry}</td>
-<td>${productlist.productStock}</td>
-<td>${productlist.category.categoryName}</td>
-<td>${productlist.subCategory.subCategoryName}</td>
-<td>${productlist.brand.brandName}</td>
-<td>${productlist.supplier.supplierName}</td>
-<td><img src="resources/productImages/productImage-${productlist.productId}.jpg" height="80px" width="80px" alt="img not uploaded"/></td>
-<td><a href="updateProductById-${productlist.productId}">Update</a></td>
-<td><a href="deleteProductById-${productlist.productId}">Delete</a></td>  
-</tr>
-</c:forEach>
-</table>--%>
+ 	
+<br>
+<hr>
+<br>
 
  <div ng-app="myApp">
  <div class="text-center">
- 	<h1>Brand List</h1>
+ 	<h1>Product List</h1>
  </div>
  <div class="row">	
  	<div class="col-xs-12 col-md-4 col-sm-4">	
@@ -172,7 +172,7 @@
 <th>Update Product</th>
 <th>Delete Product</th> 
 </tr>
-<tr ng-repeat="productlist in myscope | filter:search">
+<tr ng-repeat="productlist in myscope | filter:search ">
 <td>{{productlist.productId}}</td>
 <td>{{productlist.productName}}</td>
 <td>{{productlist.productDescription}}</td>

@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ include file="navbar.jsp" %>
 <link rel="stylesheet" href="resources/css/button.css" />
-
+<%@ include file="slider.jsp" %>
 <%-- <div class="row">
 <c:forEach var="category" items="${categoryList}">
 	<div class="col-md-2">
