@@ -13,7 +13,7 @@
 <body>
 
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -21,7 +21,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">MobilesEra</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">  
       <ul class="nav navbar-nav" >
@@ -69,7 +69,7 @@
     </div>
   </div>
 </nav>
-
+<br><br><br>
 
 <script src="resources/js/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.min.js" ></script>

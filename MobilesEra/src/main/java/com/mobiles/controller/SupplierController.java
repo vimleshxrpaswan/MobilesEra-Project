@@ -24,14 +24,18 @@ public class SupplierController
 	{
 		model.addAttribute("supplier", new Supplier());
 		model.addAttribute("supplierList", supplierService.fetchAllSupplier());
+		model.addAttribute("supplierListByJson", supplierService.fetchAllSupplierByJson());
+		model.addAttribute("btnLabel","Add Supplier");
 		return "suppliers";
 	}
 	
 	@RequestMapping("/addSupplier")
-	public String addSupplier(@Valid @ModelAttribute("supplier")Supplier supplier,BindingResult result)
+	public String addSupplier(@Valid @ModelAttribute("supplier")Supplier supplier,BindingResult result,Model model)
 	{
 		if(result.hasErrors())
 		{
+			model.addAttribute("supplierListByJson", supplierService.fetchAllSupplierByJson());
+			model.addAttribute("btnLabel","Retry");
 			return "suppliers";
 		}
 		supplierService.addSupplier(supplier);
@@ -42,6 +46,8 @@ public class SupplierController
 	public String updateSupplier(Model model,@PathVariable("supplierId") int supplierId)
 	{
 		model.addAttribute("supplier", supplierService.getSupplierById(supplierId));
+		model.addAttribute("supplierListByJson", supplierService.fetchAllSupplierByJson());
+		model.addAttribute("btnLabel","update Supplier");
 		return "suppliers";
 	}
 	

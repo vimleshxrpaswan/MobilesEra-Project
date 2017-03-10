@@ -29,6 +29,9 @@ public class BrandController
 		model.addAttribute("brand", new Brand());
 		model.addAttribute("brandList", brandService.fetchAllBrand());
 		model.addAttribute("subCategoryList", subCategoryService.fetchAllSubCategories());
+		model.addAttribute("brandListByJson", brandService.fetchAllBrandByJson());
+		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
+		model.addAttribute("btnLabel","Add Brand");
 		return "brands";
 	}
 	
@@ -37,7 +40,10 @@ public class BrandController
 	{
 		if(result.hasErrors())
 		{
+			model.addAttribute("brandListByJson", brandService.fetchAllBrandByJson());
+			model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
 			model.addAttribute("subCategoryList", subCategoryService.fetchAllSubCategories());
+			model.addAttribute("btnLabel","Retry");
 			return "brands";
 		}
 		brandService.addBrand(brand);
@@ -50,6 +56,9 @@ public class BrandController
 		model.addAttribute("brand", brandService.getBrandById(brandId));
 		model.addAttribute("brandList", brandService.fetchAllBrand());
 		model.addAttribute("subCategoryList", subCategoryService.fetchAllSubCategories());
+		model.addAttribute("brandListByJson", brandService.fetchAllBrandByJson());
+		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
+		model.addAttribute("btnLabel","Update Brand");
 		return "brands";
 	}
 	

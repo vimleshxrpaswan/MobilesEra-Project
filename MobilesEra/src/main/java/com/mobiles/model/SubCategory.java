@@ -24,7 +24,7 @@ public class SubCategory
 	private String subCategoryName;
 	
 	@NotEmpty(message="SubCategory Description can not be empty")
-	private String SubCategoryDescription;
+	private String subCategoryDescription;
 	
 	private int categoryId;
 	
@@ -32,7 +32,7 @@ public class SubCategory
 	@JoinColumn(name="CategoryId",nullable=false , insertable=false, updatable=false)
 	private Category category;
 	
-	@OneToMany(mappedBy="subCategory", fetch=FetchType.EAGER)
+	/*@OneToMany(mappedBy="subCategory", fetch=FetchType.EAGER)
 	private Set<Brand> brand;
 
 	public Set<Brand> getBrand() {
@@ -42,7 +42,7 @@ public class SubCategory
 	public void setBrand(Set<Brand> brand) {
 		this.brand = brand;
 	}
-
+*/
 	public int getSubCategoryId() {
 		return subCategoryId;
 	}
@@ -60,11 +60,11 @@ public class SubCategory
 	}
 
 	public String getSubCategoryDescription() {
-		return SubCategoryDescription;
+		return subCategoryDescription;
 	}
 
 	public void setSubCategoryDescription(String subCategoryDescription) {
-		SubCategoryDescription = subCategoryDescription;
+		this.subCategoryDescription = subCategoryDescription;
 	}
 
 	public int getCategoryId() {

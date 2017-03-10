@@ -6,32 +6,6 @@
 <%@include file="navbar.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css" />
 
-
-<%-- 
-<h1>Supplier Form</h1>
-<form:form modelAttribute="supplier" action="addSupplier">
-	<form:input type="hidden" path="supplierId" placeholder="Supplier Id" /> 
-	<form:input path="supplierName" placeholder="Supplier Name"/>
-	<form:errors path="supplierName" cssClass="error" />
-	<form:input path="supplierDescription" placeholder="Supplier Description" />
-	<form:errors path="supplierDescription" cssClass="error" />
-	<form:input path="supplierLandmark" placeholder="Supplier Landmark" />
-	<form:errors path="supplierLandmark" cssClass="error" />
-	<form:input path="supplierStreet" placeholder="Supplier Street" />
-	<form:errors path="supplierStreet" cssClass="error" />
-	<form:input path="supplierCity" placeholder="Supplier City" />
-	<form:errors path="supplierCity" cssClass="error" />
-	<form:input path="supplierState" placeholder="Supplier State" />
-	<form:errors path="supplierState" cssClass="error" />
-	<form:input path="supplierCountry" placeholder="Supplier Country" />
-	<form:errors path="supplierCountry" cssClass="error" />
-	<form:input path="supplierEmail" placeholder="Supplier Email" />
-	<form:errors path="supplierEmail" cssClass="error" />
-	<form:input path="supplierContactNo" placeholder="Supplier Contact Number" />
-	<form:errors path="supplierContactNo" cssClass="error" />
-	<input type="submit" value="Add Supplier" />
-</form:form>
- --%>
  <div class="container">
  <div class="text-center">
 		<a href="categoryPage" class="btn btn-info" role="button">Category Form Page</a>
@@ -129,7 +103,7 @@
 	<br>
 	<div class="row">
 		<div class="text-center col-xs-12 col-sm-12 col-md-12">
-			<input class="btn btn-success" type="submit" value="Add Supplier" />
+			<input class="btn btn-success" type="submit" value="${btnLabel}" />
 			<input class="btn btn-danger" type="reset" value="Reset" />
 		</div>
 	</div>
@@ -137,7 +111,19 @@
  </div>
  
  <br><br>
-<table class="table">
+
+ <div ng-app="myApp">
+ <div class="text-center">
+ 	<h1>Supplier List</h1>
+ </div>
+ <div class="row">
+ 	<div class="col-xs-12 col-md-4 col-sm-4">
+ 		<input class="form-control" type="text" ng-model="search" placeholder="search" />
+ 	</div>
+ </div>
+ <br>
+ <div class="table-responsive">
+ <table class="table" ng-controller="myController">
 <tr>
 <th>Id</th>
 <th>Name</th>
@@ -152,23 +138,27 @@
 <th>Update Brand</th>
 <th>Delete Brand</th> 
 </tr>
-<c:forEach var="supplierlist" items="${supplierList}">
-<tr>
-<td>${supplierlist.supplierId}</td>
-<td>${supplierlist.supplierName}</td>
-<td>${supplierlist.supplierDescription}</td>
-<td>${supplierlist.supplierLandmark}</td>
-<td>${supplierlist.supplierStreet}</td>
-<td>${supplierlist.supplierCity}</td>
-<td>${supplierlist.supplierState}</td>
-<td>${supplierlist.supplierCountry}</td>
-<td>${supplierlist.supplierEmail}</td>
-<td>${supplierlist.supplierContactNo}</td>
-<td><a href="updateSupplierById-${supplierlist.supplierId}">Update</a></td>
-<td><a href="deleteSupplierById-${supplierlist.supplierId}">Delete</a></td>  
+<tr ng-repeat="supplierlist in myscope | filter:search">
+<td>{{supplierlist.supplierId}}</td>
+<td>{{supplierlist.supplierName}}</td>
+<td>{{supplierlist.supplierDescription}}</td>
+<td>{{supplierlist.supplierLandmark}}</td>
+<td>{{supplierlist.supplierStreet}}</td>
+<td>{{supplierlist.supplierCity}}</td>
+<td>{{supplierlist.supplierState}}</td>
+<td>{{supplierlist.supplierCountry}}</td>
+<td>{{supplierlist.supplierEmail}}</td>
+<td>{{supplierlist.supplierContactNo}}</td>
+<td><a href="updateSupplierById-{{supplierlist.supplierId}}">Update</a></td>
+<td><a href="deleteSupplierById-{{supplierlist.supplierId}}">Delete</a></td>
 </tr>
-</c:forEach>
 </table>
-
-
+ </div>
 </div>
+</div>
+<script>
+var a=angular.module('myApp',[]);
+a.controller('myController', function($scope){
+$scope.myscope= ${supplierListByJson}
+});
+</script>

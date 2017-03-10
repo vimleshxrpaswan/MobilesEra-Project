@@ -23,16 +23,21 @@ public class CategoryController
 	public String getCategoryPage(Model model)
 	{
 		model.addAttribute("category", new Category());
-		/*model.addAttribute("categoryList", categoryService.fetchAllCategories());*/
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+	
+		model.addAttribute("btnLabel","Add Category");
 		return "categories";
 	}
 	
+	
 	@RequestMapping("/addCategory")
-	public String addCategory(@Valid @ModelAttribute("category")Category category,BindingResult result )
+	public String addCategory(@Valid @ModelAttribute("category")Category category,BindingResult result,Model model  )
 	{
 		if(result.hasErrors())
 		{
+			model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+			model.addAttribute("btnLabel","Retry");
 			return "categories";
 		}
 		categoryService.addCategory(category);
@@ -43,6 +48,8 @@ public class CategoryController
 	public String updateCategory(Model model,@PathVariable("categoryId") int categoryId)
 	{
 		model.addAttribute("category", categoryService.getCategoryById(categoryId));
+		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+		model.addAttribute("btnLabel","Update Category");
 		return "categories";
 	}
 	

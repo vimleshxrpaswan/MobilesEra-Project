@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.google.gson.Gson;
 import com.mobiles.dao.ProductDAO;
 import com.mobiles.model.Product;
 
@@ -33,6 +34,13 @@ public class ProductDAOImpl implements ProductDAO
 	public void deleteProduct(int productId) {
 		sessionFactory.getCurrentSession().delete(getProductById(productId));
 		
+	}
+
+	public String fetchAllProductByJson() {
+		List<Product> productList = sessionFactory.getCurrentSession().createQuery("from Product").getResultList();
+		Gson g = new Gson();
+		String list = g.toJson(productList);		
+		return list;
 	}
 
 	

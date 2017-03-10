@@ -26,6 +26,11 @@ public class SubCategoryService
 		return subCategoryDAOImpl.fetchAllSubCategories();
 	}
 	
+	public String fetchAllSubCategoriesByJson()
+	{
+		return subCategoryDAOImpl.fetchAllSubCategoriesByJson();
+	}
+	
 	public SubCategory getSubCategoryById(int subCategoryId)
 	{
 		return subCategoryDAOImpl.getSubCategoryById(subCategoryId);

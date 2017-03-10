@@ -10,6 +10,8 @@ public interface SupplierDAO
 	
 	public List<Supplier> fetchAllSupplier();
 	
+	public String fetchAllSupplierByJson();
+	
 	public Supplier getSupplierById(int supplierId);
 	
 	public void deleteSupplier(int supplierId);

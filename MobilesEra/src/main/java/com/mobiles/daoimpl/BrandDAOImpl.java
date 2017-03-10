@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.google.gson.Gson;
 import com.mobiles.dao.BrandDAO;
 import com.mobiles.model.Brand;
 
@@ -37,6 +38,14 @@ public class BrandDAOImpl implements BrandDAO
 	public void deleteBrand(int brandId) 
 	{
 		sessionFactory.getCurrentSession().delete(getBrandById(brandId));
+	}
+
+
+	public String fetchAllBrandByJson() {
+		List<Brand> brandList = sessionFactory.getCurrentSession().createQuery("from Brand").getResultList();
+		Gson g = new Gson();
+		String list = g.toJson(brandList);
+		return list;
 	}
 
 }

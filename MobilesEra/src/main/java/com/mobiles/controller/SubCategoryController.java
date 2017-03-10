@@ -29,15 +29,24 @@ public class SubCategoryController
 		model.addAttribute("subCategory", new SubCategory());
 		model.addAttribute("subCategoryList", subCategoryService.fetchAllSubCategories());
 		model.addAttribute("categoryList", categoryService.fetchAllCategories());
+		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
+		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+		
+		model.addAttribute("btnLabel","Add SubCategory");
 		return "subcategories";
 	}
+	
 	
 	@RequestMapping("/addSubCategory")
 	public String addSubCategory(@Valid @ModelAttribute("subCategory")SubCategory subCategory,BindingResult result,Model model )
 	{
 		if(result.hasErrors())
 		{
+			model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
+			model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
 			model.addAttribute("categoryList", categoryService.fetchAllCategories());
+			
+			model.addAttribute("btnLabel","Retry");
 			return "subcategories";
 		}
 		subCategoryService.addSubCategory(subCategory);
@@ -50,6 +59,10 @@ public class SubCategoryController
 		model.addAttribute("subCategory", subCategoryService.getSubCategoryById(subCategoryId));
 		model.addAttribute("subCategoryList", subCategoryService.fetchAllSubCategories());
 		model.addAttribute("categoryList", categoryService.fetchAllCategories());
+		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
+		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+		
+		model.addAttribute("btnLabel","Update SubCategory");
 		return "subcategories";
 	}
 	

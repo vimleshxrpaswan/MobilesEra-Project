@@ -21,6 +21,11 @@ public class ProductService
 		productDAOImpl.addProduct(product);
 	}
 	
+	public String fetchAllProductByJson()
+	{
+		return productDAOImpl.fetchAllProductByJson();
+	}
+	
 	public List<Product> fetchAllProduct()
 	{
 		return productDAOImpl.fetchAllProduct();

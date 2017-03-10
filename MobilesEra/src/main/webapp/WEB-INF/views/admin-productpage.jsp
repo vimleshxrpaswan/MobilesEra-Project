@@ -5,35 +5,8 @@
     <%@ page isELIgnored="false" %>
 <%@include file="navbar.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css" />
-
-<%-- 
-<h1>Product Form</h1>
-<form:form modelAttribute="product" action="addProduct">
-	<form:input type="hidden" path="productId" placeholder="Product Id" /> 
-	
-	<form:input path="productName" placeholder="Product Name" />
-	<form:errors path="productName" cssClass="error" />
-	
-	<form:input path="productDescription" placeholder="Product Description" />
-	<form:errors path="productDescription" cssClass="error" />
-	
-	<form:input path="productActualPrice" placeholder="Product Actual Price" />
-	
-	<form:input path="productDiscount" placeholder="Product Discount" />
-	
-	<form:input path="productMadeCountry" placeholder="Product MadeCountry" />
-	<form:errors path="productMadeCountry" cssClass="error" />
-	
-	<form:input path="productStock" placeholder="Product Stock" />
-	
-	<form:select path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName"/>
-	<form:select path="subCategoryId" items="${subCategoryList}" itemValue="subCategoryId" itemLabel="subCategoryName"/>
-	<form:select path="brandId" items="${brandList}" itemValue="brandId" itemLabel="brandName"/>
-	<form:select path="supplierId" items="${supplierList}" itemValue="supplierId" itemLabel="supplierName"/>
-	<input type="submit" value="Add Product" />
-</form:form>
- --%>
- <div class="container">
+ 
+<div class="container">
  	<div class="text-center">
  		<a href="categoryPage" class="btn btn-info" role="button">Category Form Page</a>
 		<a href="subCategoryPage" class="btn btn-info" role="button">SubCategory Form Page</a>		
@@ -127,14 +100,14 @@
 		<br>
 		<div class="row">
 			<div class="text-center col-sm-12 col-xs-12 col-md-12">
-				<input class="btn btn-success" type="submit" value="Add Product" />
+				<input class="btn btn-success" type="submit" value="${btnLabel}" />
 				<input class="btn btn-danger" type="reset" value="Reset" />
 			</div>	
 		</div>
 </form:form>
  	</div>
 <br><br>
-<table class="table">
+<%-- <table class="table">
 <tr>
 <th>Id</th>
 <th>Name</th>
@@ -169,5 +142,62 @@
 <td><a href="deleteProductById-${productlist.productId}">Delete</a></td>  
 </tr>
 </c:forEach>
+</table>--%>
+
+ <div ng-app="myApp">
+ <div class="text-center">
+ 	<h1>Brand List</h1>
+ </div>
+ <div class="row">	
+ 	<div class="col-xs-12 col-md-4 col-sm-4">	
+ 		<input class="form-control" type="text" ng-model="search" placeholder="search" />
+ 	</div>
+ </div>
+ <br>
+ <div class="table-responsive">
+ <table class="table" ng-controller="myController">
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Description</th>
+<th>Actual Price</th>
+<th>Discount</th>
+<th> Made In Country</th>
+<th>Stock</th>
+<th>Category</th>
+<th>SubCategory</th>
+<th>Brand</th>
+<th>Supplier</th>
+<th>Product Image</th>
+<th>Update Product</th>
+<th>Delete Product</th> 
+</tr>
+<tr ng-repeat="productlist in myscope | filter:search">
+<td>{{productlist.productId}}</td>
+<td>{{productlist.productName}}</td>
+<td>{{productlist.productDescription}}</td>
+<td>{{productlist.productActualPrice}}</td>
+<td>{{productlist.productDiscount}}</td>
+<td>{{productlist.productMadeCountry}}</td>
+<td>{{productlist.productStock}}</td>
+<td>{{productlist.category.categoryName}}</td>
+<td>{{productlist.subCategory.subCategoryName}}</td>
+<td>{{productlist.brand.brandName}}</td>
+<td>{{productlist.supplier.supplierName}}</td>
+<td><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" height="80px" width="80px" alt="img not uploaded"/></td>
+<td><a href="updateProductById-{{productlist.productId}}">Update</a></td>
+<td><a href="deleteProductById-{{productlist.productId}}">Delete</a></td>  
+</tr>
 </table>
 </div>
+ </div>
+
+</div>
+
+<script>
+var a=angular.module('myApp',[]);
+a.controller('myController', function($scope){
+$scope.myscope= ${productListByJson}
+});
+</script>
+

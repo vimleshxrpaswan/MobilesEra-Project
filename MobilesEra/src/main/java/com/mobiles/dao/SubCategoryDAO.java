@@ -11,6 +11,8 @@ public interface SubCategoryDAO
 	
 	public List<SubCategory> fetchAllSubCategories();
 	
+	public String fetchAllSubCategoriesByJson();
+	
 	public SubCategory getSubCategoryById(int subCategoryId);
 	
 	public void deleteSubCategory(int subCategoryId);

@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.google.gson.Gson;
 import com.mobiles.dao.SupplierDAO;
 import com.mobiles.model.Supplier;
 
@@ -35,6 +36,13 @@ public class SupplierDAOImpl implements SupplierDAO
 	public void deleteSupplier(int supplierId) 
 	{
 		sessionFactory.getCurrentSession().delete(getSupplierById(supplierId));
+	}
+
+	public String fetchAllSupplierByJson() {
+		List<Supplier> supplierList = sessionFactory.getCurrentSession().createQuery("from Supplier").getResultList();
+		Gson g = new Gson();
+		String list = g.toJson(supplierList);
+		return list; 
 	}
 
 }

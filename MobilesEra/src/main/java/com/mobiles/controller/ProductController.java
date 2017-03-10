@@ -52,11 +52,18 @@ public class ProductController
 		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("supplierList", supplierService.fetchAllSupplier());
 		model.addAttribute("brandList", brandService.fetchAllBrand());
+		
+		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
+		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
+		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+		model.addAttribute("supplierListByJson", supplierService.fetchAllSupplierByJson());
+		model.addAttribute("brandListByJson", brandService.fetchAllBrandByJson());
+		model.addAttribute("btnLabel","Add Product");
 		return "admin-productpage";
 	}
 	
 	@RequestMapping("/addProduct")	
-	public String addProduct(@Valid @ModelAttribute("product")Product product,@RequestParam("productImage")MultipartFile productImage,BindingResult result,Model model)
+	public String addProduct(@Valid @ModelAttribute("product")Product product,BindingResult result,@RequestParam("productImage")MultipartFile productImage,Model model)
 	{
 		if(result.hasErrors())
 		{
@@ -64,9 +71,16 @@ public class ProductController
 			model.addAttribute("categoryList", categoryService.fetchAllCategories());
 			model.addAttribute("supplierList", supplierService.fetchAllSupplier());
 			model.addAttribute("brandList", brandService.fetchAllBrand());
+			model.addAttribute("productListByJson", productService.fetchAllProductByJson());
+			model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
+			model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+			model.addAttribute("supplierListByJson", supplierService.fetchAllSupplierByJson());
+			model.addAttribute("brandListByJson", brandService.fetchAllBrandByJson());
+			model.addAttribute("btnLabel","Retry");
 			return "admin-productpage";
 		}
-		
+		else
+		{
 		productService.addProduct(product);
 		
 		if(!productImage.isEmpty()){
@@ -96,7 +110,7 @@ public class ProductController
 		{
 			model.addAttribute("filemessage","Image file is required");
 		}
-		
+		}
 		return "redirect:/productPage";
 	}	
 	
@@ -104,11 +118,19 @@ public class ProductController
 	public String updateProduct(Model model,@PathVariable("productId") int productId)
 	{
 		model.addAttribute("product", productService.getProductById(productId));
+		
 		model.addAttribute("productList", productService.fetchAllProduct());
 		model.addAttribute("subCategoryList", subCategoryService.fetchAllSubCategories());
 		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("supplierList", supplierService.fetchAllSupplier());
 		model.addAttribute("brandList", brandService.fetchAllBrand());
+		
+		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
+		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
+		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+		model.addAttribute("supplierListByJson", supplierService.fetchAllSupplierByJson());
+		model.addAttribute("brandListByJson", brandService.fetchAllBrandByJson());
+		model.addAttribute("btnLabel","Update Product");
 		return "admin-productpage";
 	}
 	

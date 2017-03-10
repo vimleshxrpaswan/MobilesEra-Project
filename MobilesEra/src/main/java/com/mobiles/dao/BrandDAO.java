@@ -11,6 +11,8 @@ public interface BrandDAO
 	
 	public List<Brand> fetchAllBrand();
 	
+	public String fetchAllBrandByJson();
+	
 	public Brand getBrandById(int brandId);
 	
 	public void deleteBrand(int brandId);

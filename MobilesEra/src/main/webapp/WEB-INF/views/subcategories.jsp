@@ -6,18 +6,6 @@
 <%@include file="navbar.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css" />
 
-<%-- <h1>SubCategory Form</h1>
-<form:form modelAttribute="subCategory" action="addSubCategory">
-	<form:input type="hidden" path="subCategoryId" placeholder="SubCategory Id" /> 
-	<form:input path="subCategoryName" placeholder="SubCategory Name" />
-	<form:errors path="subCategoryName" cssClass="error"/>
-	<form:input path="subCategoryDescription" placeholder="SubCategory Description" />
-	<form:errors path="subCategoryDescription" cssClass="error" />
-	<form:select path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName"/>
-	<input type="submit" value="Add SubCategory" />
-</form:form>
- --%>
- 
 <div class="container"> 
 	<div class="text-center">
 		<a href="categoryPage" class="btn btn-info" role="button">Category Form Page</a>
@@ -34,7 +22,7 @@
 			<form:input type="hidden" path="subCategoryId" placeholder="SubCategory Id" />
 			<div class="row">
 				<div class="col-xs-12 col-sm-6  col-md-6"> 
-					<form:input class="form-control" path="subCategoryName" placeholder="SubCategory Name" />
+					<form:input class="form-control" path="subCategoryName" placeholder="SubCategory Name" autofocus="true" />
 				</div>
 				<div class="col-xs-12 col-sm-6  col-md-6">	
 					<form:errors path="subCategoryName" cssClass="error"/>
@@ -43,11 +31,11 @@
 			<br>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6  col-md-6"> 
-					<form:input class="form-control" path="SubCategoryDescription" placeholder="SubCategory Description" />
+					<form:input class="form-control" path="subCategoryDescription" placeholder="SubCategory Description" autofocus="true" />
 				</div>
 				<div class="col-xs-12 col-sm-6  col-md-6">	
-					<form:errors path="SubCategoryDescription" cssClass="error"/>
-			</div>
+					<form:errors path="subCategoryDescription" cssClass="error"/>
+				</div>
 			</div>
 			<br>
 				<div class="row">
@@ -58,7 +46,7 @@
 			<br>
 		<div class="row">
 			<div class="text-center col-xs-12 col-sm-12  col-md-12">
-				<input class="btn btn-success" type="submit" value="Add SubCategory" />
+				<input class="btn btn-success" type="submit" value="${btnLabel}" />
 				<input class="btn btn-danger" type="reset" value="Reset" />
 			</div>	
 		</div>
@@ -66,25 +54,47 @@
  	</div>
  
 <br><br>
-<table class="table">
+
+</div>
+
+ 
+<div class="container">
+ <div ng-app="myApp">
+ <div class="text-center">
+ 	<h1>SubCategory List</h1>
+ </div>
+ <div class="row">	
+ 	<div class="col-xs-12 col-md-4 col-sm-4">	
+ 		<input class="form-control" type="text" ng-model="search" placeholder="search" />
+ 	</div>
+ </div>
+ <br>
+ <div class="table-responsive">
+<table class="table" ng-controller="myController">
 <tr>
 <th>Id</th>
 <th>Name</th>
 <th>Description</th>
 <th>Category</th>
-<th>Update Category</th>
-<th>Delete Category</th> 
+<th>Update SubCategory</th>
+<th>Delete SubCategory</th> 
 </tr>
-<c:forEach var="subcategorylist" items="${subCategoryList}">
-<tr>
-<td>${subcategorylist.subCategoryId}</td>
-<td>${subcategorylist.subCategoryName}</td>
-<td>${subcategorylist.subCategoryDescription}</td>
-<td>${subcategorylist.category.categoryName}</td>
-<td><a href="updateSubCategoryById-${subcategorylist.subCategoryId}">Update</a></td>
-<td><a href="deleteSubCategoryById-${subcategorylist.subCategoryId}">Delete</a></td>  
+<tr ng-repeat="subcategorylist in myscope | filter:search">
+<td>{{subcategorylist.subCategoryId}}</td>
+<td>{{subcategorylist.subCategoryName}}</td>
+<td>{{subcategorylist.subCategoryDescription}}</td>
+<td>{{subcategorylist.category.categoryName}}</td>
+<td><a href="updateSubCategoryById-{{subcategorylist.subCategoryId}}">Update</a></td>
+<td><a href="deleteSubCategoryById-{{subcategorylist.subCategoryId}}">Delete</a></td>
 </tr>
-</c:forEach>
 </table>
-
+ </div>
 </div>
+</div>
+
+<script>
+var a=angular.module('myApp',[]);
+a.controller('myController', function($scope){
+$scope.myscope= ${subCategoryListByJson}
+});
+</script>

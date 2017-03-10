@@ -59,7 +59,7 @@
 			<div class="row">
 		  	<div class="col-sm-12 col-md-12">	
 		  		<div class="text-center">	
-					<input class="btn btn-success" type="submit" value="Add Brand" />
+					<input class="btn btn-success" type="submit" value="${btnLabel}" />
 					<input class="btn btn-danger" type="reset" value="Reset" />
 				</div>
 				
@@ -68,7 +68,7 @@
 		</form:form>
  </div>
  <br><br>
-<table class="table">
+<%-- <table class="table">
 <tr>
 <th>Id</th>
 <th>Name</th>
@@ -88,5 +88,48 @@
 </tr>
 </c:forEach>
 </table>
+ --%>
+ 
+ 
+ 
+ <div ng-app="myApp">
+ <div class="text-center">
+ 	<h1>Brand List</h1>
+ </div>
+ <div class="row">	
+ 	<div class="col-xs-12 col-md-4 col-sm-4">	
+ 		<input class="form-control" type="text" ng-model="search" placeholder="search" />
+ 	</div>
+ </div>
+ <br>
+ <div class="table-responsive">
+ <table class="table" ng-controller="myController">
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Description</th>
+<th>SubCategory</th>
+<th>Update SubCategory</th>
+<th>Delete SubCategory</th> 
+</tr>
+<tr ng-repeat="brandlist in myscope | filter:search">
+<td>{{brandlist.brandId}}</td>
+<td>{{brandlist.brandName}}</td>
+<td>{{brandlist.brandDescription}}</td>
+<td>{{brandlist.subCategory.subCategoryName}}</td>
+<td><a href="updateBrandById-{{brandlist.brandId}}">Update</a></td>
+<td><a href="deleteBrandById-{{brandlist.brandId}}">Delete</a></td>
+</tr>
+</table>
+</div>
+ </div>
 
 </div>
+
+<script>
+var a=angular.module('myApp',[]);
+a.controller('myController', function($scope){
+$scope.myscope= ${brandListByJson}
+});
+</script>
+
