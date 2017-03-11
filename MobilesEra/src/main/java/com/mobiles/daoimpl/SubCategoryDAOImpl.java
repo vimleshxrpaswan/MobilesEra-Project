@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mobiles.dao.SubCategoryDAO;
 import com.mobiles.model.SubCategory;
 
@@ -40,7 +41,7 @@ public class SubCategoryDAOImpl implements SubCategoryDAO
 
 	public String fetchAllSubCategoriesByJson() {
 		List<SubCategory> subCategoryList = sessionFactory.getCurrentSession().createQuery("from SubCategory").getResultList();
-		Gson g = new Gson();
+		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		String list = g.toJson(subCategoryList);
 		return list;
 	}

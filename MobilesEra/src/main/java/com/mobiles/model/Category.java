@@ -11,28 +11,34 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class Category 
 {
+	@Expose
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int categoryId;
 	
+	@Expose
 	@NotEmpty(message="Category Name can not be Empty")
 	private String categoryName;
 	
+	@Expose
 	@NotEmpty(message="Category Description can not be Empty")
 	private String categoryDescription;
 	
-	/*@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
-	private Set<SubCategory> subCategory;*/
 	
-	/*public Set<SubCategory> getSubCategory() {
+	@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
+	private Set<SubCategory> subCategory;
+	
+	public Set<SubCategory> getSubCategory() {
 		return subCategory;
 	}
 	public void setSubCategory(Set<SubCategory> subCategory) {
 		this.subCategory = subCategory;
-	}*/
+	}
 	public int getCategoryId() {
 		return categoryId;
 	}

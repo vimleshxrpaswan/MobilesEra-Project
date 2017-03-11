@@ -21,25 +21,34 @@
 		<form:form modelAttribute="subCategory" action="addSubCategory">
 			<form:input type="hidden" path="subCategoryId" placeholder="SubCategory Id" />
 			<div class="row">
-				<div class="col-xs-12 col-sm-6  col-md-6"> 
+				<div class="col-xs-12 col-sm-4  col-md-4"> 
+					<form:label path="subCategoryName">Enter SubCategory Name</form:label>
+				</div>
+				<div class="col-xs-12 col-sm-4  col-md-4"> 
 					<form:input class="form-control" path="subCategoryName" placeholder="SubCategory Name" autofocus="true" />
 				</div>
-				<div class="col-xs-12 col-sm-6  col-md-6">	
+				<div class="col-xs-12 col-sm-4  col-md-4">	
 					<form:errors path="subCategoryName" cssClass="error"/>
 				</div>
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-xs-12 col-sm-6  col-md-6"> 
+				<div class="col-xs-12 col-sm-4  col-md-4"> 
+					<form:label path="subCategoryDescription">Enter Description of SubCategory</form:label>
+				</div>
+				<div class="col-xs-12 col-sm-4  col-md-4"> 
 					<form:input class="form-control" path="subCategoryDescription" placeholder="SubCategory Description" autofocus="true" />
 				</div>
-				<div class="col-xs-12 col-sm-6  col-md-6">	
+				<div class="col-xs-12 col-sm-4  col-md-4">	
 					<form:errors path="subCategoryDescription" cssClass="error"/>
 				</div>
 			</div>
 			<br>
 				<div class="row">
-					<div class="col-xs-12 col-sm-6  col-md-6">					
+					<div class="col-xs-12 col-sm-4  col-md-4"> 
+						<form:label path="categoryId">Select Category of SubCategory</form:label>
+					</div>	 
+					<div class="col-xs-12 col-sm-4  col-md-4">					
 						<form:select class="form-control" path="categoryId" items="${categoryList}" itemValue="categoryId" itemLabel="categoryName"/>
 					</div>
 				</div>		
@@ -53,12 +62,10 @@
 	</form:form>
  	</div>
  
-<br><br>
+<br>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
-</div>
 
- 
-<div class="container">
  <div ng-app="myApp">
  <div class="text-center">
  	<h1>SubCategory List</h1>

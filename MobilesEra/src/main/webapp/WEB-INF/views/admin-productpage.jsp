@@ -14,7 +14,7 @@
 		<a href="brandPage" class="btn btn-info" role="button">Brand Form Page</a>
 	</div>
  	<div class="text-center">
- 		<h1>Product Form</h1><hr>
+ 		<h1>Product Form</h1>
  	</div>
  	<br>
  	<div class="form">	
@@ -141,8 +141,8 @@
  	</div>
  	
 <br>
-<hr>
-<br>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
 
  <div ng-app="myApp">
  <div class="text-center">

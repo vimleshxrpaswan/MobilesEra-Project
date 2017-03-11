@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="resources/css/style.css"/>
 <link rel="stylesheet" href="resources/css/button.css"/>
 </head>
 <body>
@@ -27,7 +28,8 @@
       <ul class="nav navbar-nav" >
       <li>
       <a href="#">Categories<b class="caret"></b></a>
-      <%-- <div class="dropdown-content">
+      
+       <div class="dropdown-content">
       <div class="row">
 <c:forEach var="category" items="${categoryList}">
 <div class="dropdown">
@@ -46,7 +48,7 @@
 </div>
 </c:forEach>
 </div>
-</div> --%>
+</div>
       
       </li>
       </ul>

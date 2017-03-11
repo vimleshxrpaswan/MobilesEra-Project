@@ -13,26 +13,32 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class SubCategory 
 {
 	@Id
+	@Expose
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int subCategoryId;
 	
+	@Expose
 	@NotEmpty(message="subCategory Name can not be empty")
 	private String subCategoryName;
 	
+	@Expose
 	@NotEmpty(message="SubCategory Description can not be empty")
 	private String subCategoryDescription;
 	
+	@Expose
 	private int categoryId;
 	
 	@ManyToOne
 	@JoinColumn(name="CategoryId",nullable=false , insertable=false, updatable=false)
 	private Category category;
 	
-	/*@OneToMany(mappedBy="subCategory", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="subCategory", fetch=FetchType.EAGER)
 	private Set<Brand> brand;
 
 	public Set<Brand> getBrand() {
@@ -42,7 +48,7 @@ public class SubCategory
 	public void setBrand(Set<Brand> brand) {
 		this.brand = brand;
 	}
-*/
+
 	public int getSubCategoryId() {
 		return subCategoryId;
 	}

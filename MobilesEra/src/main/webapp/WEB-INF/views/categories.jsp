@@ -23,19 +23,25 @@
 			
 			<form:input type="hidden" path="categoryId" placeholder="Category Id" /> 
 		  <div class="row">
-		  	<div class="col-xs-12 col-sm-6 col-md-6">
+		  	<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label  path="categoryName">Enter Category Name</form:label>		
+			</div>
+		  	<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:input class="form-control" path="categoryName" placeholder="Category Name" autofocus="true" />		
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:errors cssClass="error" path="categoryName" />
 			</div>
 		  </div>
 		  <br>
 		  <div class="row">
-		  	<div class="col-xs-12 col-sm-6 col-md-6">		
+		  	<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label  path="categoryDescription">Enter Category Description</form:label>		
+			</div>
+		  	<div class="col-xs-12 col-sm-4 col-md-4">		
 				<form:input class="form-control" path="categoryDescription" placeholder="Category Description" />
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:errors cssClass="error" path="categoryDescription" />
 			</div>	
 		  </div>
@@ -52,7 +58,9 @@
 		</form:form>
  	</div>
  	
- <br><br>
+ <br>
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+ 
 
 <div ng-app="myApp">
  <div class="text-center">

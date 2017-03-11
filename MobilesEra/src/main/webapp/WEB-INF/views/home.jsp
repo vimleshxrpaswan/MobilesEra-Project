@@ -20,7 +20,7 @@
  --%>
  
 <!-- Present one to many display --> 
-<%-- <div class="jumbotron"> 
+<div class="jumbotron"> 
 <div class="row">
 
 <c:forEach var="category" items="${categoryList}">
@@ -45,7 +45,7 @@
 </c:forEach>
 </div>
 </div>
- --%>
+ 
 
 <!-- One to many with brand -->
 <%-- <div class="jumbotron"> 
