@@ -13,45 +13,65 @@ import javax.persistence.Transient;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class Product 
 {
+	@Expose
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private  int productId;
     
+	@Expose
 	@NotEmpty(message="Product Name can not be empty")
     private String productName;
 	
+	@Expose
 	@NotEmpty(message="Product Description can not be empty")
     private String productDescription;
 	
+	@Expose
     private double productActualPrice;
 	
+	@Expose
     private double productDiscount;
 	
+	@Expose
 	@NotEmpty(message="Product Made Country can not be empty")
     private String productMadeCountry;
 	
+	@Expose
     private int productStock;
     
+	@Expose
     private int categoryId;
+	
+	@Expose
     private int subCategoryId;
+	
+	@Expose	
     private int supplierId;
+	
+	@Expose
     private int brandId;
-    
+	    
+	@Expose
     @ManyToOne
     @JoinColumn(name="categoryId", nullable=false , updatable=false , insertable=false )
     private Category category;
     
+	@Expose
     @ManyToOne
     @JoinColumn(name="subCategoryId", nullable=false , updatable=false , insertable=false )
     private SubCategory subCategory;
     
+	@Expose
     @ManyToOne
     @JoinColumn(name="supplierId", nullable=false , updatable=false , insertable=false )
     private Supplier supplier;
 
+	@Expose
 	@ManyToOne
     @JoinColumn(name="brandId", nullable=false , updatable=false , insertable=false )
     private Brand brand;

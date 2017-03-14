@@ -8,7 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="resources/css/style.css"/>
 <link rel="stylesheet" href="resources/css/button.css"/>
 </head>
 <body>
@@ -24,34 +23,7 @@
       </button>
       <a class="navbar-brand" href="#">MobilesEra</a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">  
-      <ul class="nav navbar-nav" >
-      <li>
-      <a href="#">Categories<b class="caret"></b></a>
-      
-       <div class="dropdown-content">
-      <div class="row">
-<c:forEach var="category" items="${categoryList}">
-<div class="dropdown">
-	<div class="col-md-2">
-  <button class="dropbtn">${category.categoryName}</button>
-  <div class="dropdown-content">
-  	<div class="row">
-    	<a href="#"><c:forEach var="subCategory" items="${category.subCategory}">
-		<div class="col-md-12"><ul><li>
-			${subCategory.subCategoryName}</li></ul>
-		</div>
-	</c:forEach> </a>
-    </div>
-  </div>
-  </div>
-</div>
-</c:forEach>
-</div>
-</div>
-      
-      </li>
-      </ul>
+    <div class="collapse navbar-collapse" id="myNavbar">
       <form class="navbar-form navbar-left">
       <div class="input-group">      
         <input type="text" class="form-control" placeholder="Search">        
@@ -62,6 +34,41 @@
         </div>
       </div>
       </form>
+    	<div class="dropdown ">  
+      <ul class="nav navbar-nav" >
+      <li>
+      <a href="#" class="dropbtn myMenu">Categories<b class="caret"></b></a>
+      <div class="dropdown-content">
+     	<div class="jumbotron">
+ 
+<div class="row">
+
+<c:forEach var="category" items="${categoryList}">
+<div class="dropdown">
+	<div class="col-md-2">
+ <button class="dropbtn">${category.categoryName}</button>
+  <div class="dropdown-content">
+  	<div class="row">
+    	<a href="#"><c:forEach var="subCategory" items="${category.subCategory}">
+		<div class="col-md-12">
+			<ul>
+				<li>
+					${subCategory.subCategoryName}
+				</li>
+			</ul>
+		</div>
+	</c:forEach> </a>
+    </div>
+  </div>
+  </div>
+</div>
+</c:forEach>
+</div>
+</div>
+   	  </div>
+      </li>
+      </ul>
+    </div>
     
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -71,7 +78,7 @@
     </div>
   </div>
 </nav>
-<br><br><br>
+
 
 <script src="resources/js/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.min.js" ></script>

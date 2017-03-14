@@ -34,6 +34,7 @@ public class SubCategory
 	@Expose
 	private int categoryId;
 	
+	@Expose
 	@ManyToOne
 	@JoinColumn(name="CategoryId",nullable=false , insertable=false, updatable=false)
 	private Category category;

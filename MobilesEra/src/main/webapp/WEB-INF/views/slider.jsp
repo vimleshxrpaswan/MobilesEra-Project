@@ -23,7 +23,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="resources/dataImages/slider-maxresdefault.jpg" alt="Redmi note4" width="460" height="345">
+        <img src="resources/dataImages/Mobile image for slider.jpeg" alt="Redmi note4" width="460" height="345">
       </div>
 
       <div class="item">

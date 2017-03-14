@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mobiles.dao.ProductDAO;
 import com.mobiles.model.Product;
 
@@ -38,7 +39,7 @@ public class ProductDAOImpl implements ProductDAO
 
 	public String fetchAllProductByJson() {
 		List<Product> productList = sessionFactory.getCurrentSession().createQuery("from Product").getResultList();
-		Gson g = new Gson();
+		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		String list = g.toJson(productList);		
 		return list;
 	}

@@ -9,21 +9,28 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class Brand 
 {
+	@Expose
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int brandId;
 	
+	@Expose
 	@NotEmpty(message="Brand Name can not be Empty")
 	private String brandName;
 	
+	@Expose
 	@NotEmpty(message="Brand Description can not be Empty")
 	private String brandDescription;
 	
+	@Expose
 	private int subCategoryId;
 	
+	@Expose
 	@ManyToOne
 	@JoinColumn(name="SubCategoryId",nullable=false , insertable=false, updatable=false)
 	private SubCategory subCategory;

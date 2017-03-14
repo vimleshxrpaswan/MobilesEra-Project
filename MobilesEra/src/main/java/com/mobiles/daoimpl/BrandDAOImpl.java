@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mobiles.dao.BrandDAO;
 import com.mobiles.model.Brand;
 
@@ -43,7 +44,7 @@ public class BrandDAOImpl implements BrandDAO
 
 	public String fetchAllBrandByJson() {
 		List<Brand> brandList = sessionFactory.getCurrentSession().createQuery("from Brand").getResultList();
-		Gson g = new Gson();
+		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		String list = g.toJson(brandList);
 		return list;
 	}
