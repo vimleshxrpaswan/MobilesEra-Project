@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ include file="navbar.jsp" %>
+<%@ include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/button.css" />
 <%@ include file="slider.jsp" %>
 <%-- <div class="row">

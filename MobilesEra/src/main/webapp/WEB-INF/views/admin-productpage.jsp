@@ -3,16 +3,19 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ page isELIgnored="false" %>
-<%@include file="navbar.jsp" %>
+<%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css" />
  
 <div class="container">
+<!-- Buttons -->
  	<div class="text-center">
  		<a href="categoryPage" class="btn btn-info" role="button">Category Form Page</a>
 		<a href="subCategoryPage" class="btn btn-info" role="button">SubCategory Form Page</a>		
 		<a href="supplierPage" class="btn btn-info" role="button">Supplier Form Page</a>				
 		<a href="brandPage" class="btn btn-info" role="button">Brand Form Page</a>
 	</div>
+
+<!-- Product Form -->	
  	<div class="text-center">
  		<h1>Product Form</h1>
  	</div>
@@ -133,8 +136,8 @@
 		<br>
 		<div class="row">
 			<div class="text-center col-sm-12 col-xs-12 col-md-12">
-				<input class="btn btn-success" type="submit" value="${btnLabel}" />
-				<input class="btn btn-danger" type="reset" value="Reset" />
+				<button class="btn btn-success" type="submit"  >${btnLabel} <span class="glyphicon glyphicon-plus"></span></button>
+				<button class="btn btn-danger" type="reset" >Reset <span class="glyphicon glyphicon-repeat"></span></button>
 			</div>	
 		</div>
 </form:form>
@@ -143,21 +146,26 @@
 <br>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
+<!-- Product List -->
 
  <div ng-app="myApp">
  <div class="text-center">
  	<h1>Product List</h1>
  </div>
  <div class="row">	
- 	<div class="col-xs-12 col-md-4 col-sm-4">	
+ 	<div class="input-group col-xs-12 col-md-4 col-sm-4">	
  		<input class="form-control" type="text" ng-model="search" placeholder="search" />
+ 		<div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </div>
  	</div>
  </div>
  <br>
  <div class="table-responsive">
  <table class="table" ng-controller="myController">
 <tr>
-<th>Id</th>
 <th>Name</th>
 <th>Description</th>
 <th>Actual Price</th>
@@ -173,7 +181,6 @@
 <th>Delete Product</th> 
 </tr>
 <tr ng-repeat="productlist in myscope | filter:search ">
-<td>{{productlist.productId}}</td>
 <td>{{productlist.productName}}</td>
 <td>{{productlist.productDescription}}</td>
 <td>{{productlist.productActualPrice}}</td>
@@ -185,8 +192,8 @@
 <td>{{productlist.brand.brandName}}</td>
 <td>{{productlist.supplier.supplierName}}</td>
 <td><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" height="80px" width="80px" alt="img not uploaded"/></td>
-<td><a href="updateProductById-{{productlist.productId}}">Update</a></td>
-<td><a href="deleteProductById-{{productlist.productId}}">Delete</a></td>  
+<td><a href="updateProductById-{{productlist.productId}}" class="btn btn-warning" role="button" >Update</a></td>
+<td><a href="deleteProductById-{{productlist.productId}}" class="btn btn-danger" role="button">Delete</a></td>  
 </tr>
 </table>
 </div>

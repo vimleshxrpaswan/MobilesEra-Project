@@ -71,8 +71,8 @@
     </div>
     
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="registrationPage"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="loginPage"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
       
     </div>
@@ -83,5 +83,3 @@
 <script src="resources/js/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.min.js" ></script>
 <script src="resources/js/angular.min.js" ></script>
-</body>
-</html>

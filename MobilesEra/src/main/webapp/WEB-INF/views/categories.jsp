@@ -3,16 +3,16 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ page isELIgnored="false" %>
-<%@include file="navbar.jsp" %>
+<%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css"/>
 
 
 <div class="container">
- 	 <div class="text-center">
-		<a href="subCategoryPage" class="btn btn-info" role="button">SubCategory Form Page</a>
-		<a href="productPage" class="btn btn-info" role="button">Product Form Page</a>
-		<a href="supplierPage" class="btn btn-info" role="button">Supplier Form Page</a>				
-		<a href="brandPage" class="btn btn-info" role="button">Brand Form Page</a>
+	<div class="text-center">  		   
+	 	 <a href="subCategoryPage" class="btn btn-info" role="button">SubCategory Form Page</a>
+		 <a href="productPage" class="btn btn-info" role="button">Product Form Page</a>
+		 <a href="supplierPage" class="btn btn-info" role="button">Supplier Form Page</a>
+		 <a href="brandPage" class="btn btn-info" role="button">Brand Form Page</a>
 	</div>
  	<div class="text-center">
  		<h1>Category Form</h1>
@@ -49,8 +49,8 @@
 		  <div class="row">
 		  	<div class="col-sm-12 col-md-12">	
 		  		<div class="text-center">	
-					<input class="btn btn-success" type="submit" value="${btnLabel}" />
-					<input class="btn btn-danger" type="reset" value="Reset" />
+					<button class="btn btn-success" type="submit">${btnLabel} <span class="glyphicon glyphicon-plus"></span></button>
+					<button class="btn btn-danger" type="reset" >Reset <span class="glyphicon glyphicon-repeat"></span></button>
 				</div>
 				
 			</div>
@@ -67,26 +67,29 @@
  	<h1>Category List</h1>
  </div>
  <div class="row">	
- 	<div class="col-xs-12 col-md-4 col-sm-4">	
- 		<input class="form-control" type="text" ng-model="search" placeholder="search" />
+ 	<div class="input-group col-xs-12 col-md-4 col-sm-4">	
+ 		<input class="form-control" type="text" ng-model="search" placeholder="Search..." />
+ 		<div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </div>
  	</div>
  </div>
  <br>
  <div class="table-responsive">
  <table class="table" ng-controller="myController">
 <tr>
-<th>Id</th>
 <th>Name</th>
 <th>Description</th>
 <th>Update Category</th>
 <th>Delete Category</th> 
 </tr>
 <tr ng-repeat="clist in myscope | filter:search">
-<td>{{clist.categoryId}}</td>
 <td>{{clist.categoryName}}</td>
 <td>{{clist.categoryDescription}}</td>
-<td><a href="updateCategoryById-{{clist.categoryId}}">Update</a></td>
-<td><a href="deleteCategoryById-{{clist.categoryId}}">Delete</a></td>
+<td><a href="updateCategoryById-{{clist.categoryId}}" class="btn btn-warning" role="button">Update</a></td>
+<td><a href="deleteCategoryById-{{clist.categoryId}}" class="btn btn-danger" role="button">Delete</a></td>
 </tr>
 </table>
 </div>

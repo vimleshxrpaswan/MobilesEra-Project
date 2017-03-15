@@ -3,7 +3,7 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ page isELIgnored="false" %>
-<%@include file="navbar.jsp" %>
+<%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css" />
 
  <div class="container">
@@ -56,8 +56,8 @@
 			<div class="row">
 		  	<div class="col-sm-12 col-md-12">	
 		  		<div class="text-center">	
-					<input class="btn btn-success" type="submit" value="${btnLabel}" />
-					<input class="btn btn-danger" type="reset" value="Reset" />
+					<button class="btn btn-success" type="submit" >${btnLabel} <span class="glyphicon glyphicon-plus"></span></button>
+			<button class="btn btn-danger" type="reset" >Reset <span class="glyphicon glyphicon-repeat"></span></button>
 				</div>
 				
 			</div>
@@ -72,15 +72,19 @@
  	<h1>Brand List</h1>
  </div>
  <div class="row">	
- 	<div class="col-xs-12 col-md-4 col-sm-4">	
+ 	<div class="input-group col-xs-12 col-md-4 col-sm-4">	
  		<input class="form-control" type="text" ng-model="search" placeholder="search" />
+ 		<div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </div>
  	</div>
  </div>
  <br>
  <div class="table-responsive">
  <table class="table" ng-controller="myController">
 <tr>
-<th>Id</th>
 <th>Name</th>
 <th>Description</th>
 <th>SubCategory</th>
@@ -88,12 +92,11 @@
 <th>Delete SubCategory</th> 
 </tr>
 <tr ng-repeat="brandlist in myscope | filter:search">
-<td>{{brandlist.brandId}}</td>
 <td>{{brandlist.brandName}}</td>
 <td>{{brandlist.brandDescription}}</td>
 <td>{{brandlist.subCategory.subCategoryName}}</td>
-<td><a href="updateBrandById-{{brandlist.brandId}}">Update</a></td>
-<td><a href="deleteBrandById-{{brandlist.brandId}}">Delete</a></td>
+<td><a href="updateBrandById-{{brandlist.brandId}}" class="btn btn-warning" role="button" >Update</a></td>
+<td><a href="deleteBrandById-{{brandlist.brandId}}" class="btn btn-danger" role="button" >Delete</a></td>
 </tr>
 </table>
 </div>
