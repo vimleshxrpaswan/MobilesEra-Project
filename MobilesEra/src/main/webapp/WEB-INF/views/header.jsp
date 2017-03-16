@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="resources/css/button.css"/>
+<link rel="stylesheet" href="resources/css/loginmodal.css"/>
 </head>
 <body>
 
@@ -72,7 +73,8 @@
     
       <ul class="nav navbar-nav navbar-right">
         <li><a href="registrationPage"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="loginPage"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        
       </ul>
       
     </div>
@@ -83,3 +85,4 @@
 <script src="resources/js/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.min.js" ></script>
 <script src="resources/js/angular.min.js" ></script>
+<script src="resources/js/loginmodal.js" ></script>

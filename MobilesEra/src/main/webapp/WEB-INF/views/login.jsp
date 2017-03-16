@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@include file="header.jsp" %>
 
-<form name="form-login" action="login" method="post">
+<form  action="perform_login" method="POST">
 <input type="text" name="username" placeholder="Enter Your EmailId"/>
 <input type="password" name="password" placeholder="Enter Your Password"/>
 
