@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="header.jsp" %>
-
+<div class="form">
 <form:form class="form" modelAttribute="user" action="addUser">
 	<form:input class="form-control" type="hidden" path="userId" placeholder="User Id" />
 	<form:input class="form-control" path="username" placeholder="Enter EmailId" autofocus="true" />
@@ -15,6 +15,7 @@
 	<input type="submit" value="signup" />
 	<input type="reset" value="Reset" />
 </form:form>
+</div>
 
 
 

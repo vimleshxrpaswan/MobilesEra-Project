@@ -23,7 +23,7 @@ public class UserController
 	}
 		
 	@RequestMapping("/addUser")
-	public String addCategory(@ModelAttribute("user")User user)
+	public String addUser(@ModelAttribute("user")User user)
 	{
 		userService.addUser(user);
 		return "redirect:/login";
