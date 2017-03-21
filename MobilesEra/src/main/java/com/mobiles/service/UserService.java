@@ -18,4 +18,15 @@ public class UserService
 	{
 		userDAOImpl.addUser(user);
 	}
+	
+	public User getUserId(int userId)
+	{
+		return userDAOImpl.getUserId(userId);		
+	}
+	
+	public User getUserByusername(String username)
+	{
+		return userDAOImpl.getUserByusername(username);
+	}
+	
 }

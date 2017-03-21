@@ -32,7 +32,7 @@ public class Product
     private String productDescription;
 	
 	@Expose
-    private double productActualPrice;
+    private int productPrice;
 	
 	@Expose
     private double productDiscount;
@@ -191,13 +191,13 @@ public class Product
 	public void setProductStock(int productStock) {
 		this.productStock = productStock;
 	}
-
-	public double getProductActualPrice() {
-		return productActualPrice;
+	
+	public int getProductPrice() {
+		return productPrice;
 	}
 
-	public void setProductActualPrice(double productActualPrice) {
-		this.productActualPrice = productActualPrice;
+	public void setProductPrice(int productPrice) {
+		this.productPrice = productPrice;
 	}
 
 	public double getProductDiscount() {

@@ -1,5 +1,7 @@
 package com.mobiles.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +36,16 @@ public class UserDAOImpl implements UserDAO
 		
 		
 	}
-	
+
+	public User getUserId(int userId) {
+		List<User> u = sessionFactory.getCurrentSession().createQuery("from User where userId = "+userId).getResultList();
+		return u.get(0);
+	}
+
+	public User getUserByusername(String username) {
+		List<User> userList = sessionFactory.getCurrentSession().createQuery("from User where username = "+"'"+username+"'").getResultList();		
+		return userList.get(0);
+	}
+
+
 }

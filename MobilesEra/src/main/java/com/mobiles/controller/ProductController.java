@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mobiles.model.Product;
 import com.mobiles.service.BrandService;
 import com.mobiles.service.CategoryService;
@@ -139,5 +141,22 @@ public class ProductController
 	{
 		productService.deleteProduct(productId);
 		return "redirect:/productPage";
+	}
+	
+	@RequestMapping("/viewProductById-{productId}")
+	public String viewProduct(Model model,@PathVariable("productId") int productId)
+	{
+		Product p = productService.getProductById(productId);
+		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String productData= g.toJson(p);
+		model.addAttribute("productData", productData);
+				
+		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
+		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
+		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+		model.addAttribute("supplierListByJson", supplierService.fetchAllSupplierByJson());
+		model.addAttribute("brandListByJson", brandService.fetchAllBrandByJson());
+		model.addAttribute("btnLabel","Update Product");
+		return "viewproductpage";
 	}
 }

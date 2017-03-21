@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ page isELIgnored="false" %>
 <%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css" />
  
@@ -61,10 +59,10 @@
 		<br>
 		<div class="row">
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<form:label path="productActualPrice">Enter the Price of Product </form:label>
+				<form:label path="productPrice">Enter the Price of Product </form:label>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<form:input class="form-control" path="productActualPrice" placeholder="Product Actual Price" />
+				<form:input class="form-control" path="productPrice" value="100" placeholder="Product Actual Price" />
 			</div>
 		</div>
 		<br>
@@ -144,7 +142,7 @@
  	</div>
  	
 <br>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<hr>
 
 <!-- Product List -->
 
@@ -178,7 +176,8 @@
 <th>Supplier</th>
 <th>Product Image</th>
 <th>Update Product</th>
-<th>Delete Product</th> 
+<th>Delete Product</th>
+<th>View</th> 
 </tr>
 <tr ng-repeat="productlist in myscope | filter:search ">
 <td>{{productlist.productName}}</td>
@@ -193,7 +192,8 @@
 <td>{{productlist.supplier.supplierName}}</td>
 <td><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" height="80px" width="80px" alt="img not uploaded"/></td>
 <td><a href="updateProductById-{{productlist.productId}}" class="btn btn-warning" role="button" >Update</a></td>
-<td><a href="deleteProductById-{{productlist.productId}}" class="btn btn-danger" role="button">Delete</a></td>  
+<td><a href="deleteProductById-{{productlist.productId}}" class="btn btn-danger" role="button">Delete</a></td>
+<td><a href="viewProductById-{{productlist.productId}}" class="btn btn-primary" role="button">View Product</a></td>  
 </tr>
 </table>
 </div>

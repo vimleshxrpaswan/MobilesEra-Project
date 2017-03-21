@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
     <%@ page isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,6 +11,7 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="resources/css/button.css"/>
 <link rel="stylesheet" href="resources/css/header.css"/>
+<link rel="stylesheet" href="resources/css/style.css"/>
 </head>
 <body>
 
@@ -80,8 +82,30 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right">
                     	<!-- <li><a href="#"><span class="glyphicon glyphicon-cart"></span> Cart</a></li> -->
-                        <li><a href="registrationPage"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				        <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+                        <c:if test="${pageContext.request.userPrincipal.name == null}">
+                        	<li><a href="registrationPage"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        </c:if>
+                        <c:if test="${pageContext.request.userPrincipal.name == null}">
+				        	<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+				        </c:if>
+				        
+				        <c:if test="${pageContext.request.userPrincipal.name != null}">
+				        	<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+				        </c:if>
+				        
+				        
+				        <sec:authorize access="hasRole('ROLE_ADMIN')">				        
+				        <li class="dropdown">
+          					<a class="dropbtn" href="#">Admin <span class="caret"></span></a>
+          					<ul class="dropdown-content">
+            					<li><a href="categoryPage">Category Page</a></li>
+           						<li><a href="subCategoryPage">Subcategory Page</a></li>
+            					<li><a href="productPage">Product Page</a></li>
+            					<li><a href="supplierPage">Supplier Page</a></li>
+            					<li><a href="brandPage">Brand Page</a></li>
+         	 				</ul>
+        				</li>
+        				</sec:authorize>
                     </ul>
                 </div>
             </div>

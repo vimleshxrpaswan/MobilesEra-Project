@@ -9,7 +9,7 @@
     	<form role="form" action="perform_login" method="POST">
 			<fieldset>
 				<h2>Please Sign In</h2>
-				<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+				<hr>
 				<div class="form-group">
                     <input type="email" name="username" id="email" class="form-control input-lg" placeholder="Email Address">
 				</div>
