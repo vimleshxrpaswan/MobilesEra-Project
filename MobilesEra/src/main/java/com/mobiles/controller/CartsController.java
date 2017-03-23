@@ -1,6 +1,7 @@
 package com.mobiles.controller;
 
 import java.security.Principal;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,6 +43,9 @@ public class CartsController
 		cartItems.setQuantity(1);
 		cartItems.setAmount(cartItems.getQuantity() * cartItems.getRate());
 
+		Date d= new Date();
+		cartItems.setDateOrdered(d);
+		
 		cartItems.setFlag("N");
 
 		cartService.addToCart(cartItems);

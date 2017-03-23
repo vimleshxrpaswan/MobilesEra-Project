@@ -9,113 +9,94 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="resources/css/button.css"/>
 <link rel="stylesheet" href="resources/css/header.css"/>
+<link rel="stylesheet" href="resources/css/slider.css"/>
 <link rel="stylesheet" href="resources/css/style.css"/>
 </head>
 <body>
 
-
-<div class="navbar-wrapper">
-    <div class="container-fluid">
-        <nav class="navbar navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">MobilesEra</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <div class="nav navbar-nav">
-                        
-                        <form class="navbar-form navbar-left">
-      						<div class="input-group">      
-        						<input type="text" class="form-control" placeholder="Search">        
-        						<div class="input-group-btn">
-         				 			<button class="btn btn-default" type="submit">
-            							<i class="glyphicon glyphicon-search"></i>
-          							</button>
-        						</div>
-     	 					</div>
-      					</form>
-    					<div class="dropdown ">  
-      						<ul class="nav navbar-nav" >
-      						<li>
-      							<a href="#" class="dropbtn myMenu">Categories<b class="caret"></b></a>
-      								<div class="dropdown-content">
-     									<div class="jumbotron">
- 											<div class="row">
-												<c:forEach var="category" items="${categoryList}">
-													<div class="dropdown">
-														<div class="col-md-2">
- 															<button class="dropbtn">${category.categoryName}</button>
-  																<div class="dropdown-content">
-  																	<div class="row">
-    																	<a href="#"><c:forEach var="subCategory" items="${category.subCategory}">
-																			<div class="col-md-12">
-																				<ul>
-				<li>
-					${subCategory.subCategoryName}
-				</li>
-			</ul>
-		</div>
-	</c:forEach> </a>
-    </div>
-  </div>
-  </div>
-</div>
-</c:forEach>
-</div>
-</div>
-   	  </div>
-      </li>
-      </ul>
-    </div>
-
-                        
-                        
-                        
-                    </div>
-                    <ul class="nav navbar-nav navbar-right">
-                    	<!-- <li><a href="#"><span class="glyphicon glyphicon-cart"></span> Cart</a></li> -->
-                        <c:if test="${pageContext.request.userPrincipal.name == null}">
-                        	<li><a href="registrationPage"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        </c:if>
-                        <c:if test="${pageContext.request.userPrincipal.name == null}">
-				        	<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
-				        </c:if>
-				        
-				        <c:if test="${pageContext.request.userPrincipal.name != null}">
-				        	<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
-				        </c:if>
-				        
-				        
-				        <sec:authorize access="hasRole('ROLE_ADMIN')">				        
-				        <li class="dropdown">
-          					<a class="dropbtn" href="#">Admin <span class="caret"></span></a>
-          					<ul class="dropdown-content">
-            					<li><a href="categoryPage">Category Page</a></li>
-           						<li><a href="subCategoryPage">Subcategory Page</a></li>
-            					<li><a href="productPage">Product Page</a></li>
-            					<li><a href="supplierPage">Supplier Page</a></li>
-            					<li><a href="brandPage">Brand Page</a></li>
-         	 				</ul>
-        				</li>
-        				</sec:authorize>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</div>
-
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+      	<div class="row row1" id="topbar">        	
+            <ul class="largenav pull-right">
+                <li class="upper-links"><a class="links" href="/">Home</a></li>
+                <li class="upper-links"><a class="links" href="#">About Us</a></li>
+                <li class="upper-links"><a class="links" href="#">Contact US</a></li>
+                <li class="upper-links"><a class="links" href="#">FAQ's</a></li>
+            </ul>
+        </div>
+        
+        <!-- Brand and toggle get grouped for better mobile display -->
+        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>       
+          <a class="navbar-brand" href="#">MobilesEra</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <ul class="nav navbar-nav navbar-right">
+            <c:if test="${pageContext.request.userPrincipal.name == null}">        
+            	<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+            	<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">
+            	<li><a href="registrationPage"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            </c:if>
+            <sec:authorize access="hasRole('ROLE_ADMIN')">		
+            <li class="dropdown">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
+            	<ul class="dropdown-menu">
+          			<li><a href="categoryPage">Category Page</a></li>
+                    <li class="divider"></li>
+          			<li><a href="subCategoryPage">SubCategory Page</a></li>
+                    <li class="divider"></li>
+          			<li><a href="supplierPage">Supplier Page</a></li>
+                    <li class="divider"></li>
+                    <li><a href="brandPage">Brand Page</a></li>
+                    <li class="divider"></li>
+                    <li><a href="productPage">Product Page</a></li>
+        		</ul>    
+            </li>
+            </sec:authorize>
+            <sec:authorize access="hasRole('ROLE_USER')">		
+            <li class="dropdown">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">User<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+          			<li><a href="#">Profile</a></li>
+                    <li class="divider"></li>
+          			<li><a href="#"> Page</a></li>
+                    <li class="divider"></li>
+          			<li><a href="#">Cart</a></li>                    
+        		</ul>
+            </li>
+            </sec:authorize>
+            <li>
+              <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+            </li>
+          </ul>
+          <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </form>
+          </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+   
 
 <script src="resources/js/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.min.js" ></script>
 <script src="resources/js/angular.min.js" ></script>
-<script src="resources/js/header.js" ></script>
+
 
