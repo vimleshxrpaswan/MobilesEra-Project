@@ -4,4 +4,8 @@
       margin: auto;
       max-height: 400px;
   }
- body{ padding-top: 120px; } 
+ 
+ .carousel-control.left, .carousel-control.right
+ {
+ 	background-image:none;
+ }

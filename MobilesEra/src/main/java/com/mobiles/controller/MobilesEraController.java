@@ -27,5 +27,15 @@ public class MobilesEraController
 		return "home";
 	}
 	
-	
+	@RequestMapping("/aboutus")
+	public String getAboutUsPage()
+	{
+		return "aboutus";
+	}
+
+	@RequestMapping("/contactus")
+	public String getContactUsPage()
+	{
+		return "contactus";
+	}
 }

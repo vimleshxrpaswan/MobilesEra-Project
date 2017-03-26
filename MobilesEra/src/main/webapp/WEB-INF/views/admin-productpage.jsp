@@ -5,13 +5,6 @@
 <link rel="stylesheet" href="resources/css/error.css" />
  
 <div class="container">
-<!-- Buttons -->
- 	<div class="text-center">
- 		<a href="categoryPage" class="btn btn-info" role="button">Category Form Page</a>
-		<a href="subCategoryPage" class="btn btn-info" role="button">SubCategory Form Page</a>		
-		<a href="supplierPage" class="btn btn-info" role="button">Supplier Form Page</a>				
-		<a href="brandPage" class="btn btn-info" role="button">Brand Form Page</a>
-	</div>
 
 <!-- Product Form -->	
  	<div class="text-center">
@@ -208,3 +201,6 @@ $scope.myscope= ${productListByJson}
 });
 </script>
 
+
+
+<%@include file="footer.jsp" %>

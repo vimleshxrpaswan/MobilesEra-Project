@@ -9,5 +9,6 @@ public interface UserDAO
 	public User getUserId(int userId);
 	
 	public User getUserByusername(String username);
-
+	
+	public String fetchAllUserByJson();
 }

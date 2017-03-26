@@ -12,7 +12,11 @@ public interface ProductDAO
 	
 	public String fetchAllProductByJson();
 	
+	public String fetchProductByBrand(int brandId);
+	
 	public Product getProductById(int productId);
 	
 	public void deleteProduct(int productId);
+	
+	
 }

@@ -28,6 +28,12 @@ public class UserController
 		return "registration";
 	}
 		
+	@RequestMapping("/userList")
+	public String getAllUserByJson(Model model)
+	{	
+		return "userlist";
+	}
+		
 	@RequestMapping("/addUser")
 	public String addUser(@ModelAttribute("user")User user)
 	{

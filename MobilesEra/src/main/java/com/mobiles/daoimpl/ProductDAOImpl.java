@@ -44,5 +44,12 @@ public class ProductDAOImpl implements ProductDAO
 		return list;
 	}
 
+	public String fetchProductByBrand(int brandId) {
+		List<Product> pList = sessionFactory.getCurrentSession().createQuery("from Product where brandId ="+brandId).getResultList();
+		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String productlist = g.toJson(pList);
+		return productlist;
+	}
+
 	
 }

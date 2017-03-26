@@ -29,4 +29,8 @@ public class UserService
 		return userDAOImpl.getUserByusername(username);
 	}
 	
+	public String fetchAllUserByJson()
+	{
+		return userDAOImpl.fetchAllUserByJson();
+	}
 }

@@ -18,13 +18,10 @@
 </div>
  --%>
  
-<!-- Present one to many display --> 
+<!-- Present one to many display Start --> 
 
- 
-<div class="jumbotron">
- 
+<%-- <div class="jumbotron"> 
 <div class="row">
-
 <c:forEach var="category" items="${categoryList}">
 <div class="dropdown">
 	<div class="col-md-2">
@@ -47,4 +44,8 @@
 </c:forEach>
 </div>
 </div>
+  --%>
+ <!-- Present one to many display End -->
+
  
+ <%@ include file="footer.jsp" %>

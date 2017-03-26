@@ -18,4 +18,9 @@ public class CartService
 	{
 		cartDAOImpl.addToCart(cartItems);
 	}
+	
+	public String fetchCartItemsByuserIdByJson(int userId)
+	{
+		return cartDAOImpl.fetchCartItemsByuserIdByJson(userId);
+	}
 }

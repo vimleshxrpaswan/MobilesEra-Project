@@ -1,19 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ page isELIgnored="false" %>
 <%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css"/>
 
 
 <div class="container">
-	<div class="text-center">  		   
-	 	 <a href="subCategoryPage" class="btn btn-info" role="button">SubCategory Form Page</a>
-		 <a href="productPage" class="btn btn-info" role="button">Product Form Page</a>
-		 <a href="supplierPage" class="btn btn-info" role="button">Supplier Form Page</a>
-		 <a href="brandPage" class="btn btn-info" role="button">Brand Form Page</a>
-	</div>
+	
  	<div class="text-center">
  		<h1>Category Form</h1>
  	</div>
@@ -102,3 +92,9 @@ a.controller('myController', function($scope){
 $scope.myscope= ${categoryListByJson}
 });
 </script> 
+
+
+
+
+
+<%@include file="footer.jsp" %>

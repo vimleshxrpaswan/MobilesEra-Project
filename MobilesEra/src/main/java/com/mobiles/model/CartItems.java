@@ -11,29 +11,48 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class CartItems 
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Expose
 	private int cartItemId;
+	
+	@Expose
+	private int productId;
+	
+	@Expose
 	private String productName;
+	
+	@Expose
 	private int quantity;
+	
+	@Expose
 	private int rate;
+	
+	@Expose
 	private double amount;
 	
+	@Expose
 	@DateTimeFormat(pattern=" yyyy-MM-dd'T'hh:mm:ss.SSSZ")
 	private Date dateOrdered;
+	
+	@Expose
 	private String flag;
 	
 	private int userId;
 	
 	private int cartId;
 	
+	@Expose
 	@ManyToOne
 	@JoinColumn(name="CartId",nullable=false , insertable=false, updatable=false)
 	private Cart cart;
 	
+	@Expose
 	@ManyToOne
 	@JoinColumn(name="UserId",nullable=false , insertable=false, updatable=false)
 	private User user;
@@ -44,6 +63,15 @@ public class CartItems
 
 	public void setCartItemId(int cartItemId) {
 		this.cartItemId = cartItemId;
+	}
+
+	
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
 	public String getProductName() {

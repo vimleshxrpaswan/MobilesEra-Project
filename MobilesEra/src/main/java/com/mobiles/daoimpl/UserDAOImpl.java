@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mobiles.dao.UserDAO;
 import com.mobiles.model.Cart;
 import com.mobiles.model.User;
@@ -45,6 +47,13 @@ public class UserDAOImpl implements UserDAO
 	public User getUserByusername(String username) {
 		List<User> userList = sessionFactory.getCurrentSession().createQuery("from User where username = "+"'"+username+"'").getResultList();		
 		return userList.get(0);
+	}
+
+	public String fetchAllUserByJson() {
+		List<User> userList = sessionFactory.getCurrentSession().createQuery("from User").getResultList();
+		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String ulist = g.toJson(userList);
+		return ulist;
 	}
 
 

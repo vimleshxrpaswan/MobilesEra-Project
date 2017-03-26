@@ -1,27 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-    <%@ page isELIgnored="false" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>    
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="resources/css/header.css"/>
 <link rel="stylesheet" href="resources/css/slider.css"/>
 <link rel="stylesheet" href="resources/css/style.css"/>
+<link rel="stylesheet" href="resources/css/categorynav.css"/>
+
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<!-- Navigation Bar Started -->
+<nav class="navbar navbar-default navbar-fixed-top" >
       <div class="container">
       	<div class="row row1" id="topbar">        	
             <ul class="largenav pull-right">
-                <li class="upper-links"><a class="links" href="/">Home</a></li>
-                <li class="upper-links"><a class="links" href="#">About Us</a></li>
-                <li class="upper-links"><a class="links" href="#">Contact US</a></li>
+                <li class="upper-links"><a class="links" href="/MobilesEra/">Home</a></li>
+                <li class="upper-links"><a class="links" href="aboutus">About Us</a></li>
+                <li class="upper-links"><a class="links" href="contactus">Contact US</a></li>
                 <li class="upper-links"><a class="links" href="#">FAQ's</a></li>
             </ul>
         </div>
@@ -34,8 +40,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>       
-          <a class="navbar-brand" href="#">MobilesEra</a>
+          </button>   
+          <a class="navbar-brand" href="#"><span class="glyphicons glyphicons-iphone"></span> MobilesEra</a>
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -74,7 +80,7 @@
                     <li class="divider"></li>
           			<li><a href="#"> Page</a></li>
                     <li class="divider"></li>
-          			<li><a href="#">Cart</a></li>                    
+          			<li><a href="userCartList">Cart</a></li>                    
         		</ul>
             </li>
             </sec:authorize>
@@ -93,10 +99,15 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
     </nav><!-- /.navbar -->
-   
+ <!-- Navigation Bar End -->
+
+<!-- Category Navigation Bar Start -->
+
+<%@include file="categorynav.jsp" %>
+
+<!-- Navigation Bar End -->
 
 <script src="resources/js/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.min.js" ></script>
 <script src="resources/js/angular.min.js" ></script>
-
-
+<script src="resources/js/categorynav.js" ></script>

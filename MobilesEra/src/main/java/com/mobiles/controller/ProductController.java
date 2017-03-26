@@ -159,4 +159,18 @@ public class ProductController
 		model.addAttribute("btnLabel","Update Product");
 		return "viewproductpage";
 	}
+	
+	@RequestMapping("/userProductPage")
+	public String getProduct(Model model)
+	{		
+		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
+		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
+		return "user-productpage";
+	}
+	
+	@RequestMapping("/productBy-{brandId}")
+	public String getProductByBrand(Model model)
+	{		
+		return "user-productpage";		
+	}
 }

@@ -2,9 +2,9 @@ package com.mobiles.controller;
 
 import java.security.Principal;
 import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +38,7 @@ public class CartsController
 		String prdName = productService.getProductById(productId).getProductName();
 		int price = productService.getProductById(productId).getProductPrice();
 
+		cartItems.setProductId(productId);
 		cartItems.setProductName(prdName);
 		cartItems.setRate(price);
 		cartItems.setQuantity(1);
@@ -49,8 +50,16 @@ public class CartsController
 		cartItems.setFlag("N");
 
 		cartService.addToCart(cartItems);
-
+		
+		return "redirect:/userCartList";
+	}
+	
+	@RequestMapping(value = "/userCartList")
+	public String getCartList(Principal p ,Model model)
+	{		
+		int userId = userService.getUserByusername(p.getName()).getUserId();
+		model.addAttribute("cartListByJson", cartService.fetchCartItemsByuserIdByJson(userId));
+				
 		return "cartlist";
 	}
-
 }

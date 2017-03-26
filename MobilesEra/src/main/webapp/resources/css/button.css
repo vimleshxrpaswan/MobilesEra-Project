@@ -1,6 +1,7 @@
  
 .dropbtn {
-   
+	margin : 8px;
+	max-height : 20px;    
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -35,6 +36,6 @@
     display: block;
 }
 
-/* .dropdown:hover .dropbtn {
+ .dropdown:hover .dropbtn {
     background-color: #3e8e41;
-} */
+} 
