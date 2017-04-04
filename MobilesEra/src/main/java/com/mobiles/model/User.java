@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User implements Serializable
@@ -28,7 +30,30 @@ public class User implements Serializable
 	private String contactNo;
 	private String alternateContactNo;
 	
+	@OneToOne
+	@JoinColumn(name="billingAddressId")
+	public BillingAddress billingAddress;
 	
+	@OneToOne
+	@JoinColumn(name="shippingAddressId")
+	public ShippingAddress shippingAddress;
+	
+	
+	public BillingAddress getBillingAddress() {
+		return billingAddress;
+	}
+	public void setBillingAddress(BillingAddress billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -90,7 +115,5 @@ public class User implements Serializable
 	public void setAlternateContactNo(String alternateContactNo) {
 		this.alternateContactNo = alternateContactNo;
 	}
-	
-	
 	
 }

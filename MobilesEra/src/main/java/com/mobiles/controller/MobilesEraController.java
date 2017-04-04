@@ -1,5 +1,7 @@
 package com.mobiles.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,5 +39,11 @@ public class MobilesEraController
 	public String getContactUsPage()
 	{
 		return "contactus";
+	}
+	
+	@RequestMapping("/403")
+	public String accesssDenied(Principal username)
+	{
+		return "403";
 	}
 }

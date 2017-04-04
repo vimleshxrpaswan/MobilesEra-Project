@@ -4,7 +4,7 @@
 	<div class="row text-center">
         <div class="col-sm-6 col-sm-offset-3">
         
-        <img src="resources/dataImages/Green-tick.png" style="width:100px;height:100px;" alt="Right Tick">
+        <img src="resources/dataImages/right-tick.jpg" style="width:100px;height:100px;" alt="Right Tick">
         <h3>Congratulations! Successfully Registered!</h3>
         <p style="font-size:20px;color:#5C5C5C;">Thank you for choosing MobilesEra.</p>
          <a href="login"><button  class="btn btn-warning " ><i class="glyphicon glyphicon-arrow-right"></i> Login</button></a>

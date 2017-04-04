@@ -2,6 +2,8 @@ package com.mobiles.dao;
 
 import java.util.List;
 
+import com.mobiles.model.BillingAddress;
+import com.mobiles.model.ShippingAddress;
 import com.mobiles.model.User;
 
 public interface UserDAO 
@@ -17,4 +19,8 @@ public interface UserDAO
 	public String fetchAllUserByJson();
 	
 	public void toggleUserStatus(int userId);
+	
+	public void addShippingAddress(ShippingAddress shippingAddress);
+	
+	public void addBillingAddress(BillingAddress billingAddress);
 }

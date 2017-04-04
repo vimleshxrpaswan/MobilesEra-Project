@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mobiles.daoimpl.UserDAOImpl;
+import com.mobiles.model.BillingAddress;
+import com.mobiles.model.ShippingAddress;
 import com.mobiles.model.User;
 
 @Service
@@ -44,5 +46,15 @@ public class UserService
 	public List<User> fetchAllUser() 
 	{
 		return userDAOImpl.fetchAllUser();
+	}
+	
+	public void addShippingAddress(ShippingAddress shippingAddress) 
+	{
+		userDAOImpl.addShippingAddress(shippingAddress);
+	}
+
+	public void addBillingAddress(BillingAddress billingAddress) {
+		userDAOImpl.addBillingAddress(billingAddress);
+		
 	}
 }

@@ -10,7 +10,7 @@
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
     	<form:form modelAttribute="user">
 			<fieldset>
-				<h2>Register for MobilesEra</h2>
+				<h2>Please Sign Up for MobilesEra</h2>
 				<hr>
 				<div class="form-group">
                     <form:input class="form-control input-lg" type="hidden" path="userId" placeholder="User Id" />                    

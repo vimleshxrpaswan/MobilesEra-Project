@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mobiles.dao.UserDAO;
+import com.mobiles.model.BillingAddress;
 import com.mobiles.model.Cart;
+import com.mobiles.model.ShippingAddress;
 import com.mobiles.model.User;
 
 @Repository
@@ -74,6 +76,16 @@ public class UserDAOImpl implements UserDAO
 	{
 		List<User> userList = sessionFactory.getCurrentSession().createQuery("from User").getResultList();
 		return userList;
+	}
+
+	public void addShippingAddress(ShippingAddress shippingAddress) 
+	{
+		sessionFactory.getCurrentSession().saveOrUpdate(shippingAddress);
+	}
+
+	public void addBillingAddress(BillingAddress billingAddress) {
+		sessionFactory.getCurrentSession().saveOrUpdate(billingAddress);
+		
 	}
 	
 }

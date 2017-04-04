@@ -36,29 +36,29 @@
 	
 		<view-state id="confirmDetails" view="confirmDetails" model="flowScope.user">
 		<transition on="edit" to="start" />
-		<transition on="submit" to="save" />
+		<transition on="submit" to="shippingAddress" />
 	</view-state>
 
 
-	<view-state id="shippingAddress" view="shippingAddress" model="shippingAddress">
-		<transition on="back" to="WebFlowRegister" />
+	<view-state id="shippingAddress" view="shippingaddresspage" model="shippingAddress">
+		<transition on="back" to="registration" />
 		<transition on="submit" to="addShippingAddress" />
-		<transition on="skip" to="addShippingAddress" />
+		<transition on="skip" to="billingAddress" />
 	</view-state>
 	
 	<action-state id="addShippingAddress">
-		<evaluate expression="registrationHandler.addShippingAddress(shippingAddress)"></evaluate>
+		<evaluate expression="registrationHandler.addShippingAddress(user,shippingAddress)"></evaluate>
 		<transition on="success" to="billingAddress" />
 	</action-state>
 	
-	<view-state id="billingAddress" view="billingAddress" model="billingAddress">
+	<view-state id="billingAddress" view="billingaddresspage" model="billingAddress">
 		<transition on="back" to="shippingAddress" />
 		<transition on="submit" to="addBillingAddress" />
-		<transition on="skip" to="addBillingAddress" />
+		<transition on="skip" to="save" />
 	</view-state>
 
 	<action-state id="addBillingAddress">
-		<evaluate expression="registrationHandler.addBillingAddress(billingAddress)"></evaluate>
+		<evaluate expression="registrationHandler.addBillingAddress(user,billingAddress)"></evaluate>
 		<transition on="success" to="saveOrUpdateUser" />
 	</action-state>
 
@@ -78,5 +78,4 @@
 <end-state id="home" view="home"/>
 
 	
-
 </flow>

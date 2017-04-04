@@ -163,6 +163,7 @@ public class ProductController
 	@RequestMapping("/userProductPage")
 	public String getProduct(Model model)
 	{		
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
 		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
 		return "user-productpage";
@@ -171,6 +172,7 @@ public class ProductController
 	@RequestMapping("/productBy-{brandId}")
 	public String getProductByBrand(Model model ,@PathVariable("brandId") int brandId)
 	{	
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("productlistbybrand", productService.fetchProductByBrand(brandId));
 		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
 		return "user-productpage";		

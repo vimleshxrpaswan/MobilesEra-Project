@@ -15,6 +15,11 @@ import com.mobiles.service.UserService;
 @Component
 public class RegistrationHandler  
 {	
+	@Autowired
+	public BillingAddress billingAddress;
+	
+	@Autowired
+	public ShippingAddress shippingAddress;
 	
 	@Autowired
 	public UserService userService;
@@ -92,7 +97,7 @@ public class RegistrationHandler
 }
 
 	
-/*	public String saveOrUpdateUser(User user, BillingAddress billingAddress, ShippingAddress shippingAddress,MessageContext messageContext){
+   public String saveOrUpdateUser(User user, BillingAddress billingAddress, ShippingAddress shippingAddress,MessageContext messageContext){
 		
 		try{
 		userService.addUser(user);
@@ -112,8 +117,7 @@ public class RegistrationHandler
 			
 		}
 		catch (Exception e) 
-		{
-			// TODO: handle exception
+		{			
 			messageContext.addMessage(new MessageBuilder().error().build());
 			return "failure";
 		}
@@ -122,8 +126,9 @@ public class RegistrationHandler
 		return "success";
 		
 	}
+
 	
-*/
+
 	public String checkDuplicate(User user,MessageContext messageContext){
 		String status="success";
 		List<User> userList = userService.fetchAllUser();
