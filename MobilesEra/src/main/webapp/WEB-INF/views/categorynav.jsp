@@ -19,9 +19,9 @@
 					<c:forEach items="${categoryList.subCategory}" var="subCategory">
 					<li class="col-sm-3">					
 						<ul>
-							<li class="dropdown-header">${subCategory.subCategoryName}</li>
+							<li class="dropdown-header"><a href="userProductPage?search=${subCategory.subCategoryName}">${subCategory.subCategoryName}</a></li>
 							<c:forEach items="${subCategory.brand}" var="brand">
-							<li><a href="#">${brand.brandName}</a></li>							
+							<li><a href="productBy-${brand.brandId}">${brand.brandName}</a></li>							
 							</c:forEach>
 						</ul>
 					</li>
@@ -31,6 +31,11 @@
 			</li>
 		</ul>
 		</c:forEach>
+		<ul class="nav navbar-nav">
+			<li>
+				<a href="userProductPage">All Products</a>
+			</li>
+		</ul>
 		</div>
       </div>
     </div>

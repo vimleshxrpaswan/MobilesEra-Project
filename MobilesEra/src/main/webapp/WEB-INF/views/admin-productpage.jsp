@@ -1,17 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
 <%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css" />
  
-<div class="container">
+<div class="container" style="margin-top: 20px">
 
-<!-- Product Form -->	
- 	<div class="text-center">
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
  		<h1>Product Form</h1>
  	</div>
  	<br>
- 	<div class="form">	
+ 	<div class="panel-body form">	
 		<form:form modelAttribute="product" action="addProduct" enctype="multipart/form-data">
 				<form:input type="hidden" path="productId" placeholder="Product Id" /> 
 		<div class="row">
@@ -28,16 +27,196 @@
 		<br>
 		<div class="row">
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<form:label path="productDescription">Enter the Description for Product </form:label>
+				<form:label path="productColor">Enter the Colour of Product </form:label>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<form:input class="form-control" path="productDescription" placeholder="Product Description" />
+				<form:input class="form-control" path="productColor" placeholder="Product Colour" />
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">	
-				<form:errors path="productDescription" cssClass="error" />
+				<form:errors path="productColor" cssClass="error" />
 			</div>
 		</div>
 		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productRam">Enter the RAM of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productRam" placeholder="Product RAM" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productRam" cssClass="error" />
+			</div>
+		</div>
+		<br>		
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productWeight">Enter the Weight of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productWeight" placeholder="Product Weight" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productWeight" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productWarranty">Enter the Warranty of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productWarranty" placeholder="Product Warranty" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productWarranty" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productScreenSize">Enter the Screen Size of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productScreenSize" placeholder="Product Screen Size" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productScreenSize" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productNetworkType">Enter the Network Type of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productNetworkType" placeholder="Product Network Type" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productNetworkType" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productBatteryCapacity">Enter the Battery Capacity of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productBatteryCapacity" placeholder="Product Battery Capacity" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productBatteryCapacity" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productCamera">Enter the Camera of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productCamera" placeholder="Product Camera" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productCamera" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productSecondaryCamera">Enter the Secondary Camera of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productSecondaryCamera" placeholder="Product Secondary Camera" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productSecondaryCamera" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productOperatingSystem">Enter the Operating System of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productOperatingSystem" placeholder="Product Operating System" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productOperatingSystem" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productProcessor">Enter the Processor of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productProcessor" placeholder="Product Processor" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productProcessor" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productGraphicsMemory">Enter the Graphics Memory of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productGraphicsMemory" placeholder="Product Graphics Memory" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productGraphicsMemory" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productHardDiskCapacity">Enter the HardDisk Capacity/Internal Memory of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productHardDiskCapacity" placeholder="Product HardDisk Capacity" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productHardDiskCapacity" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productPortType">Enter the Port Type of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productPortType" placeholder="Product Port Type" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productPortType" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productConnectivityFeatures">Enter the Connectivity Features of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productConnectivityFeatures" placeholder="Product Connectivity Features" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productConnectivityFeatures" cssClass="error" />
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:label path="productResolution">Enter the Screen Resolution of Product </form:label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:input class="form-control" path="productResolution" placeholder="Product Resolution" />
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">	
+				<form:errors path="productResolution" cssClass="error" />
+			</div>
+		</div>
+		<br>			
 		<div class="row">
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<form:label path="productImage">Choose the Image for Product </form:label>
@@ -55,7 +234,7 @@
 				<form:label path="productPrice">Enter the Price of Product </form:label>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<form:input class="form-control" path="productPrice" value="100" placeholder="Product Actual Price" />
+				<form:input class="form-control" path="productPrice" placeholder="Product Actual Price" />
 			</div>
 		</div>
 		<br>
@@ -133,32 +312,28 @@
 		</div>
 </form:form>
  	</div>
- 	
-<br>
+ 	</div>
+
 <hr>
 
 <!-- Product List -->
 
  <div ng-app="myApp">
- <div class="text-center">
+ <div class="panel panel-default">
+ <div class="panel-heading text-center">
  	<h1>Product List</h1>
  </div>
+ 
+ <div class="panel-body table-responsive">
  <div class="row">	
- 	<div class="input-group col-xs-12 col-md-4 col-sm-4">	
- 		<input class="form-control" type="text" ng-model="search" placeholder="search" />
- 		<div class="input-group-btn">
-          <button class="btn btn-default" type="submit">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </div>
+ 	<div class=" col-xs-12 col-md-4 col-sm-4">	
+ 		<input class="form-control" type="text" ng-model="search" placeholder="search..." /> 		
  	</div>
  </div>
  <br>
- <div class="table-responsive">
  <table class="table" ng-controller="myController">
 <tr>
 <th>Name</th>
-<th>Description</th>
 <th>Actual Price</th>
 <th>Discount</th>
 <th> Made In Country</th>
@@ -170,12 +345,10 @@
 <th>Product Image</th>
 <th>Update Product</th>
 <th>Delete Product</th>
-<th>View</th> 
 </tr>
 <tr ng-repeat="productlist in myscope | filter:search ">
 <td>{{productlist.productName}}</td>
-<td>{{productlist.productDescription}}</td>
-<td>{{productlist.productActualPrice}}</td>
+<td>{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></td>
 <td>{{productlist.productDiscount}}</td>
 <td>{{productlist.productMadeCountry}}</td>
 <td>{{productlist.productStock}}</td>
@@ -185,13 +358,12 @@
 <td>{{productlist.supplier.supplierName}}</td>
 <td><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" height="80px" width="80px" alt="img not uploaded"/></td>
 <td><a href="updateProductById-{{productlist.productId}}" class="btn btn-warning" role="button" >Update</a></td>
-<td><a href="deleteProductById-{{productlist.productId}}" class="btn btn-danger" role="button">Delete</a></td>
-<td><a href="viewProductById-{{productlist.productId}}" class="btn btn-primary" role="button">View Product</a></td>  
+<td><a href="deleteProductById-{{productlist.productId}}" class="btn btn-danger" role="button">Delete</a></td>  
 </tr>
 </table>
 </div>
  </div>
-
+</div>
 </div>
 
 <script>
@@ -200,7 +372,5 @@ a.controller('myController', function($scope){
 $scope.myscope= ${productListByJson}
 });
 </script>
-
-
 
 <%@include file="footer.jsp" %>

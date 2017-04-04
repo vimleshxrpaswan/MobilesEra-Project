@@ -1,13 +1,14 @@
 <%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css" />
 
- <div class="container">
- 	
- 	<div class="text-center">
+ <div class="container" style="margin-top: 20px">
+
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
  		<h1>Brand Form</h1>
  	</div>	
  	<br>
- 	<div class="form">
+ 	<div class="panel-body form">
 		<form:form modelAttribute="brand" action="addBrand">
 			<form:input type="hidden" path="brandId" placeholder="Brand Id" /> 
 			<div class="row">
@@ -54,25 +55,22 @@
 		  </div>		
 		</form:form>
  </div>
- <br>
+ </div>
  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
  
  <div ng-app="myApp">
- <div class="text-center">
- 	<h1>Brand List</h1>
- </div>
+ <div class="panel panel-default">
+    <div class="panel-heading text-center">
+ 		<h1>Brand List</h1>
+ 	</div>
+ 
+ <div class="panel-body table-responsive">
  <div class="row">	
- 	<div class="input-group col-xs-12 col-md-4 col-sm-4">	
- 		<input class="form-control" type="text" ng-model="search" placeholder="search" />
- 		<div class="input-group-btn">
-          <button class="btn btn-default" type="submit">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </div>
+ 	<div class="col-xs-12 col-md-4 col-sm-4">	
+ 		<input class="form-control" type="text" ng-model="search" placeholder="search..." /> 		
  	</div>
  </div>
  <br>
- <div class="table-responsive">
  <table class="table" ng-controller="myController">
 <tr>
 <th>Name</th>
@@ -93,7 +91,7 @@
  </div>
 
 </div>
-
+</div>
 <script>
 var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){

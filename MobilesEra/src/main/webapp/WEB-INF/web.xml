@@ -7,7 +7,8 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/application-context.xml,
-    /WEB-INF/spring-security.xml
+    /WEB-INF/spring-security.xml,
+    /WEB-INF/webflow-config.xml
     </param-value>
 </context-param>
 

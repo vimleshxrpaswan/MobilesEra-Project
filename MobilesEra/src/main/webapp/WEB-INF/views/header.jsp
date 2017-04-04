@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="resources/css/slider.css"/>
 <link rel="stylesheet" href="resources/css/style.css"/>
 <link rel="stylesheet" href="resources/css/categorynav.css"/>
-
+<link rel="stylesheet" href="resources/css/user-productpage.css"/> 
 </head>
 <body>
 
@@ -41,21 +41,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>   
-          <a class="navbar-brand" href="#"><span class="glyphicons glyphicons-iphone"></span> MobilesEra</a>
+          <a class="navbar-brand" href="/MobilesEra/"><i class="fa fa-mobile" aria-hidden="true"></i> MobilesEra</a>
         </div>
-    
+    	
+    	
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-3">
           <ul class="nav navbar-nav navbar-right">
-            <c:if test="${pageContext.request.userPrincipal.name == null}">        
-            	<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
-            </c:if>
-            <c:if test="${pageContext.request.userPrincipal.name != null}">
-            	<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
-            </c:if>
-            <c:if test="${pageContext.request.userPrincipal.name == null}">
-            	<li><a href="registrationPage"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            </c:if>
+            
             <sec:authorize access="hasRole('ROLE_ADMIN')">		
             <li class="dropdown">
             	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
@@ -78,12 +71,21 @@
                 <ul class="dropdown-menu">
           			<li><a href="#">Profile</a></li>
                     <li class="divider"></li>
-          			<li><a href="#"> Page</a></li>
+          			<li><a href="userWishList"> WishList</a></li>
                     <li class="divider"></li>
           			<li><a href="userCartList">Cart</a></li>                    
         		</ul>
             </li>
             </sec:authorize>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">        
+            	<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+            	<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">
+            	<li><a href="reg"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            </c:if>
             <li>
               <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
             </li>
@@ -111,3 +113,4 @@
 <script src="resources/js/bootstrap.min.js" ></script>
 <script src="resources/js/angular.min.js" ></script>
 <script src="resources/js/categorynav.js" ></script>
+<script src="resources/js/user-productpage.js" ></script>

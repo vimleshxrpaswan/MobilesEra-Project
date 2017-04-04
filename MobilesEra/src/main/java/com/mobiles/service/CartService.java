@@ -23,4 +23,14 @@ public class CartService
 	{
 		return cartDAOImpl.fetchCartItemsByuserIdByJson(userId);
 	}
+	
+	public void deleteItem(int cartItemId)
+	{
+		cartDAOImpl.deleteItem(cartItemId);
+	}
+	
+	public CartItems fetchOneCartItem(int cartItemId)
+	{
+		return cartDAOImpl.fetchOneCartItem(cartItemId);
+	}
 }

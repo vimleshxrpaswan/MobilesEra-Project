@@ -1,5 +1,7 @@
 package com.mobiles.dao;
 
+import java.util.List;
+
 import com.mobiles.model.User;
 
 public interface UserDAO 
@@ -10,5 +12,9 @@ public interface UserDAO
 	
 	public User getUserByusername(String username);
 	
+	public List<User> fetchAllUser();
+	
 	public String fetchAllUserByJson();
+	
+	public void toggleUserStatus(int userId);
 }

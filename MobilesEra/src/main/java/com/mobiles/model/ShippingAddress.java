@@ -1,6 +1,10 @@
 package com.mobiles.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -8,10 +12,16 @@ import javax.persistence.OneToOne;
 import com.google.gson.annotations.Expose;
 
 @Entity
-public class ShippingAddress 
+public class ShippingAddress implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Expose
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int shipAddId;
 	
 	@Expose
@@ -32,11 +42,11 @@ public class ShippingAddress
 	@Expose
 	private String sCity;
 	
+	@Expose
+	private String sDistrict;
+	
 	@Expose	
 	private String sState;
-	
-	@Expose
-	private String sCountry;
 	
 	@Expose
 	private int sPIN;
@@ -100,6 +110,14 @@ public class ShippingAddress
 	public void setsCity(String sCity) {
 		this.sCity = sCity;
 	}
+	
+	public String getsDistrict() {
+		return sDistrict;
+	}
+
+	public void setsDistrict(String sDistrict) {
+		this.sDistrict = sDistrict;
+	}
 
 	public String getsState() {
 		return sState;
@@ -107,18 +125,6 @@ public class ShippingAddress
 
 	public void setsState(String sState) {
 		this.sState = sState;
-	}
-
-	public String getsCountry() {
-		return sCountry;
-	}
-
-	public void setsCountry(String sCountry) {
-		this.sCountry = sCountry;
-	}
-
-	public int getsPIN() {
-		return sPIN;
 	}
 
 	public void setsPIN(int sPIN) {
@@ -129,9 +135,12 @@ public class ShippingAddress
 		return user;
 	}
 	
-
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public int getsPIN() {
+		return sPIN;
 	}
 	
 	

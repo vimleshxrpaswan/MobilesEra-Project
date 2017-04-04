@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mobiles.model.CartItems;
+import com.mobiles.model.Product;
 import com.mobiles.service.CartService;
 import com.mobiles.service.ProductService;
 import com.mobiles.service.UserService;
@@ -61,5 +62,37 @@ public class CartsController
 		model.addAttribute("cartListByJson", cartService.fetchCartItemsByuserIdByJson(userId));
 				
 		return "cartlist";
+	}
+	
+	@RequestMapping("/deleteFromCart-{cartItemId}")
+	public String deleteFromCart(@PathVariable("cartItemId")int cartItemId,Principal p, Model model)
+	{
+			cartService.deleteItem(cartItemId);
+			model.addAttribute("commonmessage", "Removed From Cart");
+			return "redirect:/userCartList";
+	}
+	
+	
+	@RequestMapping("/checkoutfromcart-{cartItemId}")
+	public String checkoutFromCart(@PathVariable("cartItemId")int cartItemId,Principal p, Model model)
+	{
+			CartItems thisItem = cartService.fetchOneCartItem(cartItemId);
+			
+			if(thisItem.getFlag().equals("N"))
+			{
+			Product product = productService.getProductById(thisItem.getProductId());
+			
+			product.setProductStock(product.getProductStock() - thisItem.getQuantity());
+			productService.addProduct(product);
+			
+			thisItem.setFlag("Y");
+			cartService.addToCart(thisItem);
+			
+			model.addAttribute("commonmessage", "Removed From Cart");
+			return "redirect:/userCartList";
+			}
+			
+			model.addAttribute("commonmessage", "Operation Interrupted");
+			return "redirect:/userCartList";
 	}
 }

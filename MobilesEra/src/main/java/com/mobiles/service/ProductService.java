@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.mobiles.daoimpl.ProductDAOImpl;
 import com.mobiles.model.Product;
 
@@ -46,5 +44,6 @@ public class ProductService
 	public String fetchProductByBrand(int brandId) 
 	{
 		return productDAOImpl.fetchProductByBrand(brandId);
+		
 	}
 }

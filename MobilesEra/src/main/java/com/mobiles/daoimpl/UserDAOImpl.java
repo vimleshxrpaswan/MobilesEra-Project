@@ -56,5 +56,24 @@ public class UserDAOImpl implements UserDAO
 		return ulist;
 	}
 
+	public void toggleUserStatus(int userId) 
+	{
+		User user = getUserId(userId);
+		if(user.isEnabled())
+		{
+			user.setEnabled(false);
+		}
+		else
+		{
+			user.setEnabled(true);
+		}
+		
+	}
 
+	public List<User> fetchAllUser() 
+	{
+		List<User> userList = sessionFactory.getCurrentSession().createQuery("from User").getResultList();
+		return userList;
+	}
+	
 }

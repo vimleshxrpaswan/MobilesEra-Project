@@ -7,6 +7,12 @@ hr{
 	background-color:gray
 }
 
+#search {
+    position: relative;
+    font-size: 18px;
+    padding-top: 40px;
+    margin: -20px auto 0;
+}
 /* Page loader css */
 
 

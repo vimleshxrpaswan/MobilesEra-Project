@@ -4,31 +4,38 @@
     <div class="container">
         <div class="row">
         <div class="col-sm-3">
-            <h4 class="title">Abhay</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit, libero a molestie consectetur, sapien elit lacinia mi.</p>
+            <h4 class="title">MobilesEra</h4>
+            
+            <p><i class="fa fa-map-pin"></i> 210, Aggarwal Tower, Rohini sec 9, Mumbai -        110085, INDIA</p>
+        	<p><i class="fa fa-phone"></i> Phone (India) : +91 7666 856 180</p>
+        	<p><i class="fa fa-envelope"></i> E-mail : abhay@gmail.com</p>
             <ul class="social-icon">
-            <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>            
-            <a href="#" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            <a href="#" class="social"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-            <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>          
+            	<a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>            
+            	<a href="#" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            	<a href="#" class="social"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            	<a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>          
             </ul>
             </div>
+        <c:if test="${pageContext.request.userPrincipal.name != null}">    
         <div class="col-sm-3">
             <h4 class="title">My Account</h4>
             <span class="acount-icon">          
-            <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Wish List</a>
-            <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> Cart</a>
-            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
-            <a href="#"><i class="fa fa-globe" aria-hidden="true"></i> Language</a>           
+            <a href="userWishList"><i class="fa fa-heart" aria-hidden="true"></i> Wish List</a>
+            <a href="userCartList"><i class="fa fa-cart-plus" aria-hidden="true"></i> Cart</a>
+            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>                      
           </span>
-            </div>
-        <div class="col-sm-3">
-            <h4 class="title">Category</h4>
-            <div class="category">
-            <a href="#">Mobiles</a>
-            <a href="#">Laptops</a>
-            <a href="#">Tabs</a>                    
-            </div>
+         </div>
+         </c:if>   
+        	<div class="col-md-3 footer-nav animated fadeInUp">            	
+                <h4>Pages -</h4>
+            	<div class="col-md-6">
+                    <ul class="list">
+                        <li><a href="/MobilesEra/">Home</a></li>
+                        <li><a href="contactus">Contacts</a></li>
+                        <li><a href="aboutus">About Us</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                    </ul>
+                </div>
             </div>
         <div class="col-sm-3">
             <h4 class="title">Payment Methods</h4>
@@ -39,7 +46,8 @@
             <li><a href="#"><i class="fa fa-paypal" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-cc-visa" aria-hidden="true"></i></a></li>
             </ul>
-            </div>
+        </div>   
+        
         </div>
         <hr>
         

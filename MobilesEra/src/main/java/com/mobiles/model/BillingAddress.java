@@ -1,6 +1,10 @@
 package com.mobiles.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -8,10 +12,16 @@ import javax.persistence.OneToOne;
 import com.google.gson.annotations.Expose;
 
 @Entity
-public class BillingAddress 
+public class BillingAddress implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Expose
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int billAddId;
 	
 	@Expose
@@ -33,10 +43,10 @@ public class BillingAddress
 	private String bCity;
 	
 	@Expose
-	private String bState;
+	private String bDistrict;
 	
 	@Expose
-	private String bCountry;
+	private String bState;
 	
 	@Expose
 	private int bPIN;
@@ -100,6 +110,14 @@ public class BillingAddress
 	public void setbCity(String bCity) {
 		this.bCity = bCity;
 	}
+	
+	public String getbDistrict() {
+		return bDistrict;
+	}
+
+	public void setbDistrict(String bDistrict) {
+		this.bDistrict = bDistrict;
+	}
 
 	public String getbState() {
 		return bState;
@@ -107,14 +125,6 @@ public class BillingAddress
 
 	public void setbState(String bState) {
 		this.bState = bState;
-	}
-
-	public String getbCountry() {
-		return bCountry;
-	}
-
-	public void setbCountry(String bCountry) {
-		this.bCountry = bCountry;
 	}
 
 	public int getbPIN() {

@@ -169,8 +169,10 @@ public class ProductController
 	}
 	
 	@RequestMapping("/productBy-{brandId}")
-	public String getProductByBrand(Model model)
-	{		
+	public String getProductByBrand(Model model ,@PathVariable("brandId") int brandId)
+	{	
+		model.addAttribute("productlistbybrand", productService.fetchProductByBrand(brandId));
+		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
 		return "user-productpage";		
 	}
 }

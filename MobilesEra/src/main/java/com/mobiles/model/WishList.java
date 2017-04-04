@@ -27,10 +27,10 @@ public class WishList
 	private String productName;
 	
 	@Expose
-	private float productPrice;
+	private int productPrice;
 	
 	@Expose
-	private int productDiscount;
+	private double productDiscount;
 	
 	@ManyToOne
 	@JoinColumn(name="userId", nullable=false , updatable=false , insertable=false )
@@ -68,19 +68,19 @@ public class WishList
 		this.productName = productName;
 	}
 
-	public float getProductPrice() {
+	public int getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(float productPrice) {
+	public void setProductPrice(int productPrice) {
 		this.productPrice = productPrice;
 	}
 
-	public int getProductDiscount() {
+	public double getProductDiscount() {
 		return productDiscount;
 	}
 
-	public void setProductDiscount(int productDiscount) {
+	public void setProductDiscount(double productDiscount) {
 		this.productDiscount = productDiscount;
 	}
 

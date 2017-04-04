@@ -9,10 +9,10 @@
 				<h2>Please Sign In</h2>
 				<hr>
 				<div class="form-group">
-                    <input type="email" name="username" id="email" class="form-control input-lg" placeholder="Email Address" autofocus="true">
+                    <input type="email" name="username" id="email" class="form-control input-lg" placeholder="Email Address" autofocus="true" required="true"/>
 				</div>
 				<div class="form-group">
-                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+                    <input type="password" name="password" id="password" class="form-control input-lg" min="6" placeholder="Password" required="true" />
 				</div>
 				<!-- <span class="button-checkbox">
 					<button type="button" class="btn btn-info" data-color="info">Remember Me</button>

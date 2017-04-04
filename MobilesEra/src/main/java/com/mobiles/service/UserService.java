@@ -1,5 +1,7 @@
 package com.mobiles.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,5 +34,15 @@ public class UserService
 	public String fetchAllUserByJson()
 	{
 		return userDAOImpl.fetchAllUserByJson();
+	}
+	
+	public void toggleUserStatus(int userId)
+	{
+		userDAOImpl.toggleUserStatus(userId);
+	}
+	
+	public List<User> fetchAllUser() 
+	{
+		return userDAOImpl.fetchAllUser();
 	}
 }
