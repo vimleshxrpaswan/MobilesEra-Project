@@ -57,4 +57,14 @@ public class UserService
 		userDAOImpl.addBillingAddress(billingAddress);
 		
 	}
+	
+	public BillingAddress getBillingAddressById(int userId)
+	{
+		return userDAOImpl.getBillingAddressById(userId);
+	}
+	
+	public ShippingAddress getShippingAddressById(int userId)
+	{
+		return userDAOImpl.getShippingAddressById(userId);
+	}
 }

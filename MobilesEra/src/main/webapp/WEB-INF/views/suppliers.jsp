@@ -146,33 +146,36 @@
  	</div>
  </div>
  <br>
- <table class="table" ng-controller="myController">
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Landmark</th>
-<th>Street</th>
-<th>City</th>
-<th>State</th>
-<th>Country</th>
-<th>Email</th>
-<th>Contact Number</th>
-<th>Update Brand</th>
-<th>Delete Brand</th> 
-</tr>
-<tr ng-repeat="supplierlist in myscope | filter:search">
-<td>{{supplierlist.supplierName}}</td>
-<td>{{supplierlist.supplierDescription}}</td>
-<td>{{supplierlist.supplierLandmark}}</td>
-<td>{{supplierlist.supplierStreet}}</td>
-<td>{{supplierlist.supplierCity}}</td>
-<td>{{supplierlist.supplierState}}</td>
-<td>{{supplierlist.supplierCountry}}</td>
-<td>{{supplierlist.supplierEmail}}</td>
-<td>{{supplierlist.supplierContactNo}}</td>
-<td><a href="updateSupplierById-{{supplierlist.supplierId}}" class="btn btn-warning" role="button">Update</a></td>
-<td><a href="deleteSupplierById-{{supplierlist.supplierId}}" class="btn btn-danger" role="button">Delete</a></td>
-</tr>
+<table class="table" ng-controller="myController">
+<thead>
+	<tr>
+		<th>Name</th>
+		<th><center>Description</center></th>
+		<th>Landmark</th>
+		<th>Street</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Country</th>
+		<th>Email</th>
+		<th>Contact Number</th>
+		<th>Operations</th> 
+	</tr>
+</thead>
+<tbody>
+	<tr ng-repeat="supplierlist in myscope | filter:search">
+		<td>{{supplierlist.supplierName}}</td>
+		<td>{{supplierlist.supplierDescription}}</td>
+		<td>{{supplierlist.supplierLandmark}}</td>
+		<td>{{supplierlist.supplierStreet}}</td>
+		<td>{{supplierlist.supplierCity}}</td>
+		<td>{{supplierlist.supplierState}}</td>
+		<td>{{supplierlist.supplierCountry}}</td>
+		<td>{{supplierlist.supplierEmail}}</td>
+		<td>{{supplierlist.supplierContactNo}}</td>		
+		<td><a href="updateSupplierById-{{supplierlist.supplierId}}" class="btn btn-warning" data-toggle="tooltip" title="edit" role="button"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+	<a href="deleteSupplierById-{{supplierlist.supplierId}}" class="btn btn-danger" data-toggle="tooltip" title="Delete" role="button"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td>
+	</tr>
+</tbody>
 </table>
  </div>
 </div>

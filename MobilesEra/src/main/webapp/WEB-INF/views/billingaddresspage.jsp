@@ -87,8 +87,8 @@
 							class="btn btn-success btn-block btn-lg" />
 					</div>
 					<div class="col-xs-4 col-md-4">
-						<input name="_eventId_cancel" type="submit" value="Cancel"
-							class="btn btn-success btn-block btn-lg">
+						<input name="_eventId_back" type="submit" value="Back"
+							class="btn btn-danger btn-block btn-lg">
 					</div>
 				</div>
 			</fieldset>

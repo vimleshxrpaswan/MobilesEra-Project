@@ -69,18 +69,22 @@
  <br>
  <div class="table-responsive">
  <table class="table" ng-controller="myController">
+ <thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
-<th>Update Category</th>
-<th>Delete Category</th> 
+	<th><center>Name</center></th>
+	<th><center>Description</center></th>
+	<th>Operations</th>
+	
 </tr>
-<tr ng-repeat="clist in myscope | filter:search">
-<td>{{clist.categoryName}}</td>
-<td>{{clist.categoryDescription}}</td>
-<td><a href="updateCategoryById-{{clist.categoryId}}" class="btn btn-warning" role="button">Update</a></td>
-<td><a href="deleteCategoryById-{{clist.categoryId}}" class="btn btn-danger" role="button">Delete</a></td>
+</thead>
+<tbody> 
+<tr ng-repeat="clist in myscope | filter:search ">
+	<td><center>{{clist.categoryName}}</center></td>
+	<td><center>{{clist.categoryDescription}}</center></td>
+	<td><a href="updateCategoryById-{{clist.categoryId}}" class="btn btn-warning" data-toggle="tooltip" title="edit" role="button"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+	<a href="deleteCategoryById-{{clist.categoryId}}" class="btn btn-danger" data-toggle="tooltip" title="Delete" role="button"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td>
 </tr>
+</tbody>
 </table>
 </div>
 </div>
@@ -92,10 +96,7 @@ var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${categoryListByJson}
 });
-</script> 
-
-
-
+</script>
 
 
 <%@include file="footer.jsp" %>

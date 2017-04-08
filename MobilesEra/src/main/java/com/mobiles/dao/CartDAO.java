@@ -11,5 +11,11 @@ public interface CartDAO
 	
 	public void deleteItem(int cartItemId);
 	
-	public CartItems fetchOneCartItem(int cartItemId); 
+	public CartItems fetchOneCartItem(int cartItemId);
+	
+	public void placeOrder(int cartItemId);
+	
+	public void minusProductQuantity(int productId);
+   	
+    public void addProductQuantity(int productId);
 }

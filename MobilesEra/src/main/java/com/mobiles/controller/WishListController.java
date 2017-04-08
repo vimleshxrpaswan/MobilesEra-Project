@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mobiles.model.Product;
 import com.mobiles.model.WishList;
+import com.mobiles.service.CategoryService;
 import com.mobiles.service.ProductService;
 import com.mobiles.service.UserService;
 import com.mobiles.service.WishListService;
@@ -24,6 +25,9 @@ public class WishListController
 	private UserService userService;
 	
 	@Autowired
+	private CategoryService categoryService;
+	
+	@Autowired
 	private WishListService wishListService;
 	
 	@RequestMapping("/userWishList")
@@ -31,6 +35,7 @@ public class WishListController
 	{
 		int userId = userService.getUserByusername(p.getName()).getUserId();		
 		model.addAttribute("wishListByJSON", wishListService.getWishList(userId));
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		
 		return "user-wishlist";
 	}

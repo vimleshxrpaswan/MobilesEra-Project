@@ -33,4 +33,19 @@ public class CartService
 	{
 		return cartDAOImpl.fetchOneCartItem(cartItemId);
 	}
+	
+	public void placeOrder(int cartItemId)
+	{
+		cartDAOImpl.placeOrder(cartItemId);	
+	}
+	
+	public void minusProductQuantity(int productId)
+	{
+		cartDAOImpl.minusProductQuantity(productId);
+	}
+	
+    public void addProductQuantity(int productId)
+    {
+    	cartDAOImpl.addProductQuantity(productId);
+    }
 }

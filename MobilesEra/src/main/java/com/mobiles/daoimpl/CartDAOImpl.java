@@ -43,4 +43,18 @@ public class CartDAOImpl implements CartDAO
 		return cartItems;
 	}
 
+	public void placeOrder(int cartItemId)
+	{
+		sessionFactory.getCurrentSession().createQuery("update CartItems set flag='Y' where cartItemId="+cartItemId);
+	}
+
+	public void minusProductQuantity(int productId) 
+	{
+		sessionFactory.getCurrentSession().createQuery("update Product set productstock=productstock-1 where productId=" +productId);
+	}
+
+	public void addProductQuantity(int productId) 
+	{
+		sessionFactory.getCurrentSession().createQuery("update Product set productstock=productstock+1 where productId=" +productId);
+	}
 }

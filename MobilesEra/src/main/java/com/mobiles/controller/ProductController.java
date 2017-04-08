@@ -151,6 +151,7 @@ public class ProductController
 		String productData= g.toJson(p);
 		model.addAttribute("productData", productData);
 				
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
 		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
 		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
@@ -169,12 +170,15 @@ public class ProductController
 		return "user-productpage";
 	}
 	
-	@RequestMapping("/productBy-{brandId}")
-	public String getProductByBrand(Model model ,@PathVariable("brandId") int brandId)
+	@RequestMapping("/productBy-{categoryName}")
+	public String getProductByBrand(Model model)
 	{	
 		model.addAttribute("categoryList", categoryService.fetchAllCategories());
-		model.addAttribute("productlistbybrand", productService.fetchProductByBrand(brandId));
+		model.addAttribute("productlistbycategorymobile", productService.fetchProductByCategoryMobiles());
+		model.addAttribute("productlistbycategorylaptop", productService.fetchProductByCategoryLaptops());
+		model.addAttribute("productlistbycategorytab", productService.fetchProductByCategoryTabs());
 		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
-		return "user-productpage";		
+		return "home";		
 	}
+	
 }

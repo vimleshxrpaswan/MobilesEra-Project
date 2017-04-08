@@ -5,12 +5,17 @@ import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
 import com.mobiles.model.BillingAddress;
+import com.mobiles.model.BuyNow;
 import com.mobiles.model.ShippingAddress;
-
 
 @Component
 public class CartHandler 
 {
+	 public BuyNow initFlow()
+	 {
+		return new BuyNow();
+	 }
+	
 	 public String validateShippingDetails(ShippingAddress shippingAddress,MessageContext messageContext){
 			String status = "success";
 			

@@ -9,11 +9,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mobiles.model.User;
+import com.mobiles.service.CategoryService;
 import com.mobiles.service.UserService;
 
 @Controller
@@ -21,6 +20,9 @@ public class UserController
 {
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	CategoryService categoryService;
 	
 	/*@RequestMapping("/registrationPage")
 	public String userRegistrationPage(Model model )
@@ -32,6 +34,9 @@ public class UserController
 	@RequestMapping("/userList")
 	public String getAllUserByJson(Model model)
 	{	
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
+		model.addAttribute("userlist", userService.fetchAllUser());
+		model.addAttribute("userlistbyjson", userService.fetchAllUserByJson());
 		return "userlist";
 	}
 		
@@ -46,7 +51,7 @@ public class UserController
 	public String toggleUser(@PathVariable("userId")int userId)
 	{
 		userService.toggleUserStatus(userId);
-		return "redirect:/registrationPage";
+		return "redirect:/userList";
 	}
 
 	@RequestMapping("/login")

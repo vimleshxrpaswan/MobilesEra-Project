@@ -16,6 +16,7 @@
  </div>
  <br>
 <table class="table" ng-controller="myController">
+<thead>	
 	<tr>
 		<th>Product Image</th>
 		<th>Product Name</th>
@@ -23,16 +24,19 @@
 		<th>Discount</th>
 		<th>Operations</th>
 	</tr>
+</thead>
+<tbody>	
 	<tr ng-repeat="wishlist in myscope | filter:search">		
-		<td><img src="resources/productImages/productImage-{{wishlist.productId}}.jpg" height="100px" width="100px" alt="img not uploaded"/></td>		
+		<td><img src="resources/productImages/productImage-{{wishlist.productId}}.jpg" height="150px" width="150px" alt="img not uploaded"/></td>		
 		<td>{{wishlist.productName}}</td>
 		<td>{{wishlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></td>
 		<td>{{wishlist.productDiscount}} <i class="fa fa-percent" aria-hidden="true"></i></td>
 		<td>
-			<a href="addtocart-{{wishlist.productId}}" class="btn btn-warning" role="button">Add To Cart </a>
-			<a href="deleteFromWishList-{{wishlist.wishId}}" class="btn btn-danger" role="button">Remove item</a>
+			<a href="addtocart-{{wishlist.productId}}" class="btn btn-warning" data-toggle="tooltip" title="Add To Cart" role="button"><i class="fa fa-cart-plus " aria-hidden="true"></i></a>
+			<a href="deleteFromWishList-{{wishlist.wishId}}" class="btn btn-danger" data-toggle="tooltip" title="Remove item" role="button"><i class="fa fa-trash " aria-hidden="true"></i></a>
 		</td>
 	</tr>
+</tbody>	
 </table>
 </div>
 </div>

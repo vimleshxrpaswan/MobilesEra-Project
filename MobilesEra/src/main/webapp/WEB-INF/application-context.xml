@@ -53,7 +53,7 @@
 
 	<bean id="billingAddress" class="com.mobiles.model.BillingAddress"></bean> 
 	<bean id="shippingAddress" class="com.mobiles.model.ShippingAddress"></bean>
-	<bean id="supplierAddress" class="com.mobiles.model.Supplier"></bean>
+	<bean id="supplier" class="com.mobiles.model.Supplier"></bean>
 	<bean id="userService" class="com.mobiles.service.UserService"></bean>	
 	<bean id="user" class="com.mobiles.model.User"></bean>	
 	<bean id="product" class="com.mobiles.model.Product"></bean>

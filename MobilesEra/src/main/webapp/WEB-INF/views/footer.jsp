@@ -6,9 +6,9 @@
         <div class="col-sm-3">
             <h4 class="title">MobilesEra</h4>
             
-            <p><i class="fa fa-map-pin"></i> 210, Aggarwal Tower, Rohini sec 9, Mumbai -        110085, INDIA</p>
-        	<p><i class="fa fa-phone"></i> Phone (India) : +91 7666 856 180</p>
-        	<p><i class="fa fa-envelope"></i> E-mail : abhay@gmail.com</p>
+            <p><i class="fa fa-map-pin"></i> 101, Matru Chhaya, Opposite Chinai Collage, Old Nagardas Road, Andheri (E), Mumbai, MH 400069</p>
+        	<p><i class="fa fa-phone"></i> Phone (India) : +91 1234 567 180</p>
+        	<p><i class="fa fa-envelope"></i> E-mail : cs@mobilesera.com</p>
             <ul class="social-icon">
             	<a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>            
             	<a href="#" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -33,7 +33,7 @@
                         <li><a href="/MobilesEra/">Home</a></li>
                         <li><a href="contactus">Contacts</a></li>
                         <li><a href="aboutus">About Us</a></li>
-                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="faq">FAQ's</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,10 +41,10 @@
             <h4 class="title">Payment Methods</h4>
             
             <ul class="payment">
-            <li><a href="#"><i class="fa fa-cc-amex" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>            
-            <li><a href="#"><i class="fa fa-paypal" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-cc-visa" aria-hidden="true"></i></a></li>
+            <li><a><i class="fa fa-cc-amex" aria-hidden="true"></i></a></li>
+            <li><a><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>            
+            <li><a><i class="fa fa-paypal" aria-hidden="true"></i></a></li>
+            <li><a><i class="fa fa-cc-visa" aria-hidden="true"></i></a></li>
             </ul>
         </div>   
         

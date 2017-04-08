@@ -14,14 +14,14 @@
 		<c:forEach items="${categoryList}" var="categoryList" >	
 			<ul class="nav navbar-nav">
 			<li class="dropdown menu-large">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">${categoryList.categoryName} <b class="caret"></b></a>				
+				<a href="userProductPage?browse=${categoryList.categoryName}" class="dropdown-toggle" data-toggle="dropdown">${categoryList.categoryName} <b class="caret"></b></a>				
 				<ul class="dropdown-menu megamenu row">
 					<c:forEach items="${categoryList.subCategory}" var="subCategory">
 					<li class="col-sm-3">					
 						<ul>
-							<li class="dropdown-header"><a href="userProductPage?search=${subCategory.subCategoryName}">${subCategory.subCategoryName}</a></li>
+							<li class="dropdown-header"><a href="userProductPage?browse=${subCategory.subCategoryName}">${subCategory.subCategoryName}</a></li>
 							<c:forEach items="${subCategory.brand}" var="brand">
-							<li><a href="productBy-${brand.brandId}">${brand.brandName}</a></li>							
+							<li><a href="userProductPage?browse=${brand.brandName}">${brand.brandName}</a></li>							
 							</c:forEach>
 						</ul>
 					</li>
@@ -33,7 +33,7 @@
 		</c:forEach>
 		<ul class="nav navbar-nav">
 			<li>
-				<a href="userProductPage">All Products</a>
+				<a href="userProductPage"><i class="fa fa-product-hunt" aria-hidden="true"></i> All Products</a>
 			</li>
 		</ul>
 		</div>

@@ -6,16 +6,16 @@
     
 <div class="row" style="margin-top:30;margin-bottom:30px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-    	<form:form modelAttribute="shippingAddress" commandName="shippingAddress">
+    	<form:form modelAttribute="editshippingAddress" method="POST" commandName="editshippingAddress">
 			<fieldset>
 				<h2>Please Sign Up for MobilesEra</h2>
 				<h3>Add Your Shipping Address</h3>				
 				<hr>
 				<div class="form-group">
-                    <form:input  hidden="true" path="shipAddId" />                    
+                    <form:input path="shipAddId" type="hidden" />                     
 				</div>
 				<div class="form-group">
-                    <form:input type="text" class="form-control input-lg" path="sName" id="s_Name" placeholder="Fill Receiver's Name" autofocus="true" />
+                    <form:input type="text" class="form-control input-lg" path="sName" placeholder="Fill Receiver's Name" autofocus="true" />
                 </div>   
                 <div class="form-group">    
                     <c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('sName')}" var="err"> 

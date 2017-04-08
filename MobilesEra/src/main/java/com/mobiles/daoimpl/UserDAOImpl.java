@@ -1,5 +1,6 @@
 package com.mobiles.daoimpl;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -20,6 +21,12 @@ public class UserDAOImpl implements UserDAO
 {	
 	@Autowired
 	private SessionFactory sessionFactory; 
+	
+	@Autowired
+	public ShippingAddress shippingAddress;
+	
+	@Autowired
+	public BillingAddress billingAddress;
 	
 	public void addUser(User user) 
 	{
@@ -86,6 +93,36 @@ public class UserDAOImpl implements UserDAO
 	public void addBillingAddress(BillingAddress billingAddress) {
 		sessionFactory.getCurrentSession().saveOrUpdate(billingAddress);
 		
+	}
+
+	public BillingAddress getBillingAddressById(int userId) 
+	{
+		
+		List<BillingAddress> billingAddress = sessionFactory.getCurrentSession().createQuery("from BillingAddress where userId ="+userId).getResultList();
+		
+		if(billingAddress!=null && !billingAddress.isEmpty())
+		{
+			return billingAddress.get(0);
+		}
+		else 
+		{
+			return null;
+		}
+	}
+
+	public ShippingAddress getShippingAddressById(int userId) 
+	{
+		
+		List<ShippingAddress> shippingAddress = sessionFactory.getCurrentSession().createQuery("from ShippingAddress where userId ="+userId).getResultList();
+		
+		if(shippingAddress!=null && !shippingAddress.isEmpty())
+		{
+			return shippingAddress.get(0);
+		}
+		else 
+		{
+			return null;
+		}
 	}
 	
 }

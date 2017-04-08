@@ -71,21 +71,24 @@
  	</div>
  </div>
  <br>
- <table class="table" ng-controller="myController">
+<table class="table" ng-controller="myController">
+<thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
+<th><center>Name</center></th>
+<th><center>Description</center></th>
 <th>SubCategory</th>
-<th>Update SubCategory</th>
-<th>Delete SubCategory</th> 
+<th>Operations</th>
 </tr>
+</thead>
+<tbody>
 <tr ng-repeat="brandlist in myscope | filter:search">
-<td>{{brandlist.brandName}}</td>
-<td>{{brandlist.brandDescription}}</td>
+<td><center>{{brandlist.brandName}}</center></td>
+<td><center>{{brandlist.brandDescription}}</center></td>
 <td>{{brandlist.subCategory.subCategoryName}}</td>
-<td><a href="updateBrandById-{{brandlist.brandId}}" class="btn btn-warning" role="button" >Update</a></td>
-<td><a href="deleteBrandById-{{brandlist.brandId}}" class="btn btn-danger" role="button" >Delete</a></td>
+<td><a href="updateBrandById-{{brandlist.brandId}}" class="btn btn-warning" data-toggle="tooltip" title="edit" role="button"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+	<a href="deleteBrandById-{{brandlist.brandId}}" class="btn btn-danger" data-toggle="tooltip" title="Delete" role="button"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td>
 </tr>
+</tbody>
 </table>
 </div>
  </div>

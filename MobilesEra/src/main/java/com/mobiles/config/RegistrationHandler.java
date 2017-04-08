@@ -103,8 +103,7 @@ public class RegistrationHandler
 		userService.addUser(user);
 
 		shippingAddress.setUser(user);
-		user.setShippingAddress(shippingAddress);
-		
+		user.setShippingAddress(shippingAddress);		
 		this.shippingAddress.setUser(user);		
 		
 		billingAddress.setUser(user);
@@ -112,8 +111,8 @@ public class RegistrationHandler
 		this.billingAddress.setUser(user);
 		
 		
-		userService.addShippingAddress(shippingAddress);
 		userService.addBillingAddress(billingAddress);
+		userService.addShippingAddress(shippingAddress);
 			
 		}
 		catch (Exception e) 
@@ -121,8 +120,7 @@ public class RegistrationHandler
 			messageContext.addMessage(new MessageBuilder().error().build());
 			return "failure";
 		}
-		
-		
+				
 		return "success";
 		
 	}
@@ -146,32 +144,34 @@ public class RegistrationHandler
 
 	
 	
-	public String addShippingDetails(User user, ShippingAddress shippingAddress)
+	public String addShippingAddress(User user, ShippingAddress shippingAddress)
 	{
-		shippingAddress.setsName(shippingAddress.getsName());
-		shippingAddress.setsPrefix(shippingAddress.getsPrefix());
-		shippingAddress.setsStreet(shippingAddress.getsStreet());
-		shippingAddress.setsCity(shippingAddress.getsCity());
-		shippingAddress.setsDistrict(shippingAddress.getsDistrict());
-		shippingAddress.setsState(shippingAddress.getsState());
-		shippingAddress.setsLandmark(shippingAddress.getsLandmark());
-		shippingAddress.setsPIN(shippingAddress.getsPIN());
-	
+		this.shippingAddress.setsName(shippingAddress.getsName());
+		this.shippingAddress.setsPrefix(shippingAddress.getsPrefix());
+		this.shippingAddress.setsStreet(shippingAddress.getsStreet());
+		this.shippingAddress.setsCity(shippingAddress.getsCity());
+		this.shippingAddress.setsDistrict(shippingAddress.getsDistrict());
+		this.shippingAddress.setsState(shippingAddress.getsState());
+		this.shippingAddress.setsLandmark(shippingAddress.getsLandmark());
+		this.shippingAddress.setsPIN(shippingAddress.getsPIN());
+		this.shippingAddress.setUserId(shippingAddress.getUserId()); 
+		
 		return "success";
 	
 	}
 
-	public String addBillingDetails(User user, BillingAddress billingAddress)
+	public String addBillingAddress(User user, BillingAddress billingAddress)
 	{
-		billingAddress.setBillAddName(billingAddress.getBillAddName());
-		billingAddress.setbPrefix(billingAddress.getbPrefix());
-		billingAddress.setbStreet(billingAddress.getbStreet());
-		billingAddress.setbCity(billingAddress.getbCity());
-		billingAddress.setbDistrict(billingAddress.getbDistrict());
-		billingAddress.setbState(billingAddress.getbState());
-		billingAddress.setbLandmark(billingAddress.getbLandmark());
-		billingAddress.setbPIN(billingAddress.getbPIN());
-				
+		this.billingAddress.setBillAddName(billingAddress.getBillAddName());
+		this.billingAddress.setbPrefix(billingAddress.getbPrefix());
+		this.billingAddress.setbStreet(billingAddress.getbStreet());
+		this.billingAddress.setbCity(billingAddress.getbCity());
+		this.billingAddress.setbDistrict(billingAddress.getbDistrict());
+		this.billingAddress.setbState(billingAddress.getbState());
+		this.billingAddress.setbLandmark(billingAddress.getbLandmark());
+		this.billingAddress.setbPIN(billingAddress.getbPIN());
+		this.billingAddress.setUserId(billingAddress.getUserId());		
+		
 		return "success";
 	
 	}

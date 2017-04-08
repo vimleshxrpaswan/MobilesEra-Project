@@ -69,20 +69,23 @@
  </div>
  <br>
 <table class="table" ng-controller="myController">
+<thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
+<th><center>Name</center></th>
+<th><center>Description</center></th>
 <th>Category</th>
-<th>Update SubCategory</th>
-<th>Delete SubCategory</th> 
+<th>Operations</th>
 </tr>
+</thead>
+<tbody>
 <tr ng-repeat="subcategorylist in myscope | filter:search">
-<td>{{subcategorylist.subCategoryName}}</td>
-<td>{{subcategorylist.subCategoryDescription}}</td>
+<td><center>{{subcategorylist.subCategoryName}}</center></td>
+<td><center>{{subcategorylist.subCategoryDescription}}</center></td>
 <td>{{subcategorylist.category.categoryName}}</td>
-<td><a href="updateSubCategoryById-{{subcategorylist.subCategoryId}}" class="btn btn-warning" role="button">Update</a></td>
-<td><a href="deleteSubCategoryById-{{subcategorylist.subCategoryId}}" class="btn btn-danger" role="button">Delete</a></td>
+<td><a href="updateSubCategoryById-{{subcategorylist.subCategoryId}}" class="btn btn-warning" data-toggle="tooltip" title="edit" role="button"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+	<a href="deleteSubCategoryById-{{subcategorylist.subCategoryId}}" class="btn btn-danger" data-toggle="tooltip" title="Delete" role="button"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td>
 </tr>
+</tbody>
 </table>
  </div>
 </div>

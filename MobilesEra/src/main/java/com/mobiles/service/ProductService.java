@@ -41,9 +41,19 @@ public class ProductService
 		productDAOImpl.deleteProduct(productId);
 	}
 	
-	public String fetchProductByBrand(int brandId) 
+	public String fetchProductByCategoryMobiles()
 	{
-		return productDAOImpl.fetchProductByBrand(brandId);
-		
+		return productDAOImpl.fetchProductByCategoryMobiles();
 	}
+	
+	public String fetchProductByCategoryLaptops()
+	{
+		return productDAOImpl.fetchProductByCategoryLaptops();
+	}
+	
+	public String fetchProductByCategoryTabs()
+	{
+		return productDAOImpl.fetchProductByCategoryTabs();
+	}
+		
 }

@@ -25,10 +25,10 @@
       <div class="container">
       	<div class="row row1" id="topbar">        	
             <ul class="largenav pull-right">
-                <li class="upper-links"><a class="links" href="/MobilesEra/">Home</a></li>
-                <li class="upper-links"><a class="links" href="aboutus">About Us</a></li>
-                <li class="upper-links"><a class="links" href="contactus">Contact US</a></li>
-                <li class="upper-links"><a class="links" href="#">FAQ's</a></li>
+                <li class="upper-links"><a class="links" href="/MobilesEra/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li class="upper-links"><a class="links" href="aboutus"><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a></li>
+                <li class="upper-links"><a class="links" href="contactus"><i class="fa fa-phone-square" aria-hidden="true"></i> Contact US</a></li>
+                <li class="upper-links"><a class="links" href="faq"><i class="fa fa-question-circle" aria-hidden="true"></i> FAQ's</a></li>
             </ul>
         </div>
         
@@ -62,21 +62,28 @@
                     <li><a href="brandPage">Brand Page</a></li>
                     <li class="divider"></li>
                     <li><a href="productPage">Product Page</a></li>
+                    <li class="divider"></li>
+                    <li><a href="userList">Manage User</a></li>
         		</ul>    
             </li>
             </sec:authorize>
-            <sec:authorize access="hasRole('ROLE_USER')">		
+            
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+            <sec:authentication var="principal" property="principal" />		
             <li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">User<span class="caret"></span></a>
+            	<a role="button" class="dropdown-toggle" data-toggle="dropdown">Welcome ${principal.username}<span class="caret"></span></a>
                 <ul class="dropdown-menu">
           			<li><a href="#">Profile</a></li>
-                    <li class="divider"></li>
-          			<li><a href="userWishList"> WishList</a></li>
-                    <li class="divider"></li>
-          			<li><a href="userCartList">Cart</a></li>                    
+                    <sec:authorize access="hasRole('ROLE_USER')">
+                    <li class="divider"></li>                     
+          			<li><a href="userWishList"> WishList</a></li>          			
+                    <li class="divider"></li>                    
+          			<li><a href="userCartList">Cart</a></li>
+          			</sec:authorize>                    
         		</ul>
             </li>
-            </sec:authorize>
+           </c:if>
+            
             <c:if test="${pageContext.request.userPrincipal.name == null}">        
             	<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
             </c:if>
@@ -84,7 +91,7 @@
             	<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
             </c:if>
             <c:if test="${pageContext.request.userPrincipal.name == null}">
-            	<li><a href="reg"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            	<li><a href="reg"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
             </c:if>
             <li>
               <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>

@@ -2,8 +2,10 @@
 <link rel="stylesheet" href="resources/css/viewproductpage.css" />
 
 <div ng-app="myApp" ng-controller="myController">
+
 <div class="container">
 	<div class="row">
+	
    		<div class="col-xs-6 col-sm-6 item-photo">
         	<img style="max-width:100%;" src="resources/productImages/productImage-{{myscope.productId}}.jpg" alt="product image"/>
         </div>
@@ -27,7 +29,7 @@
 
                     <!-- Shopping Buttons -->
                     <div class="section" style="padding-bottom:20px;">
-                        <a href="addtocart-{{myscope.productId}}" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</a>
+                        <a href="addtocart-{{myscope.productId}}" class="btn btn-success"><span style="margin-right:20px" class="fa fa-cart-plus" aria-hidden="true"></span>Add to Cart</a>
                         <a href="#" class="btn btn-warning"><span style="margin-right:20px" class="fa fa-bolt" aria-hidden="true"></span>BUY NOW</a>
                         <h6><a href="addtowishlist-{{myscope.productId}}"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Add to Wishlist </a></h6>
                     </div>
@@ -67,13 +69,12 @@
 <script src="resources/js/viewproductpage.js" ></script>
 
 <script>
+
 var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${productData}
 });
 </script>
-
-
 
 
 <%@include file="footer.jsp" %>

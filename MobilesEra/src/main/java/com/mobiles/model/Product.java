@@ -1,5 +1,6 @@
 package com.mobiles.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -16,8 +17,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.google.gson.annotations.Expose;
 
 @Entity
-public class Product 
+public class Product implements Serializable 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Expose
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

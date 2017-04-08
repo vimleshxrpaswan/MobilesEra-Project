@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
 <%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css" />
@@ -332,6 +331,7 @@
  </div>
  <br>
  <table class="table" ng-controller="myController">
+<thead>
 <tr>
 <th>Name</th>
 <th>Actual Price</th>
@@ -343,9 +343,10 @@
 <th>Brand</th>
 <th>Supplier</th>
 <th>Product Image</th>
-<th>Update Product</th>
-<th>Delete Product</th>
+<th>Operations</th>
 </tr>
+</thead>
+<tbody>
 <tr ng-repeat="productlist in myscope | filter:search ">
 <td>{{productlist.productName}}</td>
 <td>{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></td>
@@ -357,9 +358,10 @@
 <td>{{productlist.brand.brandName}}</td>
 <td>{{productlist.supplier.supplierName}}</td>
 <td><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" height="80px" width="80px" alt="img not uploaded"/></td>
-<td><a href="updateProductById-{{productlist.productId}}" class="btn btn-warning" role="button" >Update</a></td>
-<td><a href="deleteProductById-{{productlist.productId}}" class="btn btn-danger" role="button">Delete</a></td>  
+<td><a href="updateProductById-{{productlist.productId}}" class="btn btn-warning" data-toggle="tooltip" title="edit" role="button"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+	<a href="deleteProductById-{{productlist.productId}}" class="btn btn-danger" data-toggle="tooltip" title="Delete" role="button"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td>  
 </tr>
+</tbody>
 </table>
 </div>
  </div>

@@ -2,6 +2,9 @@ package com.mobiles.controller;
 
 import java.security.Principal;
 import java.util.Date;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.mobiles.model.CartItems;
 import com.mobiles.model.Product;
 import com.mobiles.service.CartService;
+import com.mobiles.service.CategoryService;
 import com.mobiles.service.ProductService;
 import com.mobiles.service.UserService;
 
@@ -23,6 +27,9 @@ public class CartsController
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private CategoryService categoryService;
 	
 	@Autowired
 	private CartService cartService;
@@ -60,7 +67,8 @@ public class CartsController
 	{		
 		int userId = userService.getUserByusername(p.getName()).getUserId();
 		model.addAttribute("cartListByJson", cartService.fetchCartItemsByuserIdByJson(userId));
-				
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
+		
 		return "cartlist";
 	}
 	
@@ -94,5 +102,14 @@ public class CartsController
 			
 			model.addAttribute("commonmessage", "Operation Interrupted");
 			return "redirect:/userCartList";
+	}
+	@RequestMapping("/checkout")
+	public String checkout(HttpSession session,Principal p) {
+		 String username=p.getName();
+		 int userId=userService.getUserByusername(username).getUserId();
+		 session.setAttribute("user_id", userId);
+		 int u=(Integer) session.getAttribute("user_id");
+		 
+		 return "redirect:/cart";
 	}
 }

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class User implements Serializable
 {
@@ -18,16 +20,34 @@ public class User implements Serializable
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Expose
 	private int userId;
-	private String username; 
-	private String password; 
+	
+	@Expose
+	private String username;
+	
+	@Expose
+	private String password;
+	
+	@Expose
 	private boolean enabled;
+	
+	@Expose
 	private String role;
 	
+	@Expose
 	private String fname;
+	
+	@Expose
 	private String lname;
+	
+	@Expose
 	private String DOB;
+	
+	@Expose
 	private String contactNo;
+	
+	@Expose
 	private String alternateContactNo;
 	
 	@OneToOne

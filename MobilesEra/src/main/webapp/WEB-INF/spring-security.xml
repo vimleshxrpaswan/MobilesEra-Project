@@ -13,14 +13,17 @@
 		  users-by-username-query=
 		    "select username,password, enabled from User where username=?"
 		  authorities-by-username-query=
-		    "select username, role from User where username =?  " />
+		    "select  username, role from User where username =?  " />
 	  </authentication-provider>
 	</authentication-manager>
 
     <!-- enable use-expressions -->
 	<http auto-config="true" use-expressions="true">
+			
+		<session-management>
+      		<concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+  		</session-management>		
 				
-		<intercept-url pattern="/logout**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"/>		
 
 		<intercept-url pattern="/brandPage" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/updatebrand-{brandId}**" access="hasRole('ROLE_ADMIN')" />
@@ -32,7 +35,7 @@
 		<intercept-url pattern="/addcategory**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/removecategory-{categoryId}**" access="hasRole('ROLE_ADMIN')" />
 
-		<intercept-url pattern="/subcategory**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/subCategory**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/updatesubcategory**-{subCategoryId}**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/addsubcategory**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/removesubcategory-{subCategoryId}**" access="hasRole('ROLE_ADMIN')"/>
@@ -49,12 +52,22 @@
 		<intercept-url pattern="/removeproduct-{productId}**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/toggleproduct-{productId}**" access="hasRole('ROLE_ADMIN')"/>
 		
-		<intercept-url pattern="/toggleproduct-{productId}**" access="hasRole('ROLE_ADMIN')"/>
+		<!-- <intercept-url pattern="/toggleproduct-{productId}**" access="hasRole('ROLE_ADMIN')"/> -->
+			
+		<intercept-url pattern="/addtocart-{productId}" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/userCartList" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/deleteFromCart-{cartItemId}" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/checkoutfromcart-{cartItemId}" access="hasRole('ROLE_USER')"/>		
 
+		<intercept-url pattern="/userWishList" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/addtowishlist-{productId}" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/deleteFromWishList-{wishId}" access="hasRole('ROLE_USER')"/>
+		
+		<intercept-url pattern="/userList" access="hasRole('ROLE_ADMIN')"/>
+		
 		<!-- access denied page -->
-		<!-- <access-denied-handler error-page="/403" /> -->
-
-
+		 <access-denied-handler error-page="/403" />
+		
 
 		<form-login
 		    login-page="/login"

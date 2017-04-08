@@ -23,4 +23,5 @@ public interface UserDAO
 	public void addShippingAddress(ShippingAddress shippingAddress);
 	
 	public void addBillingAddress(BillingAddress billingAddress);
+	
 }
