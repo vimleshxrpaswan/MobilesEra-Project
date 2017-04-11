@@ -333,21 +333,21 @@
  <table class="table" ng-controller="myController">
 <thead>
 <tr>
-<th>Name</th>
-<th>Actual Price</th>
-<th>Discount</th>
-<th> Made In Country</th>
-<th>Stock</th>
-<th>Category</th>
-<th>SubCategory</th>
-<th>Brand</th>
-<th>Supplier</th>
+<th role="button" ng-click="orderByMe('productName')"><center>Name</center></th>
+<th role="button" ng-click="orderByMe('productPrice')">Actual Price</th>
+<th role="button" ng-click="orderByMe('productDiscount')">Discount</th>
+<th role="button" ng-click="orderByMe('productMadeCountry')"> Made In Country</th>
+<th role="button" ng-click="orderByMe('productStock')">Stock</th>
+<th role="button" ng-click="orderByMe('categoryName')">Category</th>
+<th role="button" ng-click="orderByMe('subCategoryName')">SubCategory</th>
+<th role="button" ng-click="orderByMe('brandName')">Brand</th>
+<th role="button" ng-click="orderByMe('supplierName')">Supplier</th>
 <th>Product Image</th>
 <th>Operations</th>
 </tr>
 </thead>
 <tbody>
-<tr ng-repeat="productlist in myscope | filter:search ">
+<tr ng-repeat="productlist in myscope | filter:search | orderBy:myOrderBy">
 <td>{{productlist.productName}}</td>
 <td>{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></td>
 <td>{{productlist.productDiscount}}</td>
@@ -372,6 +372,9 @@
 var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${productListByJson}
+$scope.orderByMe = function(x) {
+    $scope.myOrderBy = x;
+}
 });
 </script>
 

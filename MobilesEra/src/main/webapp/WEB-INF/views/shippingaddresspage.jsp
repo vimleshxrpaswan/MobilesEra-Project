@@ -1,4 +1,4 @@
-    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="header.jsp" %>
 
 <!-- Designed registration Page -->
@@ -12,7 +12,7 @@
 				<h3>Add Your Shipping Address</h3>				
 				<hr>
 				<div class="form-group">
-                    <form:input  hidden="true" path="shipAddId" />                    
+                    <form:input  type="hidden" path="shipAddId" />                    
 				</div>
 				<div class="form-group">
                     <form:input type="text" class="form-control input-lg" path="sName" id="s_Name" placeholder="Fill Receiver's Name" autofocus="true" />
@@ -90,7 +90,6 @@
 		</form:form>
 	</div>
 </div>
-
 </div>  
 
 

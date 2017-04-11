@@ -58,7 +58,7 @@
  </div>
  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
  
- <div ng-app="myApp">
+ <div>
  <div class="panel panel-default">
     <div class="panel-heading text-center">
  		<h1>Brand List</h1>
@@ -74,14 +74,14 @@
 <table class="table" ng-controller="myController">
 <thead>
 <tr>
-<th><center>Name</center></th>
-<th><center>Description</center></th>
-<th>SubCategory</th>
+<th role="button" ng-click="orderByMe('brandName')"><center>Name <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></center></th>
+<th role="button" ng-click="orderByMe('brandDescription')"><center>Description <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></center></th>
+<th role="button" ng-click="orderByMe('subCategoryName')">SubCategory <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
 <th>Operations</th>
 </tr>
 </thead>
 <tbody>
-<tr ng-repeat="brandlist in myscope | filter:search">
+<tr ng-repeat="brandlist in myscope | filter:search | orderBy:myOrderBy">
 <td><center>{{brandlist.brandName}}</center></td>
 <td><center>{{brandlist.brandDescription}}</center></td>
 <td>{{brandlist.subCategory.subCategoryName}}</td>
@@ -99,6 +99,9 @@
 var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${brandListByJson}
+$scope.orderByMe = function(x) {
+    $scope.myOrderBy = x;
+}
 });
 </script>
 

@@ -5,7 +5,7 @@
 <%@ page isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="myApp">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -100,7 +100,7 @@
           <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">
             <form class="navbar-form navbar-right" role="search">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" />
+                <input type="text" class="form-control" ng-model="search" placeholder="Search" />
               </div>
               <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </form>

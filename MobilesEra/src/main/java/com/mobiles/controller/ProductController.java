@@ -164,21 +164,11 @@ public class ProductController
 	@RequestMapping("/userProductPage")
 	public String getProduct(Model model)
 	{		
+		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());
 		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
 		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
 		return "user-productpage";
-	}
-	
-	@RequestMapping("/productBy-{categoryName}")
-	public String getProductByBrand(Model model)
-	{	
-		model.addAttribute("categoryList", categoryService.fetchAllCategories());
-		model.addAttribute("productlistbycategorymobile", productService.fetchProductByCategoryMobiles());
-		model.addAttribute("productlistbycategorylaptop", productService.fetchProductByCategoryLaptops());
-		model.addAttribute("productlistbycategorytab", productService.fetchProductByCategoryTabs());
-		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
-		return "home";		
 	}
 	
 }

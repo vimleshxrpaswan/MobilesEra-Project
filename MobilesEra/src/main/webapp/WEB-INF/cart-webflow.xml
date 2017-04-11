@@ -26,7 +26,7 @@
 		<transition on="cancel" to="cancelOrder"/>
 	</view-state>
 	
-	<view-state id="editshippingAddress" view="editshippingaddress" model="editshippingAddress">
+	<view-state id="editshippingAddress" view="shippingaddresspage" model="shippingAddress">
 		<transition on="submit" to="updateShippingAddress"/> 
 		<transition on="cancel" to="cancelOrder"/>
 	</view-state>

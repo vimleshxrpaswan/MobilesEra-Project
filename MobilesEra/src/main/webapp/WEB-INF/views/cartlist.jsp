@@ -2,7 +2,7 @@
 
 <!-- Cart List Form is starting from here -->
 <div class="container">
-<div ng-app="myApp">
+<div>
 <div class="panel panel-default">
     <div class="panel-heading text-center">
  		<h1>Your Cart</h1>

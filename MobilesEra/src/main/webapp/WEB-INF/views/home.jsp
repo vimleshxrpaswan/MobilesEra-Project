@@ -1,47 +1,109 @@
 <%@ include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/button.css" />
+
 <%@ include file="slider.jsp" %>
 
-<div ng-app="myApp" style="margin-top:10px;margin-bottom: 15px;">
+<!--Item slider text-->
+<div class="container">
+  <div class="row" id="slider-text">
+    <div class="col-md-6" >
+      <h2><a href="userProductPage?browse=mobile" style="text-decoration: none; color: black;">Mobiles</a></h2>
+    </div>
+  </div>
+</div>
 
-<div class="container" ng-controller="myController">
-   <div class="row">
-        
-        <div ng-repeat="productlist in myscope | filter:search || browseWord | orderBy:orderkeyword : orderflag" class="col-sm-4 col-xs12 ">
-            <article class="col-item">
-        		<div class="photo">
-        			<div class="options">
-        				<a href="addtowishlist-{{productlist.productId}}" class="btn btn-default" data-toggle="tooltip" title="Add to wish list">
-        					<i style="color: red" class="fa fa-heart"></i>
-        				</a>
-        			</div>
-        			<div class="options-cart">
-        				<a href="addtocart-{{productlist.productId}}" class="btn btn-default" title="Add to cart">
-        					<span class="fa fa-shopping-cart"></span>
-        				</a>
-        			</div>
-        			<a href="viewProductById-{{productlist.productId}}"> <img src="resources/productImages/productImage-{{productlist.productId}}.jpg" style="margin:auto; max-height:250px; ;min-height: 250px" class="img-responsive" alt="Product Image" /> </a>
-        		</div>
-        		<div class="info">
-        			<div class="row">
-        				<div class="price-details col-md-6">
-        					<p class="details">
-        						<a href="viewProductById-{{productlist.productId}}">{{productlist.productName}}</a>
-        					</p>
-        					<a href="cart" class="btn btn-warning"><i class="fa fa-bolt" aria-hidden="true"></i> Buy Now</a>
-        					<span class="price-new">{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></span>
-        				</div>
-        			</div>
-        		</div>
-        	</article>
-            
+<!-- Item slider-->
+<div class="container-fluid" ng-controller="myController">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+        <div class="carousel-inner">
+
+          <div class="item active" ng-repeat="productlist in myscope | filter:'Mobile' | filter:search ">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <a href="viewProductById-{{productlist.productId}}"><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" style="max-height: 200px;min-height: 200px; width: auto" class="img-responsive center-block"></a>
+              <h4 class="text-center">{{productlist.productName}}</h4>
+              <h5 class="text-center">{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></h5>
+            </div>
+          </div>
+   
+        </div>     
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Item slider end-->
+
+
+
+<!--Item slider text-->
+<div class="container">
+  <div class="row" id="slider-text">
+    <div class="col-md-6" >
+      <h2><a href="userProductPage?browse=laptops" style="text-decoration: none; color: black;">Laptops</a></h2>
+    </div>
+  </div>
+</div>
+
+<!-- Item slider-->
+<div class="container-fluid" ng-controller="myController">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+        <div class="carousel-inner">
+
+          <div class="item active" ng-repeat="productlist in myscope | filter:'Laptops' | filter:search ">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <a href="viewProductById-{{productlist.productId}}"><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" style="max-height: 200px;min-height: 200px; width: auto" class="img-responsive center-block"></a>
+              <h4 class="text-center">{{productlist.productName}}</h4>
+              <h5 class="text-center">{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></h5>
+            </div>
+          </div>
+   
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Item slider end-->
+
+
+
+<!--Item slider text-->
+<div class="container">
+  <div class="row" id="slider-text">
+    <div class="col-md-6" >
+      <h2><a href="userProductPage?browse=tabs" style="text-decoration: none; color: black;">Tabs</a></h2>
+    </div>
+  </div>
+</div>
+
+<!-- Item slider-->
+<div style="margin-bottom: 20px;" class="container-fluid" ng-controller="myController">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+        <div class="carousel-inner">
+
+          <div class="item active" ng-repeat="productlist in myscope  | filter:'tabs' | filter:search ">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <a href="viewProductById-{{productlist.productId}}"><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" style="max-height: 200px;min-height: 200px; width: auto" class="img-responsive center-block"></a>
+              <h4 class="text-center">{{productlist.productName}}</h4>
+              <h5 class="text-center">{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></h5>
+            </div>
+          </div>
+   
         </div>
-       
-	</div>
-
+      </div>
+    </div>
+  </div>
 </div>
+<!-- Item slider end-->
 
-</div>
+
 <script>
 var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
@@ -63,6 +125,5 @@ $scope.browseWord = getUrlParameter('browse');
 
 });
 </script>
- 
 
  <%@ include file="footer.jsp" %>

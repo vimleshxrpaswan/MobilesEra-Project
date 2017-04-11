@@ -1,7 +1,6 @@
 <%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/error.css"/>
 
-
 <div class="container" style="margin-top: 20px">
 	<div class="panel panel-default">
     	<div class="panel-heading text-center">
@@ -51,8 +50,7 @@
  
   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
  
-
-<div ng-app="myApp">
+<div>
 	<div class="panel panel-default">
  		<div class="panel-heading text-center">
  			<h1>Category List</h1>
@@ -71,14 +69,14 @@
  <table class="table" ng-controller="myController">
  <thead>
 <tr>
-	<th><center>Name</center></th>
-	<th><center>Description</center></th>
+	<th role="button" ng-click="orderByMe('categoryName')"><center>Name <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></center></th>
+	<th role="button" ng-click="orderByMe('categoryDescription')"><center>Description <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></center></th>
 	<th>Operations</th>
 	
 </tr>
 </thead>
 <tbody> 
-<tr ng-repeat="clist in myscope | filter:search ">
+<tr ng-repeat="clist in myscope | filter:search | orderBy:myOrderBy">
 	<td><center>{{clist.categoryName}}</center></td>
 	<td><center>{{clist.categoryDescription}}</center></td>
 	<td><a href="updateCategoryById-{{clist.categoryId}}" class="btn btn-warning" data-toggle="tooltip" title="edit" role="button"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
@@ -95,6 +93,9 @@
 var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${categoryListByJson}
+$scope.orderByMe = function(x) {
+    $scope.myOrderBy = x;
+}
 });
 </script>
 

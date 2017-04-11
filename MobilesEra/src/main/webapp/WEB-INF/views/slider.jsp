@@ -10,7 +10,7 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+    <div style="border-bottom : 2px solid gray; border-top: 2px solid gray" class="carousel-inner" role="listbox">
       <div class="item active">
         <img src="resources/dataImages/Apple_Laptop_slider.jpg" alt="Redmi note4" width="460" height="345">
       </div>
@@ -31,7 +31,7 @@
         <img src="resources/dataImages/Tab.jpg" alt="Tab" width="460" height="345">
       </div>
     </div>
-
+    
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>

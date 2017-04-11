@@ -51,11 +51,11 @@ public class User implements Serializable
 	private String alternateContactNo;
 	
 	@OneToOne
-	@JoinColumn(name="billingAddressId")
+	@JoinColumn(name="billAddId")
 	public BillingAddress billingAddress;
 	
 	@OneToOne
-	@JoinColumn(name="shippingAddressId")
+	@JoinColumn(name="shipAddId")
 	public ShippingAddress shippingAddress;
 	
 	

@@ -44,23 +44,4 @@ public class ProductDAOImpl implements ProductDAO
 		return list;
 	}
 
-	public String fetchProductByCategoryMobiles() {
-		List<Product> pList = sessionFactory.getCurrentSession().createQuery("from Product where categoryId= 1").getResultList();
-		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-		String productlist = g.toJson(pList);
-		return productlist;
-	}
-	
-	public String fetchProductByCategoryLaptops() {
-		List<Product> pList = sessionFactory.getCurrentSession().createQuery("from Product where categoryId= 2").getResultList();
-		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-		String productlist = g.toJson(pList);
-		return productlist;
-	}
-	public String fetchProductByCategoryTabs() {
-		List<Product> pList = sessionFactory.getCurrentSession().createQuery("from Product where categoryId= 3").getResultList();
-		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-		String productlist = g.toJson(pList);
-		return productlist;
-	}
 }

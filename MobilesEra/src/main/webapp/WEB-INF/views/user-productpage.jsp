@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@include file="header.jsp" %>
 
-<div ng-app="myApp" style="margin-bottom: 15px">
+<div style="margin-bottom: 15px">
 
 <div class="container" ng-controller="myController">
 
@@ -12,13 +12,53 @@
 </ul>
 
 
-	<div class="row">
+<div id="wrapper" >
+    <div id="page-content-wrapper">
+        <div class="page-content">
+            <div class="container" style="padding-top:10px; padding-bottom: 10px">
+				<div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <!-- content of page -->
+                         <span class="">Filters:</span>
+                         
+						 <span ng-click="sort('productPrice')" style="margin-left:100px">
+						 	<button class="btn btn-default">Product Price 
+								<span class="glyphicon sort-icon" ng-show="sortkey=='productPrice'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</button>	
+						</span>
+
+
+						<span ng-click="sort('productId')" style="margin-left:50px">
+							<button class="btn btn-default">Latest Products 
+								<span class="glyphicon sort-icon" ng-show="sortkey=='productId'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</button>
+						</span>
+
+						<span ng-click="sort('brandName')" style="margin-left:50px">
+							<button class="btn btn-default">Brand 
+								<span class="glyphicon sort-icon" ng-show="sortkey=='subCategoryName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</button>	
+						</span>
+
+						<span ng-click="sort('categoryName')" style="margin-left:50px">
+							<button class="btn btn-default">Categories 
+								<span class="glyphicon sort-icon" ng-show="sortkey=='categoryName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</button>	
+						</span>
+                  </div>
+                </div>
+</div>
+</div>
+</div>
+</div>
+
+	<div class="row">       
         
-        <div ng-repeat="productlist in myscope | filter:search || browseWord | orderBy:orderkeyword : orderflag" class="col-sm-4 col-xs12 ">
+        <div ng-repeat="productlist in myscope | filter:search || browseWord | orderBy:orderkeyword : orderflag | filter : searchkeyword | orderBy:sortkey:reverse | filter:nextFilter" class="col-md-4 col-sm-6 col-xs12 ">
             <article class="col-item">
         		<div class="photo">
         			<div class="options">
-        				<a href="addtowishlist-{{productlist.productId}}" class="btn btn-default" data-toggle="tooltip" title="Add to wish list">
+        				<a href="addtowishlist-{{productlist.productId}}" class="btn btn-default" title="Add to wish list">
         					<i style="color: red" class="fa fa-heart"></i>
         				</a>
         			</div>
@@ -27,7 +67,19 @@
         					<span class="fa fa-shopping-cart"></span>
         				</a>
         			</div>
-        			<a href="viewProductById-{{productlist.productId}}"> <img src="resources/productImages/productImage-{{productlist.productId}}.jpg" style="margin:auto; max-height:250px; ;min-height: 250px" class="img-responsive" alt="Product Image" /> </a>
+        			<a><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" style=" max-height:250px; min-height: 250px" class="img-responsive" data-toggle="modal" data-target="#myModal-{{productlist.productId}}" alt="Product Image" /> </a>
+        			 <div class="modal fade" id="myModal-{{productlist.productId}}" role="dialog">
+    					<div class="modal-dialog">
+    
+ 	 					    <!-- Modal content-->
+      						<div class="modal-content">
+        						<div class="modal-body">
+          							<img src="resources/productImages/productImage-{{productlist.productId}}.jpg" class="img-responsive" alt="Product Image" />
+        						</div>
+      						</div>
+      					</div>
+  					</div>
+  
         		</div>
         		<div class="info">
         			<div class="row">
@@ -35,19 +87,15 @@
         					<p class="details">
         						<a href="viewProductById-{{productlist.productId}}">{{productlist.productName}}</a>
         					</p>
-        					<a href="cart" class="btn btn-warning"><i class="fa fa-bolt" aria-hidden="true"></i> Buy Now</a>
+        					<a href="checkout" class="btn btn-warning"><i class="fa fa-bolt" aria-hidden="true"></i> Buy Now</a>
         					<span class="price-new">{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></span>
         				</div>
         			</div>
         		</div>
         	</article>
-            
         </div>
        
 	</div>
-
-
-
 
 </div>
 </div>
@@ -55,6 +103,7 @@
 var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${productListByJson};
+$scope.subCategoryList=${subCategoryListByJson};
 
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -70,6 +119,32 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 $scope.browseWord = getUrlParameter('browse');
 
+
+$scope.sort=function(keyname){
+    //Now you can set a debugger here and check the data
+		$scope.sortkey=keyname;
+    	$scope.reverse=!$scope.reverse;
+}
+
+$scope.myFilter = [];
+ 
+ $scope.myNewFilter = function(subCategoryName) {
+     var i = $.inArray(subCategoryName, $scope.myFilter);
+     if (i > -1) {
+         $scope.myFilter.splice(i, 1);
+     } else {
+         $scope.myFilter.push(subCategoryName);
+     }
+ }
+ 
+ $scope.nextFilter = function(subCategoryList) {
+     if ($scope.myFilter.length > 0) {
+         if ($.inArray(subCategoryList.subCategoryName, $scope.myFilter) < 0)
+             return;
+     }
+     
+     return subCategoryList;
+ }
 });
 
 
@@ -77,6 +152,8 @@ $scope.browseWord = getUrlParameter('browse');
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+
 </script>
 
 <%@include file="footer.jsp" %>

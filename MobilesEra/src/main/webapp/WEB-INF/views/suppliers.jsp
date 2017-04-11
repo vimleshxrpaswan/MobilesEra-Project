@@ -133,7 +133,7 @@
 
 <!-- Supplier List -->
 
-<div ng-app="myApp">
+<div>
 <div class="panel panel-default">
     <div class="panel-heading text-center">
  		<h1>Supplier List</h1>
@@ -149,20 +149,20 @@
 <table class="table" ng-controller="myController">
 <thead>
 	<tr>
-		<th>Name</th>
-		<th><center>Description</center></th>
-		<th>Landmark</th>
-		<th>Street</th>
-		<th>City</th>
-		<th>State</th>
-		<th>Country</th>
-		<th>Email</th>
-		<th>Contact Number</th>
+		<th role="button" ng-click="orderByMe('supplierName')">Name <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
+		<th role="button" ng-click="orderByMe('supplierDescription')"><center>Description <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></center></th>
+		<th role="button" ng-click="orderByMe('supplierLandmark')">Landmark </th>
+		<th role="button" ng-click="orderByMe('supplierStreet')">Street <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
+		<th role="button" ng-click="orderByMe('supplierCity')">City <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
+		<th role="button" ng-click="orderByMe('supplierState')">State <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
+		<th role="button" ng-click="orderByMe('supplierCountry')">Country </th>
+		<th role="button" ng-click="orderByMe('supplierEmail')">Email <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
+		<th role="button" ng-click="orderByMe('supplierContactNo')">Contact Number <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
 		<th>Operations</th> 
 	</tr>
 </thead>
 <tbody>
-	<tr ng-repeat="supplierlist in myscope | filter:search">
+	<tr ng-repeat="supplierlist in myscope | filter:search | orderBy:myOrderBy">
 		<td>{{supplierlist.supplierName}}</td>
 		<td>{{supplierlist.supplierDescription}}</td>
 		<td>{{supplierlist.supplierLandmark}}</td>
@@ -185,6 +185,9 @@
 var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${supplierListByJson}
+$scope.orderByMe = function(x) {
+    $scope.myOrderBy = x;
+}
 });
 </script>
 

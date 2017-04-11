@@ -1,13 +1,13 @@
 <%@include file="header.jsp" %>
 <link rel="stylesheet" href="resources/css/viewproductpage.css" />
 
-<div ng-app="myApp" ng-controller="myController">
+<div ng-controller="myController">
 
 <div class="container">
 	<div class="row">
 	
    		<div class="col-xs-6 col-sm-6 item-photo">
-        	<img style="max-width:100%;" src="resources/productImages/productImage-{{myscope.productId}}.jpg" alt="product image"/>
+        	<img style="max-width:100%;" id="zoom_09" src="resources/productImages/productImage-{{myscope.productId}}.jpg" alt="product image"/>        	
         </div>
                 <div class="col-xs-5" style="border:0px solid gray">
                     <!-- Seller data and product title -->
@@ -38,22 +38,22 @@
                     	<h3>Description</h3>
                     	<hr>
                     	<ul>
-                    		<li>{{myscope.productRam}}</li>
-                    		<li>{{myscope.productColor}}</li>
-                    		<li>{{myscope.productWeight}}</li>
-                    		<li>{{myscope.productNetworkType}}</li>
-                    		<li>{{myscope.productScreenSize}}</li>
-                    		<li>{{myscope.productBatteryCapacity}}</li>
-                    		<li>{{myscope.productCamera}}</li>
-                    		<li>{{myscope.productSecondaryCamera}}</li>
-                    		<li>{{myscope.productOperatingSystem}}</li>
-                    		<li>{{myscope.productProcessor}}</li>
-                    		<li>{{myscope.productGraphicsMemory}}</li>
-                    		<li>{{myscope.productHardDiskCapacity}}</li>
-                    		<li>{{myscope.productPortType}}</li>
-                    		<li>{{myscope.productConnectivityFeatures}}</li>
-                    		<li>{{myscope.productResolution}}</li>
-                    		<li>{{myscope.productWarranty}}</li>
+                    		<li ng-if="myscope.productRam">{{myscope.productRam}}</li>
+                    		<li ng-if="myscope.productColor">{{myscope.productColor}}</li>
+                    		<li ng-if="myscope.productWeight">{{myscope.productWeight}}</li>
+                    		<li ng-if="myscope.productNetworkType">{{myscope.productNetworkType}}</li>
+                    		<li ng-if="myscope.productScreenSize">{{myscope.productScreenSize}}</li>
+                    		<li ng-if="myscope.productBatteryCapacity">{{myscope.productBatteryCapacity}}</li>
+                    		<li ng-if="myscope.productCamera">{{myscope.productCamera}}</li>
+                    		<li ng-if="myscope.productSecondaryCamera">{{myscope.productSecondaryCamera}}</li>
+                    		<li ng-if="myscope.productOperatingSystem">{{myscope.productOperatingSystem}}</li>
+                    		<li ng-if="myscope.productProcessor">{{myscope.productProcessor}}</li>
+                    		<li ng-if="myscope.productGraphicsMemory">{{myscope.productGraphicsMemory}}</li>
+                    		<li ng-if="myscope.productHardDiskCapacity">{{myscope.productHardDiskCapacity}}</li>
+                    		<li ng-if="myscope.productPortType">{{myscope.productPortType}}</li>
+                    		<li ng-if="myscope.productConnectivityFeatures">{{myscope.productConnectivityFeatures}}</li>
+                    		<li ng-if="myscope.productResolution">{{myscope.productResolution}}</li>
+                    		<li ng-if="myscope.productWarranty">{{myscope.productWarranty}}</li>
                     		
                     	</ul>
                     	
@@ -74,6 +74,8 @@ var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${productData}
 });
+
+
 </script>
 
 

@@ -62,6 +62,24 @@ public class CartItems implements Serializable
 	@ManyToOne
 	@JoinColumn(name="UserId",nullable=false , insertable=false, updatable=false)
 	private User user;
+	
+	@Expose
+	@ManyToOne
+	@JoinColumn(name="productId", nullable=false,insertable=false,updatable=false)
+	private Product product;
+
+	
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	public int getCartItemId() {
 		return cartItemId;

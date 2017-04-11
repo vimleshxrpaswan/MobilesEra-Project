@@ -102,22 +102,23 @@ public class RegistrationHandler
 		try{
 		userService.addUser(user);
 
-		shippingAddress.setUser(user);
-		user.setShippingAddress(shippingAddress);		
+		user.setShippingAddress(shippingAddress);
+		user.setBillingAddress(billingAddress);
+		
+		
+		shippingAddress.setUser(user);				
 		this.shippingAddress.setUser(user);		
 		
 		billingAddress.setUser(user);
-		user.setBillingAddress(billingAddress);
 		this.billingAddress.setUser(user);
 		
-		
-		userService.addBillingAddress(billingAddress);
 		userService.addShippingAddress(shippingAddress);
-			
+		userService.addBillingAddress(billingAddress);
+		
 		}
 		catch (Exception e) 
 		{			
-			messageContext.addMessage(new MessageBuilder().error().build());
+			messageContext.addMessage(new MessageBuilder().error().defaultText("Server Down! Try again Later.").build());
 			return "failure";
 		}
 				

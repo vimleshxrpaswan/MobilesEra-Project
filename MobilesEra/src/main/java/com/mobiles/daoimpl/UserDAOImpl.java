@@ -1,6 +1,5 @@
 package com.mobiles.daoimpl;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.hibernate.Session;

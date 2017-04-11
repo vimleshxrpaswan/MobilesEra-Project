@@ -40,20 +40,5 @@ public class ProductService
 	{
 		productDAOImpl.deleteProduct(productId);
 	}
-	
-	public String fetchProductByCategoryMobiles()
-	{
-		return productDAOImpl.fetchProductByCategoryMobiles();
-	}
-	
-	public String fetchProductByCategoryLaptops()
-	{
-		return productDAOImpl.fetchProductByCategoryLaptops();
-	}
-	
-	public String fetchProductByCategoryTabs()
-	{
-		return productDAOImpl.fetchProductByCategoryTabs();
-	}
 		
 }

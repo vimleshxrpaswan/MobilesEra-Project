@@ -10,12 +10,17 @@
 	<form:form modelAttribute="user">
 	<hr>
 		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
-					<label>First Name:</label>
+					<label>First Name</label>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
+				<div class="form-group">
+					<label>:</label>
+				</div>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
 					<label>${user.fname}</label>
 				</div>
@@ -23,12 +28,17 @@
 		</div>
 					
 		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
-					<label>Last Name:</label>
+					<label>Last Name</label>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
+				<div class="form-group">
+					<label>:</label>
+				</div>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
 					<label>${user.lname}</label>
 				</div>
@@ -36,12 +46,17 @@
 		</div>
 					
 		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
-					<label>Username :</label>
+					<label>Username </label>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
+				<div class="form-group">
+					<label>:</label>
+				</div>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
 					<label>${user.username}</label>
 				</div>
@@ -49,12 +64,17 @@
 		</div>
 					
 		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
-					<form:label path="password">Password :</form:label>
+					<form:label path="password">Password </form:label>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
+				<div class="form-group">
+					<label>:</label>
+				</div>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
 					<label>${user.password}</label>
 				</div>
@@ -63,12 +83,17 @@
 					
 					
 		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
-					<label>Contact No :</label>
+					<label>Contact No </label>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-xs-4 col-sm-4 col-md-4">
+				<div class="form-group">
+					<label>:</label>
+				</div>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4">
 				<div class="form-group">
 					${user.contactNo}
 				</div>

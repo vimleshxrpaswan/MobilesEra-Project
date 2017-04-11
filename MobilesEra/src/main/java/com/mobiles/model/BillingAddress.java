@@ -131,6 +131,10 @@ public class BillingAddress implements Serializable
 		return bPIN;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public void setbPIN(int bPIN) {
 		this.bPIN = bPIN;
 	}

@@ -1,7 +1,7 @@
 <%@include file="header.jsp" %>
 
 <div class="container" style="margin-top: 20px">
-<div ng-app="myApp">
+<div>
 	<div class="panel panel-default">
  		<div class="panel-heading text-center">
  			<h1>User List</h1>
@@ -39,7 +39,7 @@
 	<td ng-if="!ulist.enabled"  style="color:red;">Not Active</td><td ng-if="ulist.enabled" style="color:green;">Active</td>
 	<td>
 		<center><a href="toggleuser-{{ulist.userId}}"><i style="font-size:24px; color:red"  data-toggle="tooltip" title="Enable" ng-if="!ulist.enabled" class="fa">&#xf204;</i></a></center>
-		<center><a href="toggleuser-{{ulist.userId}}"><i style="font-size:24px; color:blue"  data-toggle="tooltip" title="Disable" ng-if="ulist.enabled" class="fa">&#xf205;</i></a></center>	
+		<center><a href="toggleuser-{{ulist.userId}}"><i style="font-size:24px; color:#0000ff"  data-toggle="tooltip" title="Disable" ng-if="ulist.enabled" class="fa">&#xf205;</i></a></center>	
 	</td>
 </tr>
 </tbody>

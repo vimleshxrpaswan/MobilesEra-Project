@@ -3,7 +3,7 @@
     <footer class="footer">
     <div class="container">
         <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-md-3">
             <h4 class="title">MobilesEra</h4>
             
             <p><i class="fa fa-map-pin"></i> 101, Matru Chhaya, Opposite Chinai Collage, Old Nagardas Road, Andheri (E), Mumbai, MH 400069</p>
@@ -17,7 +17,7 @@
             </ul>
             </div>
         <c:if test="${pageContext.request.userPrincipal.name != null}">    
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-md-3">
             <h4 class="title">My Account</h4>
             <span class="acount-icon">          
             <a href="userWishList"><i class="fa fa-heart" aria-hidden="true"></i> Wish List</a>
@@ -37,7 +37,7 @@
                     </ul>
                 </div>
             </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-md-3">
             <h4 class="title">Payment Methods</h4>
             
             <ul class="payment">
