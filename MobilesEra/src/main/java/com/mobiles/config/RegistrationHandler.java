@@ -96,7 +96,7 @@ public class RegistrationHandler
 	return status;
 }
 
-	
+/*	
    public String saveOrUpdateUser(User user, BillingAddress billingAddress, ShippingAddress shippingAddress,MessageContext messageContext){
 		
 		try{
@@ -125,7 +125,7 @@ public class RegistrationHandler
 		return "success";
 		
 	}
-
+*/
 	
 
 	public String checkDuplicate(User user,MessageContext messageContext){

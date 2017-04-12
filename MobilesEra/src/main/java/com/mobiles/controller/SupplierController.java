@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mobiles.model.Supplier;
+import com.mobiles.service.CategoryService;
 import com.mobiles.service.SupplierService;
 
 @Controller
@@ -19,11 +20,15 @@ public class SupplierController
 	@Autowired
 	SupplierService supplierService;
 	
+	@Autowired
+	CategoryService categoryService; 
+	
 	@RequestMapping("/supplierPage")
 	public String getSupplierPage(Model model)
 	{
 		model.addAttribute("supplier", new Supplier());
 		model.addAttribute("supplierList", supplierService.fetchAllSupplier());
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("supplierListByJson", supplierService.fetchAllSupplierByJson());
 		model.addAttribute("btnLabel","Add Supplier");
 		return "suppliers";
@@ -45,6 +50,7 @@ public class SupplierController
 	@RequestMapping("/updateSupplierById-{supplierId}")
 	public String updateSupplier(Model model,@PathVariable("supplierId") int supplierId)
 	{
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("supplier", supplierService.getSupplierById(supplierId));
 		model.addAttribute("supplierListByJson", supplierService.fetchAllSupplierByJson());
 		model.addAttribute("btnLabel","update Supplier");

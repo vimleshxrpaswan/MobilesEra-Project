@@ -14,6 +14,7 @@
 				<h3>Add Your Billing  Address</h3>
 				<hr>
 				<div class="form-group">
+					<form:input class="form-control input-lg" type="hidden" path="userId" />
                     <form:input class="form-control input-lg" type="hidden" path="billAddId" />                    
 				</div>
 				<div class="form-group">

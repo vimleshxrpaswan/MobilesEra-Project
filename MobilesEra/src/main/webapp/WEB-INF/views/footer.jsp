@@ -10,10 +10,10 @@
         	<p><i class="fa fa-phone"></i> Phone (India) : +91 1234 567 180</p>
         	<p><i class="fa fa-envelope"></i> E-mail : cs@mobilesera.com</p>
             <ul class="social-icon">
-            	<a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>            
-            	<a href="#" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            	<a href="#" class="social"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-            	<a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>          
+            	<a href="https://www.facebook.com/MobilesEra-1705593453067052/" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>            
+            	<a href="https://www.instagram.com/" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            	<a href="https://www.youtube.com/" class="social"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            	<a href="https://www.google.co.in/" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>          
             </ul>
             </div>
         <c:if test="${pageContext.request.userPrincipal.name != null}">    
@@ -22,7 +22,7 @@
             <span class="acount-icon">          
             <a href="userWishList"><i class="fa fa-heart" aria-hidden="true"></i> Wish List</a>
             <a href="userCartList"><i class="fa fa-cart-plus" aria-hidden="true"></i> Cart</a>
-            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>                      
+            <a href="profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>                      
           </span>
          </div>
          </c:if>   

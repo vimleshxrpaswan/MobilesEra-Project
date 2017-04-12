@@ -47,6 +47,10 @@ public class UserDAOImpl implements UserDAO
 		
 	}
 
+	public void updateUser(User user)
+	{
+		sessionFactory.getCurrentSession().update(user);
+	}
 	public User getUserId(int userId) {
 		List<User> u = sessionFactory.getCurrentSession().createQuery("from User where userId = "+userId).getResultList();
 		return u.get(0);
@@ -56,7 +60,7 @@ public class UserDAOImpl implements UserDAO
 		List<User> userList = sessionFactory.getCurrentSession().createQuery("from User where username = "+"'"+username+"'").getResultList();		
 		return userList.get(0);
 	}
-
+	
 	public String fetchAllUserByJson() {
 		List<User> userList = sessionFactory.getCurrentSession().createQuery("from User").getResultList();
 		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();

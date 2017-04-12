@@ -20,17 +20,17 @@
  <table class="table" ng-controller="myController">
  <thead>
 <tr>
-	<th>UserId</th>
-	<th>Username</th>
+	<th role="button" ng-click="orderByMe('userId')">UserId <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
+	<th role="button" ng-click="orderByMe('username')">Username <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
 	<th>Password</th>
-	<th>Name</th>
+	<th role="button" ng-click="orderByMe('Name')">Name <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th>
 	<th>Role</th>
-	<th>Status</th> 
+	<th role="button" ng-click="orderByMe('enabled')">Status <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></th> 
 	<th><center>Operation</center></th>
 </tr>
 </thead>
 <tbody> 
-<tr ng-repeat="ulist in myscope | filter:search ">
+<tr ng-repeat="ulist in myscope | filter:search | orderBy:myOrderBy">
 	<td>{{ulist.userId}}</td>
 	<td>{{ulist.username}}</td>	
 	<td>{{ulist.password}}</td>
@@ -54,6 +54,9 @@
 var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${userlistbyjson}
+$scope.orderByMe = function(x) {
+    $scope.myOrderBy = x;
+}
 });
 </script>
 

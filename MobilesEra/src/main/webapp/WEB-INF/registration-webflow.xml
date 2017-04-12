@@ -8,7 +8,6 @@
 <var name="billingAddress" class="com.mobiles.model.BillingAddress"/>
 <var name="shippingAddress" class="com.mobiles.model.ShippingAddress"/>
 
-
 		
 	<!-- Executed when webFlow is triggered -->
 	<on-start>
@@ -34,11 +33,59 @@
 		<transition on="failure" to="start" />
 	</action-state>
 	
-		<view-state id="confirmDetails" view="confirmDetails" model="flowScope.user">
+	<view-state id="confirmDetails" view="confirmDetails" model="flowScope.user">
 		<transition on="edit" to="start" />
 		<transition on="submit" to="save" />
 	</view-state>
+<!-- 
+	<view-state id="shippingAddress" view="shippingaddresspage" model="shippingAddress">
+		<transition on="back" to="registration" />
+		<transition on="submit" to="validateShippingDetails" />
+		<transition on="skip" to="billingAddress" />
+	</view-state>
+	
+	<action-state id="validateShippingDetails">
+		<evaluate expression="cartHandler.validateShippingDetails(shippingAddress,messageContext)"></evaluate>
+		<transition on="success" to="confirmShippingAddress" />		
+	</action-state>
+	
+	<view-state id="confirmShippingAddress" view="confirmshippingaddress" model="shippingAddress">
+		<transition on="submit" to="addShippingAddress"/> 
+		<transition on="edit" to="shippingAddress"/>
+		<transition on="cancel" to="home"/>
+	</view-state>
+	
+	<action-state id="addShippingAddress">
+		<evaluate expression="registrationHandler.addShippingAddress(flowScope.user,shippingAddress)"></evaluate>
+		<transition on="success" to="billingAddress" />
+	</action-state>
+	
+	<view-state id="billingAddress" view="billingaddresspage" model="billingAddress">
+		<transition on="back" to="shippingAddress" />
+		<transition on="submit" to="validateBillingDetails" />
+		<transition on="skip" to="save" />
+	</view-state>
 
+	<action-state id="validateBillingDetails">
+		<evaluate expression="cartHandler.validateBillingDetails(billingAddress,messageContext)"></evaluate>
+		<transition on="success" to="confirmBillingAddress" />		
+	</action-state>
+
+	<view-state id="confirmBillingAddress" view="confirmbillingaddress" model="billingAddress">
+		<transition on="submit" to="addBillingAddress"/> 
+		<transition on="edit" to="billingAddress"/>
+	</view-state>
+	
+	<action-state id="addBillingAddress">
+		<evaluate expression="registrationHandler.addBillingAddress(flowScope.user,billingAddress)"></evaluate>
+		<transition on="success" to="saveOrUpdateUser" />
+	</action-state>
+	
+	<action-state id="saveOrUpdateUser">
+		<evaluate expression="registrationHandler.saveOrUpdateUser(flowScope.user, billingAddress, shippingAddress,messageContext)"></evaluate>
+		<transition on="success" to="save" />
+	</action-state>
+ -->	
 	<action-state id="save">
 		<evaluate expression="userService.addUser(user)" result="user"></evaluate>
 		<transition on="success" to="registrationSuccessful" />

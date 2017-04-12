@@ -23,6 +23,11 @@ public class UserService
 		userDAOImpl.addUser(user);
 	}
 	
+	public void updateUser(User user)
+	{
+		userDAOImpl.updateUser(user);
+	}
+
 	public User getUserId(int userId)
 	{
 		return userDAOImpl.getUserId(userId);		
@@ -67,4 +72,6 @@ public class UserService
 	{
 		return userDAOImpl.getShippingAddressById(userId);
 	}
+	
+	
 }

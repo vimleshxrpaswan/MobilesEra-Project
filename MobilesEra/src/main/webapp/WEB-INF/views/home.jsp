@@ -20,7 +20,7 @@
       <div class="carousel carousel-showmanymoveone slide" id="itemslider">
         <div class="carousel-inner">
 
-          <div class="item active" ng-repeat="productlist in myscope | filter:'Mobile' | filter:search ">
+          <div class="item active" ng-repeat="productlist in myscope | limitTo:18 | filter:'Mobile' | filter:search ">
             <div class="col-xs-12 col-sm-6 col-md-2">
               <a href="viewProductById-{{productlist.productId}}"><img src="resources/productImages/productImage-{{productlist.productId}}.jpg" style="max-height: 200px;min-height: 200px; width: auto" class="img-responsive center-block"></a>
               <h4 class="text-center">{{productlist.productName}}</h4>

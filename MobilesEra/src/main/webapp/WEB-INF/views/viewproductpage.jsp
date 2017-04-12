@@ -17,7 +17,7 @@
                     <!-- Prices -->
                     <h6 class="title-price"><small>PRODUCT PRICE</small></h6>
                     <h3 style="margin-top:0px;">{{myscope.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></h3>
- 
+ 					
                     <div class="section" style="padding-bottom:20px;">
                         <h6 class="title-attr"><small>QUANTITY</small></h6>                    
                         <div>

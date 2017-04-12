@@ -54,7 +54,7 @@
 
 	<div class="row">       
         
-        <div ng-repeat="productlist in myscope | filter:search || browseWord | orderBy:orderkeyword : orderflag | filter : searchkeyword | orderBy:sortkey:reverse | filter:nextFilter" class="col-md-4 col-sm-6 col-xs12 ">
+        <div style=" max-height:400px; min-height: 400px" ng-repeat="productlist in myscope | filter:search || browseWord | orderBy:orderkeyword : orderflag | filter : searchkeyword | orderBy:sortkey:reverse | filter:nextFilter" class="col-md-4 col-sm-6 col-xs12 ">
             <article class="col-item">
         		<div class="photo">
         			<div class="options">
@@ -87,7 +87,7 @@
         					<p class="details">
         						<a href="viewProductById-{{productlist.productId}}">{{productlist.productName}}</a>
         					</p>
-        					<a href="checkout" class="btn btn-warning"><i class="fa fa-bolt" aria-hidden="true"></i> Buy Now</a>
+        					<a href="#" class="btn btn-warning"><i class="fa fa-bolt" aria-hidden="true"></i> Buy Now</a>
         					<span class="price-new">{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></span>
         				</div>
         			</div>

@@ -73,7 +73,7 @@
             <li class="dropdown">
             	<a role="button" class="dropdown-toggle" data-toggle="dropdown">Welcome ${principal.username}<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-          			<li><a href="#">Profile</a></li>
+          			<li><a href="profile">Profile</a></li>
                     <sec:authorize access="hasRole('ROLE_USER')">
                     <li class="divider"></li>                     
           			<li><a href="userWishList"> WishList</a></li>          			
@@ -120,4 +120,3 @@
 <script src="resources/js/bootstrap.min.js" ></script>
 <script src="resources/js/angular.min.js" ></script>
 <script src="resources/js/categorynav.js" ></script>
-<script src="resources/js/user-productpage.js" ></script>

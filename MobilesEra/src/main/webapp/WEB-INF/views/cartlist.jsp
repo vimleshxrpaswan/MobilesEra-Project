@@ -31,10 +31,15 @@
 		<td>{{cilist.quantity}}</td>
 		<td>{{cilist.amount}} <i class="fa fa-inr" aria-hidden="true"></i></td>
 		<td>
-			<a href="checkout" class="btn btn-warning" data-toggle="tooltip" title="Checkout" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+			<a href="viewProductById-{{cilist.productId}}" class="btn btn-warning" data-toggle="tooltip" title="View Product Full Details" role="button"><i class="fa fa-eye" aria-hidden="true"></i></a>
 			<a href="deleteFromCart-{{cilist.cartItemId}}" class="btn btn-danger" data-toggle="tooltip" title="Remove item from cart" role="button"><i class="fa fa-times fa-1x" aria-hidden="true"></i></a>
 		</td>
 	</tr>
+	<tr>
+		<td class="text-right" colspan="6">
+			<a href="checkout" class="btn btn-warning" role="button"> Checkout</a>
+		</td>
+	<tr>	
 </table>
 </div>
 </div>

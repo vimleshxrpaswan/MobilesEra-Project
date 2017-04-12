@@ -11,19 +11,23 @@
 <body>
 
 
-<div style="margin-top: 250px; " class="container pushfooter text-center">
+<div style="margin-top: 200px; " class="container pushfooter text-center">
 <a href="login"><img class="animated infinite wobble tenpxtop" alt="Logo" src="resources/dataImages/MobilesEra Logo.jpeg" width="175" height="150"></a>
-<div class="row"><a href="login">
-<div class="btn cartbutton tenpxtop">Please Login With A Valid Account</div>
-</a>
-<div class="row"><a href="/MobilesEra/">
-<div class="btn cartbutton tenpxtop">Back to Home</div>
-</a>
-</div>
+<div class="row">
+	<a href="login">
+		<div role="button" class="btn cartbutton tenpxtop">Please Login With A Valid Account</div>
+	</a>
+	<div class="row">
+		<a href="/MobilesEra/">
+			<div role="button" class="btn cartbutton tenpxtop">Back to Home</div>
+		</a>
+	</div>
 <div class="container">
 <h1 class="text-center blink_me color">Error 403. Access Denied you can't see this page.</h1>
 </div>
 </div>
+</div>
+
 
 <script src="resources/js/jquery-3.1.1.min.js"></script>
 <script>

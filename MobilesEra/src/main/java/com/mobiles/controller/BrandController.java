@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mobiles.model.Brand;
 import com.mobiles.service.BrandService;
+import com.mobiles.service.CategoryService;
 import com.mobiles.service.SubCategoryService;
 
 @Controller
@@ -21,13 +22,17 @@ public class BrandController
 	BrandService brandService;
 	
 	@Autowired
+	CategoryService categoryService; 
+	
+	@Autowired
 	SubCategoryService subCategoryService;
 	
 	@RequestMapping("/brandPage")
 	public String getBrandPage(Model model)
-	{
+	{		
 		model.addAttribute("brand", new Brand());
 		model.addAttribute("brandList", brandService.fetchAllBrand());
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());		
 		model.addAttribute("subCategoryList", subCategoryService.fetchAllSubCategories());
 		model.addAttribute("brandListByJson", brandService.fetchAllBrandByJson());
 		model.addAttribute("subCategoryListByJson", subCategoryService.fetchAllSubCategoriesByJson());

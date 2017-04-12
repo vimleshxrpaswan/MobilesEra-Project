@@ -1,5 +1,7 @@
 package com.mobiles.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,9 +11,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.mobiles.model.User;
 import com.mobiles.service.CategoryService;
 import com.mobiles.service.UserService;
 
@@ -40,12 +46,12 @@ public class UserController
 		return "userlist";
 	}
 		
-	/*@RequestMapping("/addUser")
-	public String addUser(@ModelAttribute("user")User user)
+	@RequestMapping("/updateUser")
+	public String updateUser(@ModelAttribute("user")User user)
 	{
-		userService.addUser(user);
-		return "redirect:/login";
-	}*/
+		userService.updateUser(user);
+		return "redirect:/profile";
+	}
 	
 	@RequestMapping("toggleuser-{userId}")
 	public String toggleUser(@PathVariable("userId")int userId)
@@ -69,5 +75,32 @@ public class UserController
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
 		return "main-login";
+	}
+	
+	@RequestMapping("/profile")
+	public String getUserPage(Model model, Principal p)
+	{
+		String username = p.getName();
+		User userdata = userService.getUserByusername(username);		
+				
+		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String uData= g.toJson(userdata);
+		
+		model.addAttribute("userdata", uData);
+		model.addAttribute("categoryList", categoryService.fetchAllCategories());
+		
+		return "user-profile";
+	}
+	
+	@RequestMapping("/updateUserById-{userId}")
+	public String updateUser(Model model, Principal p)
+	{
+		String username = p.getName();
+		int userId = userService.getUserByusername(username).getUserId();
+		
+		model.addAttribute("user", userService.getUserId(userId));
+		model.addAttribute("categoryList", categoryService.fetchAllCategories() );
+		
+		return "editdetails";
 	}
 }

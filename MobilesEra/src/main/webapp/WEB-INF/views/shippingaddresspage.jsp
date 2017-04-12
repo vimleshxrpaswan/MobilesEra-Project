@@ -12,6 +12,7 @@
 				<h3>Add Your Shipping Address</h3>				
 				<hr>
 				<div class="form-group">
+					<form:input  type="hidden" path="userId" />
                     <form:input  type="hidden" path="shipAddId" />                    
 				</div>
 				<div class="form-group">
