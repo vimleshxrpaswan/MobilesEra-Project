@@ -30,7 +30,12 @@ public class CartDAOImpl implements CartDAO
 		return cilist;
 	}
 
-
+	public List<CartItems> fetchCartItemsByuserId(int userId)
+	{
+		List<CartItems> cartitemlist = sessionFactory.getCurrentSession().createQuery("from CartItems where userId = "+userId+" and flag = 'N'").getResultList();
+		return cartitemlist;
+	}
+	
 	public void deleteItem(int cartItemId) {
 		CartItems cartItem = fetchOneCartItem(cartItemId);
 		sessionFactory.getCurrentSession().delete(cartItem);

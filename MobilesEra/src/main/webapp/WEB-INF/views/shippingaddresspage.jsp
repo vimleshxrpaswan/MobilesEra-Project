@@ -16,7 +16,7 @@
                     <form:input  type="hidden" path="shipAddId" />                    
 				</div>
 				<div class="form-group">
-                    <form:input type="text" class="form-control input-lg" path="sName" id="s_Name" placeholder="Fill Receiver's Name" autofocus="true" />
+                    <form:input type="text" class="form-control input-lg" path="sName" placeholder="Fill Receiver's Name" autofocus="true" />
                 </div>   
                 <div class="form-group">    
                     <c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('sName')}" var="err"> 
@@ -77,13 +77,11 @@
 				</div>				
 				<hr>
 				<div class="row">
-					<div class="col-xs-4 col-md-4">
-						<input name="_eventId_skip" type="submit" value="Skip" class="btn btn-primary btn-block btn-lg" />
-					</div>
-					<div class="col-xs-4 col-md-4">
+					
+					<div class="col-xs-6 col-md-6">
 						<input name="_eventId_submit" type="submit" value="Submit" class="btn btn-success btn-block btn-lg" />
 					</div>
-					<div class="col-xs-4 col-md-4">
+					<div class="col-xs-6 col-md-6">
 						<input name="_eventId_cancel" type="submit" value="Cancel" class="btn btn-danger btn-block btn-lg" />
 					</div>
 				</div>

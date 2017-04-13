@@ -36,7 +36,7 @@
 
 						<span ng-click="sort('brandName')" style="margin-left:50px">
 							<button class="btn btn-default">Brand 
-								<span class="glyphicon sort-icon" ng-show="sortkey=='subCategoryName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+								<span class="glyphicon sort-icon" ng-show="sortkey=='brandName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
 							</button>	
 						</span>
 
@@ -89,6 +89,7 @@
         					</p>
         					<a href="#" class="btn btn-warning"><i class="fa fa-bolt" aria-hidden="true"></i> Buy Now</a>
         					<span class="price-new">{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></span>
+        					<!-- <span class="price-old">{{productlist.productPrice}} <i class="fa fa-inr" aria-hidden="true"></i></span> -->
         				</div>
         			</div>
         		</div>
@@ -104,6 +105,7 @@ var a=angular.module('myApp',[]);
 a.controller('myController', function($scope){
 $scope.myscope= ${productListByJson};
 $scope.subCategoryList=${subCategoryListByJson};
+$scope.brandList=${brandListByJson};
 
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -121,29 +123,29 @@ $scope.browseWord = getUrlParameter('browse');
 
 
 $scope.sort=function(keyname){
-    //Now you can set a debugger here and check the data
+    //Now you can set a debugger here and check the data    
 		$scope.sortkey=keyname;
     	$scope.reverse=!$scope.reverse;
 }
 
 $scope.myFilter = [];
  
- $scope.myNewFilter = function(subCategoryName) {
-     var i = $.inArray(subCategoryName, $scope.myFilter);
+ $scope.myNewFilter = function(brandName) {
+     var i = $.inArray(brandName, $scope.myFilter);
      if (i > -1) {
          $scope.myFilter.splice(i, 1);
      } else {
-         $scope.myFilter.push(subCategoryName);
+         $scope.myFilter.push(brandName);
      }
  }
  
- $scope.nextFilter = function(subCategoryList) {
+ $scope.nextFilter = function(brandList) {
      if ($scope.myFilter.length > 0) {
-         if ($.inArray(subCategoryList.subCategoryName, $scope.myFilter) < 0)
+         if ($.inArray(brandList.brandName, $scope.myFilter) < 0)
              return;
      }
      
-     return subCategoryList;
+     return brandList;
  }
 });
 

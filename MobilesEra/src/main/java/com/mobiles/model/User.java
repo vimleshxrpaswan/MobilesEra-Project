@@ -1,12 +1,14 @@
 package com.mobiles.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.google.gson.annotations.Expose;
@@ -51,14 +53,21 @@ public class User implements Serializable
 	private String alternateContactNo;
 	
 	@OneToOne
-	@JoinColumn(name="billAddId")
 	public BillingAddress billingAddress;
 	
 	@OneToOne
-	@JoinColumn(name="shipAddId")
 	public ShippingAddress shippingAddress;
 	
-	
+	@OneToMany(mappedBy="user", fetch=FetchType.EAGER)
+	private Set<CartItems> cartItems;
+
+		
+	public Set<CartItems> getCartItems() {
+		return cartItems;
+	}
+	public void setCartItems(Set<CartItems> cartItems) {
+		this.cartItems = cartItems;
+	}
 	public BillingAddress getBillingAddress() {
 		return billingAddress;
 	}

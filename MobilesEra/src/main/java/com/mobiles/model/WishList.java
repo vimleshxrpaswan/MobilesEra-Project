@@ -1,5 +1,7 @@
 package com.mobiles.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +12,13 @@ import javax.persistence.ManyToOne;
 import com.google.gson.annotations.Expose;
 
 @Entity
-public class WishList 
+public class WishList implements Serializable 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Expose
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

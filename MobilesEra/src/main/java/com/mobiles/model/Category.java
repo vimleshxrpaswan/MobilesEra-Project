@@ -1,5 +1,6 @@
 package com.mobiles.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -14,8 +15,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.google.gson.annotations.Expose;
 
 @Entity
-public class Category 
+public class Category implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Expose
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

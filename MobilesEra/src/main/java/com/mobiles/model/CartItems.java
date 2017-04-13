@@ -40,6 +40,9 @@ public class CartItems implements Serializable
 	private int rate;
 	
 	@Expose
+	private double discount;
+	
+	@Expose
 	private double amount;
 	
 	@Expose
@@ -176,6 +179,14 @@ public class CartItems implements Serializable
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
 	}
 	
 	

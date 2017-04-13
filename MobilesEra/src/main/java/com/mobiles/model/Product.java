@@ -95,6 +95,9 @@ public class Product implements Serializable
     private int productPrice;
 	
 	@Expose
+    private int productAmount;
+	
+	@Expose
     private double productDiscount;
 	
 	@Expose
@@ -386,6 +389,20 @@ public class Product implements Serializable
 	public void setProductDiscount(double productDiscount) {
 		this.productDiscount = productDiscount;
 	}
+
+	public int getProductAmount() {
+		return productAmount;
+	}
+
+	public void setProductAmount(int productAmount) {
+		this.productAmount = productAmount;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 
 
 }

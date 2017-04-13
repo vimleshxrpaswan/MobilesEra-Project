@@ -1,5 +1,7 @@
 package com.mobiles.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +24,11 @@ public class CartService
 	public String fetchCartItemsByuserIdByJson(int userId)
 	{
 		return cartDAOImpl.fetchCartItemsByuserIdByJson(userId);
+	}
+	
+	public List<CartItems> fetchCartItemsByuserId(int userId)
+	{
+		return cartDAOImpl.fetchCartItemsByuserId(userId);
 	}
 	
 	public void deleteItem(int cartItemId)

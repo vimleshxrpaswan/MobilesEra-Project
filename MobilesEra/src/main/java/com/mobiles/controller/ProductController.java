@@ -83,7 +83,17 @@ public class ProductController
 		}
 		else
 		{
-		productService.addProduct(product);
+			
+			int rate = product.getProductPrice();
+			int discount = (int) product.getProductDiscount();
+			if(discount <= 0)
+			{
+				discount = 1;
+			}
+			int amount = rate-(rate*discount/100);
+			product.setProductAmount(amount);
+				
+			productService.addProduct(product);
 		
 		if(!productImage.isEmpty()){
 			try
@@ -168,6 +178,7 @@ public class ProductController
 		model.addAttribute("categoryList", categoryService.fetchAllCategories());
 		model.addAttribute("categoryListByJson", categoryService.fetchAllCategoriesByJson());
 		model.addAttribute("productListByJson", productService.fetchAllProductByJson());
+		model.addAttribute("brandListByJson", brandService.fetchAllBrandByJson());
 		return "user-productpage";
 	}
 	
