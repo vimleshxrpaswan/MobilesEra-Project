@@ -5,7 +5,7 @@ One can simply buy Mobiles, Laptops and Tabs from this website but for Selling t
 The project is based on JAVA and technologies used are as per follows
 
 Eclipse IDE 
-Tomacat 8.0 
+Tomcat 8.0 
 Maven Framework 
 Spring MVC Framework 
 Hibernate 
