@@ -15,5 +15,6 @@ AngularJs
 HTML 5 
 CSS 3 
 Bootstrap
+This is Vimlesh contribution:
+Clone and download the project to your local repository. Add project in your workspace and Import as Existing Maven Project in your IDE
 
-Clone and download the project to your local repository. Add project in your workspace and Import as Existing Maven Project in your IDE.
