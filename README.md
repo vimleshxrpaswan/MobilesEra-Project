@@ -1,8 +1,5 @@
-MobilesEra
-
-This project is an Ecommerce website created to sell or buy Mobiles, Laptops And Tabs online.It's a Fully mobile-responsive and this project can also be run Offline.
-One can simply buy Mobiles, Laptops and Tabs from this website but for Selling they would have to request to the Administrator of website So that he can add them as a supplier.
 The project is based on JAVA and technologies used are as per follows
+Designed by Vimlesh
 
 Eclipse IDE 
 Tomcat 8.0 
